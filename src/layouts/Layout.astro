@@ -19,7 +19,7 @@ interface Props {
 const {
   title,
   description = "那須塩原市・大田原市・那須町の水漏れ・トイレつまり・給湯器修理なら水まわり専門店クリプトン。水道局指定工事店・完全自社施工・1993年創業（実績30年以上）で24時間365日緊急対応。",
-  ogImage = "/images/character/kripton-man4-1.jpg",
+  ogImage = "/images/company/kripton.png",
   breadcrumbItems
 } = Astro.props;
 
@@ -83,18 +83,43 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
   <!-- 構造化データ (LocalBusiness / Plumber: レビュー・Offer・sameAs・E-E-A-T完備) -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Plumber",
+    "@type": ["Plumber", "LocalBusiness", "HomeAndConstructionBusiness"],
     "@id": `${siteDomain}/#business`,
     "name": "有限会社クリプトン（水まわり専門店クリプトン）",
     "alternateName": ["水まわり専門店クリプトン", "クリプトン"],
-    "image": `${siteDomain}/images/character/kripton-man4-1.jpg`,
+    "image": [
+      `${siteDomain}/images/company/kripton.png`,
+      `${siteDomain}/images/character/kripton-man4-1.jpg`
+    ],
     "logo": `${siteDomain}/images/character/kripton-man4-1.jpg`,
     "url": siteDomain,
     "telephone": "0287-60-5050",
+    "email": "kripton@sweet.ocn.ne.jp",
     "priceRange": "5,500円〜",
     "foundingDate": "1993",
     "currenciesAccepted": "JPY",
     "paymentAccepted": "現金, 銀行振込, クレジットカード",
+    "founder": {
+      "@type": "Person",
+      "name": "津久井 三男",
+      "jobTitle": "代表取締役（水道局指定工事店 技術管理者）"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "0287-60-5050",
+        "contactType": "customer support",
+        "areaServed": ["那須塩原市", "大田原市", "那須町"],
+        "availableLanguage": "Japanese"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "090-2463-6638",
+        "contactType": "emergency",
+        "areaServed": ["那須塩原市", "大田原市", "那須町"],
+        "availableLanguage": "Japanese"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "黒磯2-11",

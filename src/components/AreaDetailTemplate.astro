@@ -182,6 +182,26 @@ const displayCases = areaCases.length > 0 ? areaCases : allCasesData.slice(0, 4)
       </div>
     </div>
   </div>
+
+  <!-- 地域別 Service 構造化データ（JSON-LD） -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${name}の水まわり修理・水道トラブル緊急対応`,
+    "description": metaDescription,
+    "provider": {
+      "@type": "Plumber",
+      "name": "有限会社クリプトン（水まわり専門店クリプトン）",
+      "url": "https://xn--bbkyao7065bpyck41as89d.com/",
+      "telephone": "0287-60-5050"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": name
+    },
+    "serviceType": "水道修理・指定給水装置工事・排水設備工事",
+    "termsOfService": "現地無料お見積り確定後に着工（追加費用ゼロ）"
+  })} />
 </Layout>
 
 <style>

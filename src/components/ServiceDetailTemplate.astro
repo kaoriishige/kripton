@@ -12,9 +12,13 @@ export interface ServiceDetailProps {
   directAnswerTitle: string;
   directAnswerSummary: string;
   directAnswerAction: string;
+  cautionNotes?: string;
   troubles: { icon: string; title: string; desc: string; }[];
   steps: { step: string; title: string; desc: string; }[];
+  dontDoList?: { icon: string; title: string; desc: string; }[];
+  whenToCallList?: { icon: string; title: string; desc: string; }[];
   priceItems: { name: string; time: string; price: string; }[];
+  faqs?: { q: string; a: string; }[];
   metaDescription: string;
 }
 
@@ -26,9 +30,25 @@ const {
   directAnswerTitle,
   directAnswerSummary,
   directAnswerAction,
+  cautionNotes = "※集合住宅や受水槽方式、あるいは元栓の設置場所・型式によっては止水位置が異なる場合があります。無理な力をかけず慎重に行ってください。",
   troubles,
   steps,
+  dontDoList = [
+    { icon: "🚫", title: "無理に力を込めて分解・回すこと", desc: "古い配管やプラスチック部材は経年劣化で脆くなっており、過度なトルクで根元から破断・大浸水につながる危険があります。" },
+    { icon: "🚫", title: "強力な塩素系薬剤の過度な投入", desc: "詰まりの原因が配管の変形や油の塊である場合、薬剤で配管が高熱を発し変形・水漏れを悪化させることがあります。" },
+    { icon: "🚫", title: "熱湯を直接かけること", desc: "特に凍結時や便器の詰まりに熱湯をかけると、陶器や塩ビ配管が熱衝撃で瞬時に割れ、修理費用が跳ね上がります。" }
+  ],
+  whenToCallList = [
+    { icon: "🚨", title: "止水栓を閉めても水が止まらないとき", desc: "建物全体の元栓または道路側の給水管に問題がある可能性が高く、指定工事店による緊急バルブ遮断が必要です。" },
+    { icon: "🚨", title: "床下や壁の中からシューシュー異音がするとき", desc: "隠蔽配管の破断・漏水が進行しており、床下の腐食や構造材のダメージを防ぐため即時の漏水調査が必要です。" },
+    { icon: "🚨", title: "汚水が床に逆流・噴き出しているとき", desc: "屋外本管や汚水マスの詰まりが原因で、専門のローポンプ・高圧洗浄機による抜本的な清掃が必要となります。" }
+  ],
   priceItems,
+  faqs = [
+    { q: "見積もりに費用はかかりますか？", a: "那須塩原市・大田原市・那須町エリアの事前現地見積もりは原則無料です。修理費用は必ず現場を確認し確定見積もりをご提示してから着工します。" },
+    { q: "夜間や早朝、休日でも対応してもらえますか？", a: "はい。有限会社クリプトンでは緊急直通電話（090-2463-6638）にて24時間365日受付体制をとっております。" },
+    { q: "修理と新品交換のどちらが良いか迷っています。", a: "使用年数が10年未満で部品供給がある場合は修理が経済的です。15〜20年経過している場合は部品交換しても別の箇所が故障するリスクがあるため、将来的な安心を考慮して交換をおすすめする場合がございます。現場でメリット・デメリットを分かりやすく比較提示いたします。" }
+  ],
   metaDescription
 } = Astro.props as ServiceDetailProps;
 
@@ -39,6 +59,8 @@ const relatedCases = allCasesData
 
 // フォールバック（0件の場合は最新事例）
 const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice(0, 4);
+
+const siteDomain = 'https://xn--bbkyao7065bpyck41as89d.com';
 ---
 
 <Layout
@@ -65,7 +87,7 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
   </div>
 
   <div class="container page-content-container">
-    <!-- AI検索・ユーザー向け ダイレクトアンサーボックス（第9章 9-4） -->
+    <!-- AI検索・ユーザー向け ダイレクトアンサーボックス -->
     <section class="direct-answer-card">
       <div class="da-header">
         <span class="da-icon">💡</span>
@@ -77,7 +99,7 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
       </div>
     </section>
 
-    <!-- 1. 対応する症状と原因 -->
+    <!-- 1. 対応する主な症状と原因 -->
     <section class="content-block">
       <h2 class="block-title">対応する主な症状と原因</h2>
       <div class="trouble-grid">
@@ -102,9 +124,36 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
           </div>
         ))}
       </div>
+      <p class="caution-note">⚠️ {cautionNotes}</p>
     </section>
 
-    <!-- 3. 作業内容と修理料金の目安 -->
+    <!-- 3. やってはいけないNG対処法 -->
+    <section class="content-block ng-section">
+      <h2 class="block-title block-title-warning">やってはいけないこと（二次被害防止）</h2>
+      <div class="ng-grid">
+        {dontDoList.map(item => (
+          <div class="card ng-card">
+            <h3><span class="ng-icon">{item.icon}</span> {item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 4. 専門業者へ相談すべき危険な状況 -->
+    <section class="content-block danger-section">
+      <h2 class="block-title block-title-danger">専門業者へ直ちにご相談いただきたい状況</h2>
+      <div class="danger-grid">
+        {whenToCallList.map(item => (
+          <div class="card danger-card">
+            <h3><span class="danger-icon">{item.icon}</span> {item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. 作業内容と修理料金の目安 -->
     <section class="content-block">
       <div class="block-header-flex">
         <h2 class="block-title">作業内容と修理料金の目安</h2>
@@ -140,7 +189,7 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
       </p>
     </section>
 
-    <!-- 4. 実際の施工事例（写真付き・相互リンク） -->
+    <!-- 6. 実際の施工事例（写真付き・相互リンク） -->
     <section class="content-block">
       <div class="block-header-flex">
         <h2 class="block-title">{title}の実際の施工実績</h2>
@@ -165,7 +214,7 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
               <h3 class="sc-title">
                 <a href={`/works/${c.slug}/`}>{c.title}</a>
               </h3>
-              <p class="sc-consult">{c.consultation}</p>
+              <p class="sc-consult">{c.consultation.slice(0, 75)}...</p>
               <a href={`/works/${c.slug}/`} class="sc-link">詳細・Before/After写真 →</a>
             </div>
           </article>
@@ -173,7 +222,22 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
       </div>
     </section>
 
-    <!-- 5. 対応地域リンク（相互内部リンク） -->
+    <!-- 7. よくあるご質問（FAQ） -->
+    {faqs && faqs.length > 0 && (
+      <section class="content-block faq-section">
+        <h2 class="block-title">{title}に関するよくある質問</h2>
+        <div class="faq-list">
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-q"><span class="q-badge">Q</span> {faq.q}</h3>
+              <p class="faq-a"><span class="a-badge">A</span> {faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 8. 対応地域リンク（相互内部リンク） -->
     <section class="content-block area-link-block">
       <h2 class="block-title">対応地域・重点エリア</h2>
       <p class="block-sub-text">
@@ -203,6 +267,65 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
       </div>
     </div>
   </div>
+
+  <!-- Service 構造化データ（JSON-LD） -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": title,
+    "description": metaDescription,
+    "provider": {
+      "@type": "Plumber",
+      "name": "有限会社クリプトン（水まわり専門店クリプトン）",
+      "url": siteDomain,
+      "telephone": "0287-60-5050",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "黒磯2-11",
+        "addressLocality": "那須塩原市",
+        "addressRegion": "栃木県",
+        "postalCode": "325-0017",
+        "addressCountry": "JP"
+      }
+    },
+    "areaServed": [
+      { "@type": "City", "name": "那須塩原市" },
+      { "@type": "City", "name": "大田原市" },
+      { "@type": "AdministrativeArea", "name": "那須町" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `${title} 料金メニュー`,
+      "itemListElement": priceItems.map(p => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": p.name
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "JPY",
+          "price": p.price.replace(/[^\d]/g, '') || "5500"
+        }
+      }))
+    }
+  })} />
+
+  <!-- FAQPage 構造化データ（JSON-LD） -->
+  {faqs && faqs.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+  )}
 </Layout>
 
 <style>
@@ -251,19 +374,18 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
     border: 2px solid #FFE58F;
     border-radius: var(--radius-lg);
     padding: 24px;
-    margin-bottom: 45px;
-    box-shadow: var(--shadow-sm);
+    margin-bottom: 40px;
   }
 
   .da-header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 12px;
   }
 
   .da-icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .da-title {
@@ -274,9 +396,9 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
   }
 
   .da-body p {
-    font-size: 0.92rem;
-    color: #593800;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #595959;
+    line-height: 1.6;
     margin-bottom: 8px;
   }
 
@@ -284,18 +406,8 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
     margin-bottom: 0;
   }
 
-  /* コンテンツブロック */
   .content-block {
-    margin-bottom: 50px;
-  }
-
-  .block-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 10px;
+    margin-bottom: 45px;
   }
 
   .block-title {
@@ -303,24 +415,47 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
     font-weight: 800;
     color: var(--color-main);
     border-left: 5px solid var(--color-sub);
-    padding-left: 12px;
-    margin: 0;
+    padding-left: 14px;
+    margin-bottom: 20px;
+  }
+
+  .block-title-warning {
+    border-left-color: #FAAD14;
+    color: #D46B08;
+  }
+
+  .block-title-danger {
+    border-left-color: #FF4D4F;
+    color: #CF1322;
+  }
+
+  .block-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .sub-link {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-sub);
   }
 
+  /* 主な症状 */
   .trouble-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 16px;
   }
 
   .trouble-item {
     padding: 20px;
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
   }
 
   .trouble-item h3 {
@@ -331,41 +466,42 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
   }
 
   .trouble-item p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.55;
     margin: 0;
   }
 
-  /* ステップ */
+  /* 応急処置ステップ */
   .steps-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 16px;
   }
 
   .step-col {
-    background: var(--color-bg-sub);
+    background: #FFFFFF;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: 20px;
-    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-sm);
   }
 
   .step-num {
     display: inline-block;
-    background: var(--color-main);
+    background: var(--color-sub);
     color: #FFFFFF;
     font-family: var(--font-en);
     font-size: 0.75rem;
     font-weight: 800;
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 4px;
     margin-bottom: 10px;
   }
 
   .step-col h4 {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--color-main);
     margin-bottom: 8px;
@@ -373,40 +509,105 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
 
   .step-col p {
     font-size: 0.85rem;
-    color: var(--color-text);
+    color: var(--color-text-muted);
     line-height: 1.55;
     margin: 0;
   }
 
-  /* テーブル */
-  .price-table-box {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
+  .caution-note {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: #874D00;
+    background: #FFFBE6;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border-left: 3px solid #FAAD14;
+    line-height: 1.5;
+  }
+
+  /* やってはいけないこと (NG) */
+  .ng-grid, .danger-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 16px;
+  }
+
+  .ng-card {
+    background: #FFF7E6;
+    border: 1px solid #FFE7BA;
     border-radius: var(--radius-md);
+    padding: 18px;
+  }
+
+  .ng-card h3 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #D46B08;
+    margin-bottom: 8px;
+  }
+
+  .ng-card p {
+    font-size: 0.85rem;
+    color: #873800;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* 危険サイン */
+  .danger-card {
+    background: #FFF1F0;
+    border: 1px solid #FFA39E;
+    border-radius: var(--radius-md);
+    padding: 18px;
+  }
+
+  .danger-card h3 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #CF1322;
+    margin-bottom: 8px;
+  }
+
+  .danger-card p {
+    font-size: 0.85rem;
+    color: #820014;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* 料金表 */
+  .price-table-box {
     background: #FFFFFF;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
   }
 
   .styled-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
-  }
-
-  .styled-table th, .styled-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--color-border);
-    text-align: left;
+    font-size: 0.92rem;
   }
 
   .styled-table th {
     background: var(--color-bg-sub);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
     color: var(--color-main);
-    font-weight: 800;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .styled-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
   }
 
   .price-val {
     color: #CF1322;
     font-weight: 800;
+    font-size: 1.05rem;
   }
 
   .table-note {
@@ -415,24 +616,26 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
     margin-top: 8px;
   }
 
-  /* 施工事例グリッド */
+  /* 施工事例カード */
   .service-cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 16px;
   }
 
   .service-case-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     overflow: hidden;
+    background: #FFFFFF;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
   .sc-img-wrap {
-    height: 160px;
     position: relative;
-    background: #EBF4FA;
+    height: 170px;
+    overflow: hidden;
   }
 
   .sc-img {
@@ -441,8 +644,19 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
     object-fit: cover;
   }
 
+  .badge-location {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(18, 59, 101, 0.85);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
   .sc-body {
-    padding: 16px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -451,26 +665,22 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
   .sc-date {
     font-size: 0.72rem;
     color: var(--color-text-muted);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .sc-title {
     font-size: 0.95rem;
-    font-weight: 800;
-    line-height: 1.4;
+    font-weight: 700;
     margin-bottom: 8px;
+    line-height: 1.4;
   }
 
   .sc-title a {
     color: var(--color-main);
   }
 
-  .sc-title a:hover {
-    color: var(--color-sub);
-  }
-
   .sc-consult {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--color-text-muted);
     line-height: 1.5;
     margin-bottom: 12px;
@@ -478,39 +688,79 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
   }
 
   .sc-link {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--color-sub);
   }
 
-  /* 地域リンク */
-  .area-link-block {
-    background: var(--color-bg-sub);
-    padding: 24px;
-    border-radius: var(--radius-lg);
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
   }
 
-  .block-sub-text {
+  .faq-q {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--color-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .q-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #1976BB;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 0.78rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .faq-a {
     font-size: 0.88rem;
-    color: var(--color-text-muted);
-    margin: 8px 0 16px;
+    color: var(--color-text);
+    line-height: 1.65;
+    margin: 0;
+    padding-left: 32px;
   }
 
+  .a-badge {
+    display: inline-block;
+    color: #CF1322;
+    font-weight: 800;
+    margin-right: 4px;
+  }
+
+  /* 地域リンクカード */
   .area-badges-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 12px;
   }
 
   .area-link-card {
     background: #FFFFFF;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    padding: 14px 18px;
+    padding: 14px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     text-decoration: none;
     transition: all 0.2s;
   }
@@ -529,52 +779,52 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
 
   .a-time {
     font-size: 0.75rem;
-    color: #096DD9;
-    background: #E6F7FF;
-    padding: 2px 6px;
-    border-radius: 4px;
+    color: #CF1322;
+    font-weight: 700;
+    margin: 4px 0 6px;
   }
 
   .a-arrow {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-sub);
     font-weight: 700;
   }
 
-  /* CTAバナー */
+  /* CTA */
   .service-cta-banner {
-    background: linear-gradient(135deg, #123B65, #0A243F);
+    background: linear-gradient(135deg, #123B65 0%, #0A243F 100%);
     color: #FFFFFF;
     border-radius: var(--radius-lg);
-    padding: 35px 24px;
+    padding: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 30px;
   }
 
-  .service-cta-banner h3 {
-    font-size: 1.35rem;
+  .banner-text h3 {
+    font-size: 1.25rem;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
-  .service-cta-banner p {
+  .banner-text p {
     font-size: 0.9rem;
     color: #DDE7F0;
     margin: 0;
   }
 
-  .btn-cta-large {
-    font-size: 1.15rem;
-    padding: 16px 28px;
-  }
-
-  @media (max-width: 768px) {
-    .page-title {
-      font-size: 1.7rem;
+  @media (max-width: 600px) {
+    .service-cta-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 24px 16px;
+    }
+    .styled-table th, .styled-table td {
+      padding: 10px 12px;
+      font-size: 0.85rem;
     }
   }
 </style>

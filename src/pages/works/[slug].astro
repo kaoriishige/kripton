@@ -163,20 +163,29 @@ const { caseItem } = Astro.props;
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": caseItem.title,
-    "image": [caseItem.beforeImage, caseItem.afterImage],
+    "image": [
+      caseItem.beforeImage.startsWith('http') ? caseItem.beforeImage : `https://xn--bbkyao7065bpyck41as89d.com${caseItem.beforeImage}`,
+      caseItem.afterImage.startsWith('http') ? caseItem.afterImage : `https://xn--bbkyao7065bpyck41as89d.com${caseItem.afterImage}`
+    ],
     "datePublished": caseItem.date,
     "dateModified": caseItem.date,
     "author": {
-      "@type": "Organization",
-      "name": "有限会社クリプトン"
+      "@type": "Person",
+      "name": "津久井 三男",
+      "jobTitle": "代表取締役（水道局指定工事店 技術管理者）"
     },
     "publisher": {
       "@type": "Organization",
       "name": "有限会社クリプトン",
+      "url": "https://xn--bbkyao7065bpyck41as89d.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://xn--bbkyao7065bpyck41as89d.com/images/character/kripton-man4-1.jpg"
       }
+    },
+    "contentLocation": {
+      "@type": "Place",
+      "name": caseItem.municipality
     },
     "description": caseItem.consultation
   })} />

@@ -1,25 +1,15 @@
+// scripts/generate_llms_full.cjs
 const fs = require('fs');
 const path = require('path');
 
-const posts = require('../docs/raw-data/posts.json');
+const casesFile = path.join(__dirname, '../src/data/all_cases.ts');
+const casesContent = fs.readFileSync(casesFile, 'utf8');
+const match = casesContent.match(/export const allCasesData:\s*CaseStudy(?:Item)?\[\]\s*=\s*(\[[\s\S]*?\]);/);
+const cases = match ? eval(match[1]) : [];
+
 const siteUrl = 'https://xn--bbkyao7065bpyck41as89d.com';
 
-function sanitizeSlug(slug, id) {
-  if (!slug || /^[^\x00-\x7F]+$/.test(slug) || /%[0-9A-Fa-f]{2}/.test(slug)) {
-    return `case-${id}`;
-  }
-  return slug.toLowerCase().replace(/[^a-z0-9-_]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || `case-${id}`;
-}
-
-function stripHtml(html) {
-  if (!html) return '';
-  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-// 施工事例（イベント id:4 以外）を全件抽出 (全64件)
-const worksPosts = posts.filter(p => !Array.isArray(p.categories) || !p.categories.includes(4));
-
-let content = `# 水まわり専門店クリプトン（有限会社クリプトン）AI学習・検索用 完全ドキュメント (llms-full.txt)
+let content = `# 水まわり専門店クリプトン（有限会社クリプトン）AI検索用 完全ドキュメント (llms-full.txt)
 
 > 栃木県那須塩原市・大田原市・那須町の水道局指定工事店・水まわり修理専門企業
 
@@ -28,13 +18,14 @@ let content = `# 水まわり専門店クリプトン（有限会社クリプト
 - 屋号: 水まわり専門店クリプトン
 - 設立・創業: 1993年（那須エリア密着・創業30年の実績）
 - 代表取締役: 津久井 三男
+- 公式メールアドレス: kripton@sweet.ocn.ne.jp
 - 本社所在地: 〒325-0017 栃木県那須塩原市黒磯2-11
 - 通常受付電話: 0287-60-5050 (受付時間: 8:00〜19:00 年中無休)
 - 夜間・緊急直通電話: 090-2463-6638 (24時間365日受付 / 担当: 津久井)
 - FAX: 0287-60-5054
 - 公式ウェブサイト: ${siteUrl}/
 
-## 2. 公認指定・保有資格
+## 2. 公認指定・保有国家資格
 - 那須塩原市 指定給水装置工事事業者
 - 大田原市 指定給水装置工事事業者
 - 那須町 指定給水装置工事事業者
@@ -61,24 +52,24 @@ let content = `# 水まわり専門店クリプトン（有限会社クリプト
 - 排水管つまり除去・高圧洗浄: 8,800円〜
 - 水道管凍結融解（解氷機作業）・破裂修理: 8,800円〜
 - 井戸ポンプ修理・砂噛み除去・交換: 11,000円〜
-- お風呂・キッチン・洗面所リフォーム: 無料現地調査・見積もり
+- お風呂・キッチン・洗面所リフォーム: 無料現地調査・事前確定見積もり
 
-## 4. 地元施工実績（全${worksPosts.length}件 一覧と詳細データ）
+## 4. 地元施工実績（全${cases.length}件 一覧と詳細データ・完全点検済み）
 `;
 
-worksPosts.forEach((p, idx) => {
-  const slug = sanitizeSlug(p.slug, p.id);
-  const title = p.title && p.title.rendered ? stripHtml(p.title.rendered) : `施工事例 #${p.id}`;
-  const excerpt = p.excerpt && p.excerpt.rendered ? stripHtml(p.excerpt.rendered) : '';
-  const date = p.date ? p.date.split('T')[0] : '';
-  const body = p.content && p.content.rendered ? stripHtml(p.content.rendered).slice(0, 300) : '';
-
+cases.forEach((item, idx) => {
   content += `
-### 事例 ${idx + 1}: ${title}
-- URL: ${siteUrl}/works/${slug}/
-- 施工日: ${date}
-- 概要: ${excerpt || title}
-- 工事詳細抜粋: ${body}
+### 事例 ${idx + 1}: ${item.title}
+- URL: ${siteUrl}/works/${item.slug}/
+- 施工地域: 栃木県${item.municipality}
+- カテゴリー: ${item.category}
+- 施工日: ${item.date}
+- ご相談・症状: ${item.consultation}
+- 現地点検・調査: ${item.investigation}
+- 原因特定: ${item.cause}
+- 施工内容: ${item.workDetails}
+- 費用目安: ${item.repairCost}
+- 施工時間: ${item.workDuration}
 `;
 });
 
@@ -90,4 +81,4 @@ if (fs.existsSync(path.join(__dirname, '../dist'))) {
   fs.writeFileSync(distPath, content, 'utf8');
 }
 
-console.log(`Generated llms-full.txt with ${worksPosts.length} detailed case studies!`);
+console.log(`Generated llms-full.txt with ${cases.length} clean, audited case studies!`);
