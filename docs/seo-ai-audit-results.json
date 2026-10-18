@@ -1,0 +1,30 @@
+{
+  "report": {
+    "totalHtmlPages": 92,
+    "missingTitle": [],
+    "missingDescription": [
+      "preview/index.html"
+    ],
+    "missingCanonical": [
+      "preview/index.html"
+    ],
+    "missingOgTags": [
+      "preview/index.html"
+    ],
+    "missingJsonLd": [
+      "preview/index.html"
+    ],
+    "multipleH1": [],
+    "noH1": [],
+    "imagesWithoutAlt": 0,
+    "totalImages": 498,
+    "telLinks": {
+      "validTelCount": 548,
+      "invalidTelCount": 0
+    }
+  },
+  "hasRobots": true,
+  "hasLlms": true,
+  "hasRedirects": true,
+  "timestamp": "2026-10-18T06:41:03.835Z"
+}

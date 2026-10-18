@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate_sitemap.cjs",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^4.16.18"
   },
   "devDependencies": {
