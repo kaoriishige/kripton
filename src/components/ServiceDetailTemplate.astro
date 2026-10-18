@@ -1,0 +1,576 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { companyData } from '../data/company';
+import { allCasesData } from '../data/all_cases';
+import { areasData } from '../data/areas';
+
+export interface ServiceDetailProps {
+  serviceId: string;
+  title: string;
+  subtitle: string;
+  lead: string;
+  directAnswerTitle: string;
+  directAnswerSummary: string;
+  directAnswerAction: string;
+  troubles: { icon: string; title: string; desc: string; }[];
+  steps: { step: string; title: string; desc: string; }[];
+  priceItems: { name: string; time: string; price: string; }[];
+  metaDescription: string;
+}
+
+const {
+  serviceId,
+  title,
+  subtitle,
+  lead,
+  directAnswerTitle,
+  directAnswerSummary,
+  directAnswerAction,
+  troubles,
+  steps,
+  priceItems,
+  metaDescription
+} = Astro.props as ServiceDetailProps;
+
+// 関連する施工事例を抽出（最大4件）
+const relatedCases = allCasesData
+  .filter(c => c.relatedServiceId === serviceId)
+  .slice(0, 4);
+
+// フォールバック（0件の場合は最新事例）
+const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice(0, 4);
+---
+
+<Layout
+  title={`${title}｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町`}
+  description={metaDescription}
+>
+  <!-- ページヘッダー -->
+  <div class="service-page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <a href="/#services">水まわり修理</a> &gt; <span>{title}</span>
+      </nav>
+      <div class="header-badges">
+        <span class="badge badge-emergency">最短30分駆けつけ・24時間受付</span>
+        <span class="badge">自社責任施工・指定工事店</span>
+      </div>
+      <h1 class="page-title">{title}</h1>
+      <p class="page-lead">{lead}</p>
+    </div>
+  </div>
+
+  <div class="container page-content-container">
+    <!-- AI検索・ユーザー向け ダイレクトアンサーボックス（第9章 9-4） -->
+    <section class="direct-answer-card">
+      <div class="da-header">
+        <span class="da-icon">💡</span>
+        <h2 class="da-title">{directAnswerTitle}</h2>
+      </div>
+      <div class="da-body">
+        <p><strong>最初に行うこと：</strong> {directAnswerAction}</p>
+        <p><strong>解決の目安と費用：</strong> {directAnswerSummary}</p>
+      </div>
+    </section>
+
+    <!-- 1. 対応する症状と原因 -->
+    <section class="content-block">
+      <h2 class="block-title">対応する主な症状と原因</h2>
+      <div class="trouble-grid">
+        {troubles.map(item => (
+          <div class="card trouble-item">
+            <h3>{item.icon} {item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 2. お客様ができる安全な応急処置 -->
+    <section class="content-block">
+      <h2 class="block-title">お客様が最初に行う安全な応急処置</h2>
+      <div class="steps-container">
+        {steps.map(s => (
+          <div class="step-col">
+            <span class="step-num">{s.step}</span>
+            <h4>{s.title}</h4>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 3. 作業内容と修理料金の目安 -->
+    <section class="content-block">
+      <div class="block-header-flex">
+        <h2 class="block-title">作業内容と修理料金の目安</h2>
+        <a href="/pricing/" class="sub-link">料金体系の詳細を見る →</a>
+      </div>
+      <div class="price-table-box">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th style="width: 45%;">作業内容</th>
+              <th style="width: 25%;">作業時間目安</th>
+              <th style="width: 30%;">修理料金目安（税込）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>基本診断料（現地点検・調査）</strong></td>
+              <td>15〜30分</td>
+              <td>3,500円（時間外5,000円）</td>
+            </tr>
+            {priceItems.map(p => (
+              <tr>
+                <td><strong>{p.name}</strong></td>
+                <td>{p.time}</td>
+                <td><span class="price-val">{p.price}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">
+        ※必ず作業前に現地調査を行い、確定お見積もりを提示いたします。追加費用ゼロをお約束します。
+      </p>
+    </section>
+
+    <!-- 4. 実際の施工事例（写真付き・相互リンク） -->
+    <section class="content-block">
+      <div class="block-header-flex">
+        <h2 class="block-title">{title}の実際の施工実績</h2>
+        <a href="/works/" class="sub-link">施工事例一覧を見る（全64件） →</a>
+      </div>
+
+      <div class="service-cases-grid">
+        {displayCases.map(c => (
+          <article class="card service-case-card">
+            <div class="sc-img-wrap">
+              <img
+                src={c.beforeImage}
+                alt={`${c.municipality} ${c.title}`}
+                loading="lazy"
+                class="sc-img"
+                onerror="this.src='/images/character/kripton-man4-1.jpg'"
+              />
+              <span class="badge badge-location">{c.municipality}</span>
+            </div>
+            <div class="sc-body">
+              <time class="sc-date">{c.date}</time>
+              <h3 class="sc-title">
+                <a href={`/works/${c.slug}/`}>{c.title}</a>
+              </h3>
+              <p class="sc-consult">{c.consultation}</p>
+              <a href={`/works/${c.slug}/`} class="sc-link">詳細・Before/After写真 →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. 対応地域リンク（相互内部リンク） -->
+    <section class="content-block area-link-block">
+      <h2 class="block-title">対応地域・重点エリア</h2>
+      <p class="block-sub-text">
+        那須塩原市・大田原市・那須町の各市町水道局指定工事店として迅速に急行します。
+      </p>
+      <div class="area-badges-grid">
+        {areasData.map(a => (
+          <a href={`/areas/${a.id}/`} class="area-link-card">
+            <span class="a-name">{a.name}</span>
+            <span class="a-time">{a.responseTime}駆けつけ</span>
+            <span class="a-arrow">詳細 →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- 緊急電話CTAバナー -->
+    <div class="service-cta-banner">
+      <div class="banner-text">
+        <h3>{title}のお困りごと、今すぐ解決いたします！</h3>
+        <p>那須塩原市・大田原市・那須町なら最短30分で駆けつけ。お電話1本で専門スタッフが対応します。</p>
+      </div>
+      <div class="banner-btn-group">
+        <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
+          🚨 090-2463-6638（24時間直通）
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .service-page-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 35px 0 45px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .page-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .page-content-container {
+    padding: 50px 20px;
+    max-width: 980px;
+  }
+
+  /* ダイレクトアンサー */
+  .direct-answer-card {
+    background: #FFFBE6;
+    border: 2px solid #FFE58F;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 45px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .da-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .da-icon {
+    font-size: 1.8rem;
+  }
+
+  .da-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #874D00;
+    margin: 0;
+  }
+
+  .da-body p {
+    font-size: 0.92rem;
+    color: #593800;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .da-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* コンテンツブロック */
+  .content-block {
+    margin-bottom: 50px;
+  }
+
+  .block-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .block-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-main);
+    border-left: 5px solid var(--color-sub);
+    padding-left: 12px;
+    margin: 0;
+  }
+
+  .sub-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-sub);
+  }
+
+  .trouble-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .trouble-item {
+    padding: 20px;
+  }
+
+  .trouble-item h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .trouble-item p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ステップ */
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .step-col {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .step-num {
+    display: inline-block;
+    background: var(--color-main);
+    color: #FFFFFF;
+    font-family: var(--font-en);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .step-col h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .step-col p {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* テーブル */
+  .price-table-box {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: #FFFFFF;
+  }
+
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .styled-table th, .styled-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  .styled-table th {
+    background: var(--color-bg-sub);
+    color: var(--color-main);
+    font-weight: 800;
+  }
+
+  .price-val {
+    color: #CF1322;
+    font-weight: 800;
+  }
+
+  .table-note {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+  }
+
+  /* 施工事例グリッド */
+  .service-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .service-case-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sc-img-wrap {
+    height: 160px;
+    position: relative;
+    background: #EBF4FA;
+  }
+
+  .sc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sc-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .sc-date {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    margin-bottom: 6px;
+  }
+
+  .sc-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .sc-title a {
+    color: var(--color-main);
+  }
+
+  .sc-title a:hover {
+    color: var(--color-sub);
+  }
+
+  .sc-consult {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    flex: 1;
+  }
+
+  .sc-link {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-sub);
+  }
+
+  /* 地域リンク */
+  .area-link-block {
+    background: var(--color-bg-sub);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .block-sub-text {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin: 8px 0 16px;
+  }
+
+  .area-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .area-link-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .area-link-card:hover {
+    border-color: var(--color-sub);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .a-name {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-main);
+  }
+
+  .a-time {
+    font-size: 0.75rem;
+    color: #096DD9;
+    background: #E6F7FF;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .a-arrow {
+    font-size: 0.8rem;
+    color: var(--color-sub);
+    font-weight: 700;
+  }
+
+  /* CTAバナー */
+  .service-cta-banner {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+
+  .service-cta-banner h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .service-cta-banner p {
+    font-size: 0.9rem;
+    color: #DDE7F0;
+    margin: 0;
+  }
+
+  .btn-cta-large {
+    font-size: 1.15rem;
+    padding: 16px 28px;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

@@ -41,7 +41,11 @@ import { servicesData } from '../data/services';
               <span class="price-label">修理目安</span>
               <span class="price-value">{service.startingPrice}</span>
             </div>
-            <a href={`/services/sample/`} class="service-link-btn" aria-label={`${service.title}の詳細を見る`}>
+            <a
+              href={service.slug === 'toilet' ? '/toilet/' : (service.slug === 'bath' ? '/bath/' : (service.slug === 'kitchen' ? '/kitchen/' : (service.slug === 'washroom' ? '/washroom/' : (service.slug === 'eco-cute' ? '/eco-cute/' : (service.slug === 'pump' ? '/pump/' : `/services/${service.slug}/`)))))}
+              class="service-link-btn"
+              aria-label={`${service.title}の詳細を見る`}
+            >
               詳細・料金 →
             </a>
           </div>

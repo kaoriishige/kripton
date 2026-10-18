@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import { companyData } from '../../data/company';
+---
+
+<Layout
+  title="選ばれる理由・保有資格｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="水まわり専門店クリプトンが選ばれる理由。創業30年、那須塩原・大田原・那須町の各市町公認指定工事店、一級管工事施工管理技士による自社責任施工、明瞭な事前見積もりと24時間緊急対応。"
+>
+  <div class="feature-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>選ばれる理由</span>
+      </nav>
+      <h1 class="page-title">クリプトンが選ばれる理由と保有資格</h1>
+      <p class="page-lead">
+        那須エリアで創業30年。下請け任せにしない自社責任施工と、<br />
+        各自治体の水道局指定工事店としての確かな技術力で安心をお約束します。
+      </p>
+    </div>
+  </div>
+
+  <div class="feature-page-body">
+    <!-- 選ばれる理由コンポーネント -->
+    <WhyChooseUs />
+
+    <!-- 保有資格・許認可の公式情報 -->
+    <section class="container licenses-section">
+      <div class="section-header">
+        <span class="section-en-title">Licenses & Qualifications</span>
+        <h2 class="section-title">行政公認の指定工事店証・国家資格</h2>
+        <p class="section-lead">
+          法律・自治体条例に基づき、確かな技術と責任施工体制が認定された正規の水道事業者です。
+        </p>
+      </div>
+
+      <div class="licenses-grid">
+        <div class="card license-card">
+          <div class="lic-icon">🚰</div>
+          <div class="lic-body">
+            <h3>給水装置工事指定事業者（上水道）</h3>
+            <p class="lic-desc">上水道管の新設・改造・修繕工事を適法に行える事業者認定です。</p>
+            <ul class="lic-list">
+              {companyData.waterSupplyLicenses.map(lic => (
+                <li>{lic}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="card license-card">
+          <div class="lic-icon">🧼</div>
+          <div class="lic-body">
+            <h3>指定排水設備工事店（下水道）</h3>
+            <p class="lic-desc">下水道本管への接続、宅内排水設備の新設・補修を行う公認指定店です。</p>
+            <ul class="lic-list">
+              {companyData.drainageLicenses.map(lic => (
+                <li>{lic}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="card license-card">
+          <div class="lic-icon">🪪</div>
+          <div class="lic-body">
+            <h3>保有国家資格・専門技能士</h3>
+            <p class="lic-desc">現場施工・安全管理を直接指揮する国家資格者が在籍しています。</p>
+            <ul class="lic-list">
+              {companyData.qualifications.map(q => (
+                <li><strong>{q}</strong></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 指定工事店と非指定業者の違い比較表 -->
+      <div class="compare-box">
+        <h3 class="compare-title">水道局指定工事店と一般的な無資格業者の違い</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width: 40%;">比較項目</th>
+              <th style="width: 30%;" class="th-us">クリプトン（指定工事店）</th>
+              <th style="width: 30%;">一般的な無許可・斡旋業者</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>給水管・本管の修繕工事</td>
+              <td class="td-us"><strong>〇 適法に施工可能</strong></td>
+              <td>✕ 法律上施工不可</td>
+            </tr>
+            <tr>
+              <td>水道料金の漏水減免申請証明書</td>
+              <td class="td-us"><strong>〇 正式発行可能</strong></td>
+              <td>✕ 発行不可（減額されない）</td>
+            </tr>
+            <tr>
+              <td>施工体制</td>
+              <td class="td-us"><strong>自社責任施工・有資格者</strong></td>
+              <td>下請け・斡旋業者へ丸投げ多数</td>
+            </tr>
+            <tr>
+              <td>見積もりと料金明示</td>
+              <td class="td-us"><strong>事前確定見積もり徹底</strong></td>
+              <td>格安広告後に現場で高額請求リスク</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CTA -->
+      <div class="feature-cta-box">
+        <h3>確かな資格と技術のクリプトンへご相談ください</h3>
+        <p>那須塩原市・大田原市・那須町の皆様の元へ迅速に駆けつけます。</p>
+        <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
+          🚨 090-2463-6638（24時間受付 直通）
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .feature-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .licenses-section {
+    padding: 60px 20px 80px;
+    max-width: 980px;
+  }
+
+  .licenses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  .license-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--color-sub);
+  }
+
+  .lic-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .lic-body h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .lic-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .lic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: var(--color-bg-sub);
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+  }
+
+  .lic-list li {
+    font-size: 0.82rem;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 4px;
+  }
+
+  .lic-list li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--color-sub);
+    font-weight: 700;
+  }
+
+  .compare-box {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    margin-bottom: 50px;
+    overflow-x: auto;
+  }
+
+  .compare-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .compare-table th, .compare-table td {
+    padding: 14px 18px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  .compare-table th {
+    background: var(--color-bg-sub);
+    color: var(--color-main);
+    font-weight: 800;
+  }
+
+  .th-us {
+    background: #E6F7FF !important;
+    color: #096DD9 !important;
+  }
+
+  .td-us {
+    background: #F8FBFE;
+    color: var(--color-main);
+  }
+
+  .feature-cta-box {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .feature-cta-box h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .feature-cta-box p {
+    font-size: 0.92rem;
+    color: #DDE7F0;
+    margin-bottom: 20px;
+  }
+
+  .btn-cta-large {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

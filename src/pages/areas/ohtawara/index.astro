@@ -1,0 +1,27 @@
+---
+import AreaDetailTemplate from '../../../components/AreaDetailTemplate.astro';
+
+const props = {
+  "filePath": "src/pages/areas/ohtawara/index.astro",
+  "areaId": "ohtawara",
+  "name": "大田原市",
+  "nameKana": "おおたわらし",
+  "catchphrase": "大田原市内も迅速出張！給排水指定工事店として明瞭会計で対応",
+  "description": "大田原市指定給水装置工事事業者・指定排水設備工事店です。蛇口の水漏れ1つから、トイレつまり、ボイラー故障、水まわり全体のリフォームまで、有資格者が自社施工で対応します。",
+  "responseTime": "最短30〜45分",
+  "features": [
+    "大田原市公認の指定給水装置工事事業者・指定排水設備工事店",
+    "出動前の明瞭な概算見積りと現地での確定診断徹底",
+    "農業集落排水や浄化槽接続のご相談・修繕も可能",
+    "土日祝日や夜間の緊急トラブルにも24時間365日対応"
+  ],
+  "localIssues": [
+    "浅井戸・深井戸ポンプの圧力低下やモーター停止不良",
+    "トイレタンク内の部品劣化によるチョロチョロ漏水音",
+    "真冬の屋外散水栓柱の凍結による破裂トラブル"
+  ],
+  "metaDescription": "大田原市の水まわり修理・水道トラブルなら指定工事店のクリプトン。トイレつまり、蛇口水漏れ、ボイラー修理に最短30分で急行。安心の自社施工。"
+};
+---
+
+<AreaDetailTemplate {...props} />

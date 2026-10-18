@@ -1,0 +1,309 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import KryptonManGuide from '../../components/KryptonManGuide.astro';
+import { companyData } from '../../data/company';
+
+// 指示書第8章 8-3 に完全準拠した動画・お役立ちテーマ
+const videoTopics = [
+  {
+    id: "v1",
+    theme: "水漏れで水が止まらない！",
+    desc: "焦らず最初に止水栓を閉める手順と、元栓の場所を動画で分かりやすく解説します。",
+    tag: "緊急応急処置",
+    status: "動画公開準備中"
+  },
+  {
+    id: "v2",
+    theme: "トイレがつまったときの正しいラバーカップの使い方",
+    desc: "レバーを引いてはいけない理由と、汚水を飛び散らせずに一発で抜くプロの技。",
+    tag: "トイレトラブル",
+    status: "動画公開準備中"
+  },
+  {
+    id: "v3",
+    theme: "水道管が凍結した！熱湯がNGな理由と安全な解氷法",
+    desc: "那須エリアの冬の風物詩。ドライヤーやぬるま湯を使った安全な解凍手順。",
+    tag: "冬期・寒冷地",
+    status: "動画公開準備中"
+  },
+  {
+    id: "v4",
+    theme: "那須高原の別荘必見！冬期の完全水抜き（水落とし）マニュアル",
+    desc: "不在時の水道管破裂を防ぐ、水抜き栓の正しい操作手順と給湯器の水抜き。",
+    tag: "那須別荘対策",
+    status: "動画公開準備中"
+  },
+  {
+    id: "v5",
+    theme: "給湯器からお湯が出ない！修理か交換かどっちが得？",
+    desc: "使用年数8年〜10年を境にした判断基準と、エラーコードの見方を解説。",
+    tag: "給湯器・ボイラー",
+    status: "動画公開準備中"
+  },
+  {
+    id: "v6",
+    theme: "悪徳業者に騙されない！信頼できる水道修理業者の見極め方",
+    desc: "マグネット広告の激安トラップと、自治体公認の『指定工事店』を選ぶ重要性。",
+    tag: "業界のウラ話",
+    status: "動画公開準備中"
+  }
+];
+---
+
+<Layout
+  title="水まわりお役立ち情報・クリプトンマン動画一覧｜水まわり専門店クリプトン【公式】"
+  description="クリプトンマンがお届けする水まわりの豆知識・トラブル対処法・ショート動画一覧。トイレつまりや水道管凍結、別荘の水抜き手順を分かりやすく解説します。"
+>
+  <div class="tips-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>お役立ち情報・動画</span>
+      </nav>
+      <div class="header-badges">
+        <span class="badge">クリプトンマン公式</span>
+        <span class="badge">トラブル解決ショート動画シリーズ</span>
+      </div>
+      <h1 class="page-title">水まわりのお役立ち情報・動画</h1>
+      <p class="page-lead">
+        いざという時に慌てないための応急処置から那須高原の別荘水抜きまで、<br />
+        水まわりのスーパーヒーロー「クリプトンマン」が分かりやすく解説します！
+      </p>
+    </div>
+  </div>
+
+  <div class="container tips-page-body">
+    <!-- クリプトンマンワンポイント解説 -->
+    <KryptonManGuide />
+
+    <!-- ショート動画・専門解説一覧 -->
+    <section class="video-section">
+      <div class="section-header">
+        <span class="section-en-title">Video & Columns</span>
+        <h2 class="section-title">クリプトンマンのお役立ち動画・解説シリーズ</h2>
+        <p class="section-lead">YouTube Shorts・Instagram Reelsにて順次配信予定の動画テーマ一覧です。</p>
+      </div>
+
+      <div class="video-grid">
+        {videoTopics.map(item => (
+          <article class="card video-card">
+            <div class="video-thumb-mock">
+              <span class="play-icon">▶</span>
+              <span class="video-tag">{item.tag}</span>
+              <span class="video-status">{item.status}</span>
+            </div>
+            <div class="video-body">
+              <h3 class="video-title">{item.theme}</h3>
+              <p class="video-desc">{item.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 年に一度の水まわり点検コラム -->
+    <section class="inspection-column-card">
+      <div class="ic-body">
+        <span class="ic-tag">定期点検のススメ</span>
+        <h2>快適に長く使うため、1年に1度は水まわりの自主点検を！</h2>
+        <p>
+          毎日使うキッチン、お風呂、トイレ。目に見えない配管の緩みやパッキンの硬化は、早期発見で大事故を防げます。
+        </p>
+        <a href="/inspection/" class="btn btn-primary ic-btn">水まわりセルフチェック表を見る →</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="tips-cta-box">
+      <h3>動画や解説を見ても解決しない時は、すぐお電話ください！</h3>
+      <p>無理にいじって配管を破損させる前に、那須エリアの公認指定工事店へお任せください。</p>
+      <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
+        🚨 090-2463-6638（24時間受付）
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .tips-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .tips-page-body {
+    padding: 60px 20px 80px;
+    max-width: 980px;
+  }
+
+  .video-section {
+    margin: 60px 0;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .video-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-thumb-mock {
+    height: 180px;
+    background: linear-gradient(135deg, #0A243F, #123B65);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .play-icon {
+    font-size: 3rem;
+    color: #FFD591;
+    opacity: 0.9;
+  }
+
+  .video-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #F39833;
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .video-status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .video-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-main);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .video-desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .inspection-column-card {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 35px 30px;
+    margin-bottom: 50px;
+  }
+
+  .ic-tag {
+    display: inline-block;
+    background: var(--color-sub);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .inspection-column-card h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 10px;
+  }
+
+  .inspection-column-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .ic-btn {
+    display: inline-flex;
+  }
+
+  .tips-cta-box {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .tips-cta-box h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .tips-cta-box p {
+    font-size: 0.92rem;
+    color: #DDE7F0;
+    margin-bottom: 20px;
+  }
+
+  .btn-cta-large {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

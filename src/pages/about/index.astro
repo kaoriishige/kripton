@@ -1,0 +1,348 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+---
+
+<Layout
+  title="会社案内・代表挨拶｜水まわり専門店クリプトン【公式】有限会社クリプトン"
+  description="有限会社クリプトン（水まわり専門店クリプトン）の会社概要。創業30年の実績、那須塩原市・大田原市・那須町の水道局公認指定工事店、一級管工事施工管理技士、代表津久井三男の想いと社名の由来。"
+>
+  <div class="about-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>会社案内</span>
+      </nav>
+      <h1 class="page-title">有限会社クリプトン 会社概要</h1>
+      <p class="page-lead">
+        那須地域の水まわりを守り続けて30年。<br />
+        下請け任せにしない自社責任施工と、行政公認指定工事店としての誠実な技術をお届けします。
+      </p>
+    </div>
+  </div>
+
+  <div class="container about-body-container">
+    <!-- 代表メッセージ -->
+    <section class="about-section greeting-section">
+      <div class="greeting-box">
+        <div class="greeting-avatar">
+          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" width="100" height="100" />
+        </div>
+        <div class="greeting-text">
+          <span class="g-sub">Representative Message</span>
+          <h2>代表取締役 津久井 三男 よりご挨拶</h2>
+          <p>
+            有限会社クリプトンのホームページをご覧いただき、誠にありがとうございます。
+          </p>
+          <p>
+            当社は栃木県那須塩原市（旧黒磯市）に拠点を構え、那須塩原市、大田原市、那須町をはじめとする県北地域の皆様の水まわりの安心を守ってまいりました。
+          </p>
+          <p>
+            水道のトラブルは、前触れなく突然起こるものがほとんどです。「トイレがつまって使えない」「床下に水が吹き出している」「寒波で水道管が凍って水が出ない」——そんなお客様の切迫したピンチに、地域密着の指定工事店として迅速に駆けつけ、国家資格を持つ職人が自らの手で確実に直すことを創業以来の信念としております。
+          </p>
+          <p>
+            不透明な概算見積もりで作業を始めることは決してありません。必ず現場を確認し、納得いただける適正価格をお伝えした上で着工いたします。これからも那須地域の皆様に「水まわりのことならクリプトンに頼めば安心だ」と言っていただけるよう、全社員一丸となって取り組んでまいります。
+          </p>
+          <span class="rep-sign">有限会社クリプトン 代表取締役 <strong>津久井 三男</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 社名の由来 -->
+    <section class="about-section origin-section">
+      <div class="origin-card">
+        <span class="origin-badge">社名の由来</span>
+        <h3>なぜ「クリプトン」なのか？</h3>
+        <p>
+          当社の社名「クリプトン」は、アメリカコミック初のスーパーヒーロー（スーパーマン）の故郷である<strong>「クリプトン星」</strong>に由来しています。
+        </p>
+        <p>
+          水まわりのトラブルで困っている地域の皆様の元へ、ヒーローのように素早く駆けつけ、確かな技術でピンチを解決する——そんな正義感と安心感を持った地域密着の専門企業であり続けたいという強い願いを込めて名付けられました。
+        </p>
+      </div>
+    </section>
+
+    <!-- 会社概要スペック表 -->
+    <section class="about-section spec-section">
+      <h2 class="section-sub-title">会社概要</h2>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>会社名</th>
+            <td>{companyData.name}</td>
+          </tr>
+          <tr>
+            <th>屋号</th>
+            <td>{companyData.tradeName}</td>
+          </tr>
+          <tr>
+            <th>役員</th>
+            <td>{companyData.representative}</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒{companyData.postalCode} {companyData.address}</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td>
+              代表電話: <strong>{companyData.telMain}</strong>（8:00〜19:00）<br />
+              緊急直通: <strong class="text-phone">{companyData.telEmergency}</strong>（担当：津久井 / 24時間365日受付）
+            </td>
+          </tr>
+          <tr>
+            <th>FAX番号</th>
+            <td>{companyData.fax}</td>
+          </tr>
+          <tr>
+            <th>事業内容</th>
+            <td>
+              ・水まわり緊急トラブル対応（水漏れ、トイレつまり、凍結解氷）<br />
+              ・給水・給湯・排水配管工事および漏水調査<br />
+              ・衛生設備器具修繕・交換（蛇口、便器、洗面台、ユニットバス、キッチン）<br />
+              ・給湯器・石油ボイラー・エコキュート修繕・交換<br />
+              ・浅井戸・深井戸ポンプ修理・更新工事<br />
+              ・住宅水まわりトータルリフォーム工事
+            </td>
+          </tr>
+          <tr>
+            <th>公認指定工事店<br />（行政認可）</th>
+            <td>
+              <strong>【給水装置工事指定事業者】</strong><br />
+              那須塩原市、大田原市、那須町、矢板市、塩谷町 公認<br /><br />
+              <strong>【指定排水設備工事店】</strong><br />
+              那須塩原市、大田原市、那須町、矢板市、塩谷町 公認
+            </td>
+          </tr>
+          <tr>
+            <th>保有国家資格</th>
+            <td>{companyData.qualifications.join(' / ')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- CTA -->
+    <div class="about-cta-box">
+      <h3>水まわりのご相談・現地お見積もりはお気軽に</h3>
+      <p>那須塩原市・大田原市・那須町の皆様からのお電話を心よりお待ちしております。</p>
+      <a href={`tel:${companyData.telMain}`} class="btn btn-phone btn-cta-large">
+        📞 代表電話: {companyData.telMain}（8〜19時）
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .about-body-container {
+    padding: 60px 20px 80px;
+    max-width: 960px;
+  }
+
+  .about-section {
+    margin-bottom: 50px;
+  }
+
+  .greeting-box {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 35px 30px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  .greeting-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-sub);
+    flex-shrink: 0;
+  }
+
+  .greeting-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .greeting-text {
+    flex: 1;
+  }
+
+  .g-sub {
+    font-family: var(--font-en);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-sub);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .greeting-text h2 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin: 6px 0 16px;
+  }
+
+  .greeting-text p {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .rep-sign {
+    display: block;
+    margin-top: 18px;
+    font-size: 0.95rem;
+    text-align: right;
+    color: var(--color-main);
+  }
+
+  .origin-card {
+    background: linear-gradient(135deg, #123B65 0%, #0A243F 100%);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 30px;
+  }
+
+  .origin-badge {
+    background: #F39833;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .origin-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #FFD591;
+    margin-bottom: 12px;
+  }
+
+  .origin-card p {
+    font-size: 0.92rem;
+    color: #DDE7F0;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+
+  .origin-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-sub-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-main);
+    border-left: 5px solid var(--color-sub);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .spec-table th, .spec-table td {
+    padding: 16px 20px;
+    border: 1px solid var(--color-border);
+    font-size: 0.92rem;
+  }
+
+  .spec-table th {
+    width: 25%;
+    background: var(--color-bg-sub);
+    color: var(--color-main);
+    font-weight: 800;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .spec-table td {
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .text-phone {
+    color: #CF1322;
+  }
+
+  .about-cta-box {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .about-cta-box h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .about-cta-box p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+  }
+
+  .btn-cta-large {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .greeting-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .spec-table th, .spec-table td {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>

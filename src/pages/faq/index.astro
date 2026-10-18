@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { companyData } from '../../data/company';
+---
+
+<Layout
+  title="よくある質問（FAQ）｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="水まわり修理に関するよくある質問にお答えします。出動時間、診断料金、見積もり後のキャンセル、水道局指定工事店と一般業者の違いなど、不安や疑問を解消します。"
+>
+  <div class="faq-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>よくある質問</span>
+      </nav>
+      <h1 class="page-title">よくある質問（FAQ）</h1>
+      <p class="page-lead">
+        水道修理のご依頼にあたって、お客様からよくいただくご質問をまとめました。<br />
+        こちらに記載のないご不明点も、お電話にてお気軽にお問い合わせください。
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-page-body">
+    <FaqSection />
+
+    <!-- 相談窓口案内 -->
+    <div class="container faq-bottom-container">
+      <div class="faq-cta-card">
+        <h3>疑問が解決しない場合は、直接お電話でお答えします！</h3>
+        <p>「この症状は直る？」「大体の費用はいくら？」など、どんな些細な疑問でも専門スタッフが丁寧にお答えします。</p>
+        <div class="faq-btn-row">
+          <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone">
+            🚨 090-2463-6638（24時間受付 直通）
+          </a>
+          <a href="/contact/" class="btn btn-primary">
+            Webフォームから相談する →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .faq-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .faq-bottom-container {
+    padding: 0 20px 80px;
+    max-width: 860px;
+  }
+
+  .faq-cta-card {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .faq-cta-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .faq-cta-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+
+  .faq-btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

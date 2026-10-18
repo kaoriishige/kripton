@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { companyData } from '../../data/company';
+---
+
+<Layout
+  title="無料お見積り・お問い合わせ｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="水まわり専門店クリプトンへのお問い合わせ。24時間365日緊急受付電話（090-2463-6638）、通常代表電話（0287-60-5050）、無料Webお見積りフォームはこちらから。"
+>
+  <div class="contact-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>お問い合わせ</span>
+      </nav>
+      <h1 class="page-title">お問い合わせ・無料お見積り</h1>
+      <p class="page-lead">
+        水まわりの緊急トラブルのご相談からリフォームのお見積もりまで、<br />
+        お電話またはWebフォームにてお気軽にお問い合わせください。
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-page-body">
+    <ContactSection />
+  </div>
+</Layout>
+
+<style>
+  .contact-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .contact-page-body {
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

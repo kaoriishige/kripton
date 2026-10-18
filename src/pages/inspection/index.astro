@@ -1,0 +1,236 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+
+const inspectionList = [
+  {
+    room: "キッチン・台所の点検項目",
+    icon: "🍳",
+    items: [
+      { point: "シンク下の排水ジャバラホース", detail: "1年〜3年に一度は内部をブラシで清掃し、ホースにヒビ割れや硬化、接続部の緩みがないか確認します。" },
+      { point: "シャワー水栓と蛇腹ホースのカシメ部", detail: "引き出しシャワーホースの付け根や水受けトレイに水が溜まっていないか点検します。" },
+      { point: "真冬の蛇口凍結対策", detail: "真冬は蛇口が凍ることがあるため、冷え込みが予想される夜はお休み前にタオルで蛇口を保護します。" },
+      { point: "IHクッキングヒーターのお手入れ", detail: "天板の焦げ付きはクリームクレンザーと丸めたアルミホイルでクルクル拭き取ると綺麗になります。" }
+    ]
+  },
+  {
+    room: "お風呂・浴室の点検項目",
+    icon: "🛁",
+    items: [
+      { point: "ボイラー・給湯器の凍結予防循環", detail: "お風呂は凍結防止のためボイラーでお湯を循環しています。冬期は浴槽の循環口より上に水を張っておいてください。" },
+      { point: "お湯の循環口フィルター清掃", detail: "循環口のカバーを外して中側をお掃除し、湯垢や髪の毛の詰まりを取り除きます。" },
+      { point: "洗い場の排水トラップ点検", detail: "排水トラップ内部のゴミを取り除き、防臭パッキンが浮いていないか確認します。" },
+      { point: "換気窓の閉め忘れ防止", detail: "換気のために窓を開けたら、冬場のお休み前は必ず閉めましょう（冷気による配管凍結を防ぐため）。" }
+    ]
+  },
+  {
+    room: "トイレ・洗面所の点検項目",
+    icon: "🚽",
+    items: [
+      { point: "タンク内の水漏れチョロチョロ音", detail: "流していないのに便器内にわずかに波紋が出ていないか、水音が鳴り続けていないか確認します。" },
+      { point: "止水栓・給水ホースの接続部", detail: "壁や床の接続ナット周辺に緑青（サビ）や水滴の跡がないかチェックします。" },
+      { point: "洗面台下のS字トラップ", detail: "トラップの継ぎ目パッキンからのにじみ漏水がないか乾いたティッシュで触れて確認します。" }
+    ]
+  }
+];
+---
+
+<Layout
+  title="年に一度は水まわりの点検を！セルフ点検チェックリスト｜水まわり専門店クリプトン【公式】"
+  description="毎日使う水まわりを長持ちさせるためのセルフチェック項目。キッチンシンク下、お風呂の循環口清掃、冬期の凍結予防、トイレタンクの点検ポイントを専門業者が解説。"
+>
+  <div class="inspection-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>水まわりの自主点検</span>
+      </nav>
+      <h1 class="page-title">年に一度は水まわりの点検を！</h1>
+      <p class="page-lead">
+        毎日使う水まわり。快適に使い続けるために、1年に1回はご自身でのチェックをおすすめします。<br />
+        有限会社クリプトンが、ご家庭でできる重要な点検項目をまとめました。
+      </p>
+    </div>
+  </div>
+
+  <div class="container inspection-container">
+    <div class="inspection-groups-list">
+      {inspectionList.map(group => (
+        <section class="card insp-group-card">
+          <div class="ig-header">
+            <span class="ig-icon">{group.icon}</span>
+            <h2>{group.room}</h2>
+          </div>
+          <div class="ig-items-list">
+            {group.items.map(item => (
+              <div class="ig-item-row">
+                <span class="ig-check-icon">✔</span>
+                <div class="ig-item-text">
+                  <h3>{item.point}</h3>
+                  <p>{item.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- 点検で異常が見つかった場合の案内 -->
+    <div class="inspection-notice-card">
+      <h3>点検で「水漏れ」「異臭」「動作不良」が見つかったら？</h3>
+      <p>
+        パッキンの硬化や配管内部の腐食は、放置すると突然の破裂や床下浸水につながる危険があります。<br />
+        少しでも違和感や異常を感じたときは、無理にいじらずクリプトンへお気軽にご相談ください。
+      </p>
+      <div class="insp-cta-btns">
+        <a href={`tel:${companyData.telMain}`} class="btn btn-phone">
+          📞 0287-60-5050（点検相談・平日8〜19時）
+        </a>
+        <a href="/contact/" class="btn btn-primary">
+          Webフォームで点検を申し込む →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .inspection-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .inspection-container {
+    padding: 60px 20px 80px;
+    max-width: 920px;
+  }
+
+  .inspection-groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .insp-group-card {
+    padding: 30px 24px;
+  }
+
+  .ig-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+
+  .ig-icon {
+    font-size: 2rem;
+  }
+
+  .ig-header h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-main);
+  }
+
+  .ig-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .ig-item-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .ig-check-icon {
+    background: var(--color-sub-light);
+    color: var(--color-sub);
+    font-weight: 900;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .ig-item-text h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 6px;
+  }
+
+  .ig-item-text p {
+    font-size: 0.88rem;
+    color: var(--color-text);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .inspection-notice-card {
+    background: #FFFBE6;
+    border: 1px solid #FFE58F;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .inspection-notice-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #874D00;
+    margin-bottom: 10px;
+  }
+
+  .inspection-notice-card p {
+    font-size: 0.92rem;
+    color: #593800;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .insp-cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

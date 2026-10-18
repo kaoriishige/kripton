@@ -1,0 +1,214 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PriceSection from '../../components/PriceSection.astro';
+import { companyData } from '../../data/company';
+import { servicesData } from '../../data/services';
+---
+
+<Layout
+  title="修理料金のご案内｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="水まわり専門店クリプトンの料金案内。基本診断料3,500円（8〜19時）、修理代金1ヶ所5,000円〜。必ず作業前に確定見積もりをご提示し、不当な追加請求ゼロをお約束します。"
+>
+  <div class="pricing-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>修理料金</span>
+      </nav>
+      <h1 class="page-title">安心・明瞭な修理料金</h1>
+      <p class="page-lead">
+        クリプトンでは、作業前に必ず原因と確定見積もりを提示いたします。<br />
+        お客様のご了承のないまま追加作業を行ったり、不当な高額請求をすることは一切ありません。
+      </p>
+    </div>
+  </div>
+
+  <div class="pricing-page-body">
+    <!-- 料金セクション -->
+    <PriceSection />
+
+    <!-- 症状別の修理費用目安 -->
+    <section class="container service-price-list-section">
+      <div class="section-header">
+        <span class="section-en-title">Service Price List</span>
+        <h2 class="section-title">症状別の作業料金目安（一覧）</h2>
+        <p class="section-lead">各症状ごとの基本作業工賃の目安です。部品交換が必要な場合は純正部材代が実費となります。</p>
+      </div>
+
+      <div class="service-price-table-wrap">
+        <table class="styled-price-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">サービス・症状</th>
+              <th style="width: 45%;">代表的な修理事例</th>
+              <th style="width: 30%;">作業工賃目安（税込）</th>
+            </tr>
+          </thead>
+          <tbody>
+            {servicesData.map(s => (
+              <tr>
+                <td><strong>{s.icon} {s.title}</strong></td>
+                <td>{s.shortDesc}</td>
+                <td><span class="p-accent">{s.startingPrice}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- お支払い方法 -->
+      <div class="payment-methods-card">
+        <h3>お支払い方法について</h3>
+        <p>作業完了後、水漏れや詰まりの解消・正常動作をお客様にご確認いただいた上でお支払いいただきます。</p>
+        <div class="payment-tags">
+          <span class="pay-tag">💵 現金お支払い</span>
+          <span class="pay-tag">🏦 銀行振込（後日払い対応可）</span>
+          <span class="pay-tag">🧾 明細付き領収書即時発行</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="pricing-cta-box">
+        <h3>水まわりの緊急トラブル、まずは無料電話相談へ</h3>
+        <p>那須塩原市・大田原市・那須町なら最短30分で駆けつけ現地確認いたします。</p>
+        <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
+          🚨 090-2463-6638（24時間受付 直通電話）
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .pricing-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .service-price-list-section {
+    padding: 60px 20px 80px;
+    max-width: 980px;
+  }
+
+  .service-price-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: #FFFFFF;
+    margin-bottom: 40px;
+  }
+
+  .styled-price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .styled-price-table th, .styled-price-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  .styled-price-table th {
+    background: var(--color-bg-sub);
+    color: var(--color-main);
+    font-weight: 800;
+  }
+
+  .p-accent {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #CF1322;
+  }
+
+  .payment-methods-card {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    margin-bottom: 50px;
+  }
+
+  .payment-methods-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 10px;
+  }
+
+  .payment-methods-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+  }
+
+  .payment-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .pay-tag {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--color-main);
+  }
+
+  .pricing-cta-box {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .pricing-cta-box h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .pricing-cta-box p {
+    font-size: 0.92rem;
+    color: #DDE7F0;
+    margin-bottom: 20px;
+  }
+
+  .btn-cta-large {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

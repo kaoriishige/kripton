@@ -1,0 +1,27 @@
+---
+import AreaDetailTemplate from '../../../components/AreaDetailTemplate.astro';
+
+const props = {
+  "filePath": "src/pages/areas/nasushiobara/index.astro",
+  "areaId": "nasushiobara",
+  "name": "那須塩原市",
+  "nameKana": "なすしおばらし",
+  "catchphrase": "本社黒磯から最短30分で駆けつけ！黒磯・西那須野・塩原全域に対応",
+  "description": "有限会社クリプトンの本社所在地（黒磯）です。一般住宅から集合住宅、店舗、宿泊施設まで、那須塩原市指定給水装置工事事業者・指定排水設備工事店として地域密着で対応しております。",
+  "responseTime": "最短30分",
+  "features": [
+    "本社黒磯から迅速出動（黒磯・西那須野・塩原全域対応）",
+    "那須塩原市公認の給水装置工事指定事業者・排水設備指定工事店",
+    "塩原温泉地区の寒冷地仕様配管修繕や凍結防止実績多数",
+    "水道料金の漏水減免申請手続きに完全対応"
+  ],
+  "localIssues": [
+    "冬期のマイナス気温による給湯器・屋外露出配管の凍結破損",
+    "築年数が経過した住宅の給水管経年劣化による床下水漏れ",
+    "大雨時の屋外汚水マス・排水管の詰まりや悪臭"
+  ],
+  "metaDescription": "那須塩原市の水まわり修理なら地元黒磯の指定工事店クリプトン。トイレつまり、水漏れ、給湯器故障に最短30分で急行。自社施工・明瞭見積もりで安心。"
+};
+---
+
+<AreaDetailTemplate {...props} />

@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+---
+
+<Layout
+  title="個人情報保護方針（プライバシーポリシー）｜水まわり専門店クリプトン【公式】"
+  description="有限会社クリプトン（水まわり専門店クリプトン）の個人情報保護方針。お客様からお預かりした個人情報の適切な管理と保護に関する基本方針を定めています。"
+>
+  <div class="privacy-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>個人情報保護方針</span>
+      </nav>
+      <h1 class="page-title">個人情報保護方針（プライバシーポリシー）</h1>
+      <p class="page-lead">
+        有限会社クリプトンは、お客様の個人情報の重要性を認識し、法令を遵守して適切に保護・管理いたします。
+      </p>
+    </div>
+  </div>
+
+  <div class="container privacy-body-container">
+    <div class="card privacy-card">
+      <section class="p-block">
+        <h2>1. 基本方針</h2>
+        <p>
+          有限会社クリプトン（以下「当社」）は、水まわり修理・リフォーム業務において取得するお客様の個人情報を重要な財産と認識し、個人情報保護法その他の関係法令を遵守し、適正な取り扱いと安全管理に努めます。
+        </p>
+      </section>
+
+      <section class="p-block">
+        <h2>2. 個人情報の利用目的</h2>
+        <p>当社は、取得したお客様の氏名、住所、電話番号、メールアドレス等の個人情報を以下の目的で利用いたします。</p>
+        <ul>
+          <li>水まわり修理、工事、リフォームに関する現地調査、お見積もりの提出</li>
+          <li>修理工事、器具交換作業の施工およびアフターサービスの提供</li>
+          <li>お問い合わせやご相談への回答および必要なご連絡</li>
+          <li>水道料金の漏水減免申請手続き等の代行業務</li>
+          <li>定期点検、メンテナンス情報、サービス向上に関するご案内</li>
+        </ul>
+      </section>
+
+      <section class="p-block">
+        <h2>3. 個人情報の安全管理措置</h2>
+        <p>
+          当社は、個人情報の紛失、改ざん、漏洩、不正アクセス等を防止するため、適切な組織的・技術的安全管理措置を講じ、厳重に管理いたします。
+        </p>
+      </section>
+
+      <section class="p-block">
+        <h2>4. 第三者への開示・提供の禁止</h2>
+        <p>当社は、次の場合を除き、お客様の個人情報を第三者に提供・開示することはいたしません。</p>
+        <ul>
+          <li>お客様ご本人の事前の同意がある場合</li>
+          <li>法令に基づく開示要請があった場合</li>
+          <li>人の生命、身体または財産の保護のために必要であって、本人の同意を得ることが困難である場合</li>
+          <li>水道局等の公的機関への各種申請手続きにおいて法令上必要な場合</li>
+        </ul>
+      </section>
+
+      <section class="p-block">
+        <h2>5. 個人情報の開示・訂正・利用停止</h2>
+        <p>
+          お客様ご自身から個人情報の開示、訂正、追加、削除、利用停止のご請求があった場合は、ご本人確認を行わせていただいた上で、法令に基づき速やかに対応いたします。
+        </p>
+      </section>
+
+      <section class="p-block">
+        <h2>6. お問い合わせ窓口</h2>
+        <p>当社の個人情報の取り扱いに関するご質問・ご相談は、下記までお問い合わせください。</p>
+        <div class="privacy-contact-box">
+          <strong>有限会社クリプトン 個人情報管理窓口</strong><br />
+          〒{companyData.postalCode} {companyData.address}<br />
+          TEL: {companyData.telMain}（受付時間: 8:00〜19:00）<br />
+          担当：津久井
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .privacy-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .privacy-body-container {
+    padding: 60px 20px 80px;
+    max-width: 860px;
+  }
+
+  .privacy-card {
+    padding: 40px 35px;
+  }
+
+  .p-block {
+    margin-bottom: 35px;
+  }
+
+  .p-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .p-block h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-main);
+    border-left: 4px solid var(--color-sub);
+    padding-left: 10px;
+    margin-bottom: 14px;
+  }
+
+  .p-block p {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .p-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: var(--color-bg-sub);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+  }
+
+  .p-block li {
+    font-size: 0.88rem;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .p-block li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--color-sub);
+    font-weight: 700;
+  }
+
+  .privacy-contact-box {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--color-main);
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.6rem;
+    }
+    .privacy-card {
+      padding: 24px 18px;
+    }
+  }
+</style>

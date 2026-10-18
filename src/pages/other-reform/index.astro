@@ -1,0 +1,174 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+
+const otherServices = [
+  {
+    title: "水まわりに付随する内装リフォーム",
+    desc: "トイレや洗面所の床クッションフロア張り替え、防カビ・防臭壁紙クロス施工、段差解消バリアフリー工事など。",
+    icon: "🏠"
+  },
+  {
+    title: "屋外給排水マス・散水栓柱の工事",
+    desc: "屋外の散水栓（立水栓柱）の新設・移設、壊れたコンクリート排水マスの小口径塩ビマスへの改修工事。",
+    icon: "🌱"
+  },
+  {
+    title: "浄化槽設備の修繕・保守連携",
+    desc: "浄化槽設備士の資格に基づき、ブロワポンプの交換や浄化槽流入管の詰まり・補修工事に対応いたします。",
+    icon: "⚙️"
+  },
+  {
+    title: "住まいの小規模修繕・補修工事",
+    desc: "手すりの取り付け、ドア建具の調整など、水まわり工事と合わせた住まいの小さなお困りごとにも柔軟に対応します。",
+    icon: "🔨"
+  }
+];
+---
+
+<Layout
+  title="その他リフォーム・付随工事｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="水まわり工事に付随する内装リフォーム、床クッションフロア張り替え、屋外散水栓工事、浄化槽ブロワ交換など、有限会社クリプトンが自社責任施工で柔軟に対応します。"
+>
+  <div class="other-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>その他リフォーム</span>
+      </nav>
+      <h1 class="page-title">その他リフォーム・付随工事</h1>
+      <p class="page-lead">
+        トイレの便器交換と合わせた床・壁紙の内装工事から、屋外の立水栓新設まで。<br />
+        住まいの快適を守る小工事もクリプトンへお気軽にご相談ください。
+      </p>
+    </div>
+  </div>
+
+  <div class="container other-container">
+    <div class="other-grid">
+      {otherServices.map(item => (
+        <div class="card other-card">
+          <span class="other-icon">{item.icon}</span>
+          <h2>{item.title}</h2>
+          <p>{item.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- 相談カード -->
+    <div class="other-cta-card">
+      <h3>「こんな工事も頼める？」とお気軽にお尋ねください</h3>
+      <p>那須塩原市・大田原市・那須町の地域密着企業だからこそ、小回りの効く柔軟な対応をお約束します。</p>
+      <div class="other-btn-row">
+        <a href={`tel:${companyData.telMain}`} class="btn btn-phone">
+          📞 0287-60-5050（通常受付 8〜19時）
+        </a>
+        <a href="/contact/" class="btn btn-primary">
+          無料見積もりフォームへ →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .other-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .other-container {
+    padding: 60px 20px 80px;
+    max-width: 920px;
+  }
+
+  .other-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  .other-card {
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--color-sub);
+  }
+
+  .other-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .other-card h2 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .other-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .other-cta-card {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .other-cta-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .other-cta-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+
+  .other-btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

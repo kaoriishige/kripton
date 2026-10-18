@@ -1,0 +1,548 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { companyData } from '../data/company';
+import { allCasesData } from '../data/all_cases';
+import { servicesData } from '../data/services';
+
+export interface AreaDetailProps {
+  areaId: string;
+  name: string;
+  nameKana: string;
+  catchphrase: string;
+  description: string;
+  responseTime: string;
+  localIssues: string[];
+  features: string[];
+  metaDescription: string;
+}
+
+const {
+  areaId,
+  name,
+  nameKana,
+  catchphrase,
+  description,
+  responseTime,
+  localIssues,
+  features,
+  metaDescription
+} = Astro.props as AreaDetailProps;
+
+// 該当地域の施工事例を抽出（最大6件）
+const areaCases = allCasesData
+  .filter(c => c.municipality.includes(name) || c.relatedAreaId === areaId)
+  .slice(0, 6);
+
+const displayCases = areaCases.length > 0 ? areaCases : allCasesData.slice(0, 4);
+---
+
+<Layout
+  title={`${name}の水まわり修理・水道局指定工事店｜水まわり専門店クリプトン【公式】`}
+  description={metaDescription}
+>
+  <div class="area-page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <a href="/#areas">対応地域</a> &gt; <span>{name}</span>
+      </nav>
+      <div class="header-badges">
+        <span class="badge badge-emergency">{name}全域 {responseTime}駆けつけ</span>
+        <span class="badge">{name} 給水・排水指定工事店</span>
+      </div>
+      <h1 class="page-title">{name}の水まわり修理・緊急対応</h1>
+      <p class="page-lead">{catchphrase}</p>
+    </div>
+  </div>
+
+  <div class="container page-content-container">
+    <!-- 地域概要・強み -->
+    <section class="content-block">
+      <h2 class="block-title">{name}におけるクリプトンの対応力</h2>
+      <div class="area-intro-card">
+        <p class="intro-main">{description}</p>
+        <div class="features-list-box">
+          <span class="fl-title">{name}での安心ポイント：</span>
+          <ul>
+            {features.map(f => (
+              <li>{f}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 地域特有のトラブルと対策 -->
+    <section class="content-block">
+      <h2 class="block-title">{name}でよくある水まわりトラブルと原因</h2>
+      <div class="issues-grid">
+        {localIssues.map(issue => (
+          <div class="card issue-card">
+            <span class="issue-icon">⚠️</span>
+            <div class="issue-body">
+              <h3>{issue}</h3>
+              <p>現地の気候特性・地質・配管年数に合わせた最適な修繕をご提案します。</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 該当地域の実際の施工事例（写真付き） -->
+    <section class="content-block">
+      <div class="block-header-flex">
+        <h2 class="block-title">{name}での実際の施工実績（写真付き）</h2>
+        <a href="/works/" class="sub-link">全64件の施工事例一覧を見る →</a>
+      </div>
+
+      <div class="area-cases-grid">
+        {displayCases.map(c => (
+          <article class="card area-case-card">
+            <div class="ac-img-wrap">
+              <img
+                src={c.beforeImage}
+                alt={`${name} ${c.title}`}
+                loading="lazy"
+                class="ac-img"
+                onerror="this.src='/images/character/kripton-man4-1.jpg'"
+              />
+              <span class="badge badge-location">{c.municipality}</span>
+            </div>
+            <div class="ac-body">
+              <div class="ac-meta">
+                <span class="ac-cat">{c.category.replace('の故障・修理・リフォーム', '')}</span>
+                <time class="ac-date">{c.date}</time>
+              </div>
+              <h3 class="ac-title">
+                <a href={`/works/${c.slug}/`}>{c.title}</a>
+              </h3>
+              <p class="ac-consult">{c.consultation}</p>
+              <div class="ac-footer">
+                <span class="ac-cost">{c.repairCost}</span>
+                <a href={`/works/${c.slug}/`} class="ac-link">詳細・Before/After →</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 対応症状一覧への相互リンク -->
+    <section class="content-block">
+      <h2 class="block-title">{name}で対応可能な水まわり修理サービス</h2>
+      <div class="service-links-grid">
+        {servicesData.map(s => (
+          <a href={s.slug === 'toilet' ? '/toilet/' : (s.slug === 'bath' ? '/bath/' : (s.slug === 'kitchen' ? '/kitchen/' : (s.slug === 'washroom' ? '/washroom/' : (s.slug === 'eco-cute' ? '/eco-cute/' : (s.slug === 'pump' ? '/pump/' : `/services/${s.slug}/`)))))} class="service-chip-link">
+            <span class="s-icon">{s.icon}</span>
+            <span class="s-name">{s.title}</span>
+            <span class="s-price">{s.startingPrice}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- 料金案内抜粋 -->
+    <section class="content-block price-summary-box">
+      <h2 class="block-title">{name}での出動料金</h2>
+      <p class="price-desc">
+        那須塩原市・大田原市・那須町は基本出動重点エリアです。事前の確定見積もりにより、追加料金の心配なくご利用いただけます。
+      </p>
+      <div class="price-row-mini">
+        <div class="p-item">
+          <span>基本診断料金（8〜19時）</span>
+          <strong>3,500円</strong>
+        </div>
+        <div class="p-item">
+          <span>時間外診断料（日・祝・夜間）</span>
+          <strong>5,000円</strong>
+        </div>
+        <div class="p-item">
+          <span>水まわり修理作業工賃</span>
+          <strong>5,000円〜</strong>
+        </div>
+      </div>
+      <div class="p-link-wrap">
+        <a href="/pricing/" class="btn btn-outline">料金体系の詳細をみる →</a>
+      </div>
+    </section>
+
+    <!-- CTAバナー -->
+    <div class="service-cta-banner">
+      <div class="banner-text">
+        <h3>{name}の水まわりトラブル、今すぐお電話ください！</h3>
+        <p>{responseTime}で急行。お電話1本で国家資格者が直接対応いたします。</p>
+      </div>
+      <div class="banner-btn-group">
+        <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
+          🚨 090-2463-6638（24時間直通）
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .area-page-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 35px 0 45px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .page-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .page-content-container {
+    padding: 50px 20px;
+    max-width: 980px;
+  }
+
+  .content-block {
+    margin-bottom: 50px;
+  }
+
+  .block-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-main);
+    border-left: 5px solid var(--color-sub);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  .block-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sub-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-sub);
+  }
+
+  .area-intro-card {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+
+  .intro-main {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .features-list-box {
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border: 1px solid var(--color-border);
+  }
+
+  .fl-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--color-sub);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .features-list-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .features-list-box li {
+    font-size: 0.88rem;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+  }
+
+  .features-list-box li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--color-sub);
+    font-size: 0.8rem;
+  }
+
+  /* トラブルグリッド */
+  .issues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+
+  .issue-card {
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .issue-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .issue-body h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 6px;
+  }
+
+  .issue-body p {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* 事例グリッド */
+  .area-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .area-case-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .ac-img-wrap {
+    height: 180px;
+    position: relative;
+    background: #EBF4FA;
+  }
+
+  .ac-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ac-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .ac-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .ac-cat {
+    color: var(--color-sub);
+    font-weight: 700;
+  }
+
+  .ac-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .ac-title a {
+    color: var(--color-main);
+  }
+
+  .ac-title a:hover {
+    color: var(--color-sub);
+  }
+
+  .ac-consult {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    flex: 1;
+  }
+
+  .ac-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px;
+    font-size: 0.78rem;
+  }
+
+  .ac-cost {
+    color: #CF1322;
+    font-weight: 800;
+  }
+
+  .ac-link {
+    font-weight: 700;
+    color: var(--color-sub);
+  }
+
+  /* サービスチップリンク */
+  .service-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .service-chip-link {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .service-chip-link:hover {
+    border-color: var(--color-sub);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .s-icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  .s-name {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--color-main);
+  }
+
+  .s-price {
+    font-size: 0.75rem;
+    color: #CF1322;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* 料金ミニ */
+  .price-summary-box {
+    background: var(--color-bg-sub);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .price-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+  }
+
+  .price-row-mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .p-item {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-item span {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+  }
+
+  .p-item strong {
+    font-size: 1.25rem;
+    color: var(--color-main);
+    font-family: var(--font-en);
+    margin-top: 4px;
+  }
+
+  .p-link-wrap {
+    text-align: center;
+  }
+
+  /* CTAバナー */
+  .service-cta-banner {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+
+  .service-cta-banner h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .service-cta-banner p {
+    font-size: 0.9rem;
+    color: #DDE7F0;
+    margin: 0;
+  }
+
+  .btn-cta-large {
+    font-size: 1.15rem;
+    padding: 16px 28px;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

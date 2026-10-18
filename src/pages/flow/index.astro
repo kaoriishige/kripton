@@ -1,0 +1,217 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+
+const flowSteps = [
+  {
+    step: "STEP 1",
+    title: "お問い合わせ・無料相談",
+    desc: "お電話（24時間受付: 090-2463-6638）またはWebフォームよりご相談ください。緊急トラブル時は最短30分で駆けつけます。",
+    icon: "📞"
+  },
+  {
+    step: "STEP 2",
+    title: "現地調査・原因特定",
+    desc: "有資格者が現地へお伺いし、配管や器具の故障原因を正確に診断します。点検診断料（3,500円／時間外5,000円）が発生します。",
+    icon: "🔍"
+  },
+  {
+    step: "STEP 3",
+    title: "確定お見積もりのご提示",
+    desc: "作業を行う前に、必ず必要な部材と修理工賃の確定見積もりをお伝えします。ご納得いただくまで勝手に着工することはありません。",
+    icon: "📋"
+  },
+  {
+    step: "STEP 4",
+    title: "修理作業・自社責任施工",
+    desc: "水道局指定工事店の熟練技術者が安全・確実に修理を実施します。養生を徹底し、作業後も周囲を清潔に整えます。",
+    icon: "🛠️"
+  },
+  {
+    step: "STEP 5",
+    title: "通水確認・お立ち会い点検",
+    desc: "水漏れが完全に止まったか、正常に流れるかをお客様と一緒に確認いたします。作業内容も分かりやすく解説します。",
+    icon: "✨"
+  },
+  {
+    step: "STEP 6",
+    title: "お支払い・アフターサポート",
+    desc: "明細付きの正式な領収書を発行いたします。水道料金の漏水減免申請手続きが必要な場合は書類作成も代行いたします。",
+    icon: "🧾"
+  }
+];
+---
+
+<Layout
+  title="修理・リフォームの流れ｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="水まわり専門店クリプトンの修理・リフォームの流れ。お問い合わせから最短30分駆けつけ、現地診断、事前確定見積もり、自社責任施工、アフターフォローまでのステップをご紹介します。"
+>
+  <div class="flow-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>リフォームの流れ</span>
+      </nav>
+      <h1 class="page-title">水まわり修理・リフォームの流れ</h1>
+      <p class="page-lead">
+        ご相談から現地調査、お見積もり、施工、アフターサポートまで、<br />
+        お客様が安心してお任せいただける明瞭な6つのステップをご案内します。
+      </p>
+    </div>
+  </div>
+
+  <div class="container flow-body-container">
+    <div class="flow-steps-list">
+      {flowSteps.map((item, index) => (
+        <div class="flow-step-card">
+          <div class="flow-step-badge-col">
+            <span class="f-num">{item.step}</span>
+            <span class="f-icon">{item.icon}</span>
+          </div>
+          <div class="flow-step-content">
+            <h2>{item.title}</h2>
+            <p>{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="flow-cta-box">
+      <h3>水まわりの困りごと、まずはお電話ください</h3>
+      <p>那須塩原市・大田原市・那須町の公認指定工事店が迅速に急行します。</p>
+      <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
+        🚨 090-2463-6638（24時間受付 直通）
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .flow-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .flow-body-container {
+    padding: 60px 20px 80px;
+    max-width: 860px;
+  }
+
+  .flow-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  .flow-step-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .flow-step-badge-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 80px;
+  }
+
+  .f-num {
+    background: var(--color-main);
+    color: #FFFFFF;
+    font-family: var(--font-en);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .f-icon {
+    font-size: 2rem;
+  }
+
+  .flow-step-content {
+    flex: 1;
+  }
+
+  .flow-step-content h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .flow-step-content p {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .flow-cta-box {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .flow-cta-box h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .flow-cta-box p {
+    font-size: 0.92rem;
+    color: #DDE7F0;
+    margin-bottom: 20px;
+  }
+
+  .btn-cta-large {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .flow-step-card {
+      flex-direction: column;
+      gap: 14px;
+    }
+    .flow-step-badge-col {
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+</style>
