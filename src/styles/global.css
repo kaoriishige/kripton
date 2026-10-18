@@ -49,17 +49,38 @@ html {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  overscroll-behavior-x: none; /* スマホの横揺れ・バウンス防止 */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  overscroll-behavior-x: none; /* スマホの横揺れ・バウンス防止 */
   padding-bottom: 76px; /* スマホ固定電話フッター用余白 */
+}
+
+main, #main-content {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 900px) {
   body {
     padding-bottom: 0;
   }
+}
+
+/* 長い英単語・URLによる突き抜け防止 */
+p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 a {
@@ -72,10 +93,15 @@ a:hover {
   color: var(--color-main);
 }
 
-img {
+img, svg, video, canvas, audio, iframe, embed, object {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+table {
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .container {
@@ -83,8 +109,9 @@ img {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 }
 
 /* ボタン共通 */
