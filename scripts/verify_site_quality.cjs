@@ -26,16 +26,17 @@ const checkedPages = [];
 locMatches.forEach(url => {
   let relativePath = url.replace(domainBase, '');
   if (relativePath === '' || relativePath === '/') {
-    relativePath = '/index.html';
+    relativePath = 'index.html';
   } else {
     relativePath = relativePath.endsWith('/') ? `${relativePath}index.html` : `${relativePath}/index.html`;
   }
-  const filePath = path.join(distDir, relativePath);
+  const cleanRel = relativePath.replace(/^\/+/, '');
+  const filePath = path.join(distDir, cleanRel);
   if (!fs.existsSync(filePath)) {
     console.error(`❌ 実在しないページ: ${url} -> ${filePath}`);
     missingPages++;
   } else {
-    checkedPages.push({ url, filePath, relativePath });
+    checkedPages.push({ url, filePath, relativePath: cleanRel });
   }
 });
 
@@ -137,7 +138,7 @@ checkedPages.forEach(({ url, filePath }) => {
     let targetPath = lm[1];
     if (targetPath.startsWith('/images/') || targetPath.startsWith('/favicon') || targetPath.startsWith('/sitemap') || targetPath.startsWith('/robots') || targetPath.startsWith('/llms') || targetPath.startsWith('/_astro/')) {
       // 静的アセット
-      const cleanPath = targetPath.split('?')[0];
+      const cleanPath = targetPath.split('?')[0].replace(/^\/+/, '');
       const assetPath = path.join(distDir, cleanPath);
       if (!fs.existsSync(assetPath)) {
         console.error(`❌ 静的アセットリンク切れ (${url}): ${targetPath}`);
@@ -150,7 +151,8 @@ checkedPages.forEach(({ url, filePath }) => {
         targetFile = path.join(distDir, 'index.html');
       } else {
         const clean = targetPath.endsWith('/') ? targetPath.slice(0, -1) : targetPath;
-        targetFile = path.join(distDir, clean, 'index.html');
+        const cleanRel = clean.replace(/^\/+/, '');
+        targetFile = path.join(distDir, cleanRel, 'index.html');
       }
       if (!fs.existsSync(targetFile)) {
         console.error(`❌ 内部ページリンク切れ (${url}): ${targetPath}`);

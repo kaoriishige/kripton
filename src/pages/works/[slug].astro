@@ -123,7 +123,11 @@ const { caseItem } = Astro.props;
       <div class="related-links-bar">
         <span>関連するページ：</span>
         <a href="/works/" class="related-tag">施工事例一覧に戻る</a>
-        <a href={`/areas/${caseItem.relatedAreaId}/`} class="related-tag">{caseItem.municipality}の水まわり修理</a>
+        {['nasushiobara', 'ohtawara', 'nasu'].includes(caseItem.relatedAreaId) ? (
+          <a href={`/areas/${caseItem.relatedAreaId}/`} class="related-tag">{caseItem.municipality}の水まわり修理</a>
+        ) : (
+          <a href="/#areas" class="related-tag">対応地域一覧（那須塩原・大田原・那須町）</a>
+        )}
         <a href="/#services" class="related-tag">修理サービス一覧</a>
       </div>
     </div>

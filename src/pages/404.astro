@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { companyData } from '../data/company';
+---
+
+<Layout
+  title="404 ページが見つかりません｜水まわり専門店クリプトン【公式】"
+  description="お探しのページは見つかりませんでした。ページが移動または削除された可能性があります。水まわり専門店クリプトンのトップページへお戻りください。"
+  noindex={true}
+>
+  <div class="not-found-container">
+    <div class="container not-found-box">
+      <div class="character-area">
+        <img
+          src="/images/character/kripton-man4-1.jpg"
+          alt="困惑するクリプトンマン"
+          class="character-img"
+          width="180"
+          height="180"
+        />
+      </div>
+
+      <div class="message-area">
+        <span class="status-badge">404 NOT FOUND</span>
+        <h1 class="error-title">ページが見つかりませんでした</h1>
+        <p class="error-desc">
+          アクセスいただいたURLのページは、移動または削除されたか、アドレスが間違っている可能性があります。<br />
+          お手数ですが、下記のリンクより目的のページをお探しいただくか、トップページへお戻りください。
+        </p>
+
+        <div class="cta-actions">
+          <a href="/" class="btn-home">トップページへ戻る</a>
+          <a href={`tel:${companyData.telEmergency}`} class="btn-emergency">
+            🚨 お急ぎのお電話相談（24時間受付）
+          </a>
+        </div>
+
+        <div class="helpful-links">
+          <h4>よく見られているページ</h4>
+          <ul>
+            <li><a href="/toilet/">🚽 トイレつまり・修理</a></li>
+            <li><a href="/services/water-leak/">💧 水漏れ・配管修繕</a></li>
+            <li><a href="/pricing/">💴 修理料金のご案内</a></li>
+            <li><a href="/works/">📷 施工事例・写真一覧（全64件）</a></li>
+            <li><a href="/contact/">✉️ お問い合わせ・無料相談</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .not-found-container {
+    padding: 80px 20px;
+    background: #F8FAFC;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+  .not-found-box {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    padding: 50px 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  .character-img {
+    border-radius: 50%;
+    border: 4px solid #FFD591;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .status-badge {
+    display: inline-block;
+    background: #FEE2E2;
+    color: #DC2626;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+  }
+  .error-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 12px;
+  }
+  .error-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .btn-home {
+    background: #1976BB;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-home:hover {
+    background: #123B65;
+  }
+  .btn-emergency {
+    background: #CF1322;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-emergency:hover {
+    background: #A8071A;
+  }
+  .helpful-links h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 10px;
+  }
+  .helpful-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .helpful-links a {
+    font-size: 0.88rem;
+    color: #1976BB;
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .not-found-box {
+      flex-direction: column;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .cta-actions {
+      flex-direction: column;
+    }
+    .helpful-links ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
