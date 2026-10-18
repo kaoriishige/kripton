@@ -1,3 +1,7 @@
+# 旧サンプルURLのリダイレクト
+/works/sample  /works/  301!
+/services/sample  /#services  301!
+
 # 旧WordPress URLからの正規リダイレクト（実在ページはそのまま配信）
 /ketchen/  /kitchen/  301
 /emergency/  /contact/  301
@@ -85,3 +89,6 @@
 /event-20171125/  /news/event-20171125/  301
 /event-20170401/  /news/event-20170401/  301
 /event-20161126/  /news/event-20161126/  301
+
+# 404フォールバック
+/*  /404.html  404

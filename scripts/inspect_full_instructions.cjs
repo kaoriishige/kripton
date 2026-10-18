@@ -6,7 +6,7 @@ console.log('=== クリプトン公式サイト 最終検証・修正指示 全�
 
 // 1. all_cases.ts の読み込み
 const casesTs = fs.readFileSync('src/data/all_cases.ts', 'utf8');
-const marker = 'export const allCasesData: CaseStudy[] = ';
+const marker = 'export const allCasesData: CaseStudyItem[] = ';
 const start = casesTs.indexOf(marker) + marker.length;
 const end = casesTs.lastIndexOf('];');
 const allCases = JSON.parse(casesTs.substring(start, end + 1));
