@@ -27,8 +27,19 @@ import { companyData } from '../../data/company';
     <!-- 代表メッセージ -->
     <section class="about-section greeting-section">
       <div class="greeting-box">
-        <div class="greeting-avatar">
-          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" width="100" height="100" />
+        <div class="greeting-photo-wrap">
+          <picture>
+            <source srcset="/images/company/kripton.webp" type="image/webp" />
+            <img 
+              src="/images/company/kripton.png" 
+              alt="有限会社クリプトン 代表取締役 津久井 三男" 
+              class="greeting-photo"
+              width="240" 
+              height="300"
+              loading="eager"
+            />
+          </picture>
+          <span class="greeting-photo-caption">代表取締役 <strong>津久井 三男</strong></span>
         </div>
         <div class="greeting-text">
           <span class="g-sub">Representative Message</span>
@@ -174,28 +185,39 @@ import { companyData } from '../../data/company';
   }
 
   .greeting-box {
-    background: var(--color-bg-sub);
+    background: #FFFFFF;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     padding: 35px 30px;
     display: flex;
-    gap: 28px;
+    gap: 36px;
     align-items: flex-start;
   }
 
-  .greeting-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--color-sub);
+  .greeting-photo-wrap {
+    width: 220px;
     flex-shrink: 0;
+    text-align: center;
   }
 
-  .greeting-avatar img {
+  .greeting-photo {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(18, 59, 101, 0.12);
+    border: 3px solid #E2EEF8;
+    display: block;
+  }
+
+  .greeting-photo-caption {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--color-main);
+    font-weight: 700;
   }
 
   .greeting-text {
@@ -341,6 +363,15 @@ import { companyData } from '../../data/company';
     .greeting-box {
       flex-direction: column;
       align-items: center;
+      padding: 24px 20px;
+      gap: 20px;
+    }
+    .greeting-photo-wrap {
+      width: 180px;
+      margin: 0 auto;
+    }
+    .greeting-text h2 {
+      font-size: 1.25rem;
       text-align: center;
     }
     .spec-table th, .spec-table td {
