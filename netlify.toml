@@ -4,18 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-
-[[redirects]]
-  from = "https://xn--bbkyao7065bpyck41as89d.netlify.app/*"
-  to = "https://xn--bbkyao7065bpyck41as89d.com/:splat"
-  status = 301
-  force = false
