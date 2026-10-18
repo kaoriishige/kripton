@@ -1,0 +1,181 @@
+---
+import { areasData } from '../data/areas';
+---
+
+<section class="area-section" id="areas">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-en-title">Service Areas</span>
+      <h2 class="section-title">対応地域・重点出動エリア</h2>
+      <p class="section-lead">
+        那須塩原市・大田原市・那須町を中心に迅速対応。<br class="br-pc" />
+        各市町の水道局指定工事店として、自治体ごとの給水・排水条例に則った正確な工事を行います。
+      </p>
+    </div>
+
+    <div class="area-grid">
+      {areasData.map(area => (
+        <div class="card area-card">
+          <div class="area-card-header">
+            <span class="area-kana">{area.nameKana}</span>
+            <h3 class="area-name">{area.name}</h3>
+            <span class="area-response">{area.responseTime}</span>
+          </div>
+
+          <p class="area-catch">{area.catchphrase}</p>
+          <p class="area-desc">{area.description}</p>
+
+          <div class="area-details-box">
+            <span class="box-title">よくある地域トラブル：</span>
+            <ul>
+              {area.localIssues.map(issue => (
+                <li>{issue}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="area-footer">
+            <a href={`/areas/${area.id}/`} class="btn btn-outline area-btn">
+              {area.name}の修理案内を見る →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 広域対応案内 -->
+    <div class="sub-areas-bar">
+      <strong>その他の指定工事店対応エリア：</strong>
+      矢板市・塩谷町など近隣市町村もご相談可能です。お気軽にお問い合わせください。
+    </div>
+  </div>
+</section>
+
+<style>
+  .area-section {
+    padding: 70px 0;
+    background: #FFFFFF;
+  }
+
+  .area-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+
+  .area-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 4px solid var(--color-sub);
+  }
+
+  .area-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+  }
+
+  .area-kana {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+  }
+
+  .area-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-main);
+  }
+
+  .area-response {
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: #E6F7FF;
+    color: #096DD9;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .area-catch {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-main);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .area-desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .area-details-box {
+    background: var(--color-bg-sub);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+  }
+
+  .box-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-sub);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .area-details-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .area-details-box li {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 4px;
+  }
+
+  .area-details-box li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--color-sub);
+  }
+
+  .area-btn {
+    width: 100%;
+    font-size: 0.88rem;
+    padding: 10px;
+  }
+
+  .sub-areas-bar {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--color-text);
+  }
+
+  .sub-areas-bar strong {
+    color: var(--color-main);
+  }
+
+  @media (max-width: 600px) {
+    .area-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

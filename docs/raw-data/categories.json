@@ -1,0 +1,452 @@
+[
+  {
+    "id": 4,
+    "count": 19,
+    "description": "水まわり専門店.com のイベント情報をお知らせします。",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/event/",
+    "name": "イベント情報",
+    "slug": "event",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/4",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=4"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "count": 19,
+    "description": "トイレの故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/toilet/",
+    "name": "トイレの故障・修理・リフォーム",
+    "slug": "toilet",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/11",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=11"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "count": 12,
+    "description": "キッチンの故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/kitchen/",
+    "name": "キッチンの故障・修理・リフォーム",
+    "slug": "kitchen",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/8",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=8"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "count": 6,
+    "description": "お風呂の故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/bath/",
+    "name": "お風呂の故障・修理・リフォーム",
+    "slug": "bath",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/9",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=9"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "count": 4,
+    "description": "洗面所の故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/washroom/",
+    "name": "洗面所の故障・修理・リフォーム",
+    "slug": "washroom",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/10",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=10"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "count": 11,
+    "description": "ボイラーの故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/boiler/",
+    "name": "ボイラーの故障・修理・リフォーム",
+    "slug": "boiler",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/12",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=12"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "count": 1,
+    "description": "井戸ポンプの故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/pump/",
+    "name": "井戸ポンプの故障・修理・リフォーム",
+    "slug": "pump",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/18",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=18"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "count": 10,
+    "description": "水まわりの故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/sink-area/",
+    "name": "水まわりの故障・修理・リフォーム",
+    "slug": "sink-area",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/13",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=13"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "count": 1,
+    "description": "その他の故障・修理・リフォーム",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/etc/",
+    "name": "その他の故障・修理・リフォーム",
+    "slug": "etc",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/19",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=19"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "count": 0,
+    "description": "",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/category/%e6%9c%aa%e5%88%86%e9%a1%9e/",
+    "name": "未分類",
+    "slug": "%e6%9c%aa%e5%88%86%e9%a1%9e",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories/1",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?categories=1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

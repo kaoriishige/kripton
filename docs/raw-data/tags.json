@@ -1,0 +1,178 @@
+[
+  {
+    "id": 14,
+    "count": 1,
+    "description": "",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/tag/%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%83%b3/",
+    "name": "クリプトン",
+    "slug": "%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%83%b3",
+    "taxonomy": "post_tag",
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags/14",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?tags=14"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "count": 1,
+    "description": "",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/tag/%e3%81%8a%e3%81%be%e3%81%a4%e3%83%aa/",
+    "name": "おまつリ",
+    "slug": "%e3%81%8a%e3%81%be%e3%81%a4%e3%83%aa",
+    "taxonomy": "post_tag",
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags/15",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?tags=15"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "count": 1,
+    "description": "",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/tag/%e3%83%90%e3%82%b9%ef%bc%86%e3%82%ad%e3%83%83%e3%83%81%e3%83%b3/",
+    "name": "バス＆キッチン",
+    "slug": "%e3%83%90%e3%82%b9%ef%bc%86%e3%82%ad%e3%83%83%e3%83%81%e3%83%b3",
+    "taxonomy": "post_tag",
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags/16",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?tags=16"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "count": 1,
+    "description": "",
+    "link": "https://xn--bbkyao7065bpyck41as89d.com/tag/%e5%b1%95%e7%a4%ba%e4%bc%9a/",
+    "name": "展示会",
+    "slug": "%e5%b1%95%e7%a4%ba%e4%bc%9a",
+    "taxonomy": "post_tag",
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags/17",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/tags"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/taxonomies/post_tag"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://xn--bbkyao7065bpyck41as89d.com/wp-json/wp/v2/posts?tags=17"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

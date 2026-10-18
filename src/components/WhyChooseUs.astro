@@ -1,0 +1,179 @@
+---
+import { companyData } from '../data/company';
+---
+
+<section class="why-us-section" id="why-us">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-en-title">Why Choose Us</span>
+      <h2 class="section-title">クリプトンが選ばれる理由</h2>
+      <p class="section-lead">
+        那須エリアで創業30年。下請け任せにしない自社責任施工と公認指定工事店の技術で、<br class="br-pc" />
+        お客様の水まわりの安心を守り続けています。
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <!-- 理由1 -->
+      <div class="card why-card">
+        <div class="why-number">01</div>
+        <div class="why-body">
+          <span class="why-tag">地域密着</span>
+          <h3 class="why-title">那須エリア最短30分で駆けつけ</h3>
+          <p class="why-text">
+            那須塩原市（黒磯）に拠点を構えているため、大手チェーンのコールセンター経由とは異なり、地元スタッフが迅速に現地へ急行します。
+          </p>
+        </div>
+      </div>
+
+      <!-- 理由2 -->
+      <div class="card why-card">
+        <div class="why-number">02</div>
+        <div class="why-body">
+          <span class="why-tag">行政認可</span>
+          <h3 class="why-title">自治体公認の給水・排水指定工事店</h3>
+          <p class="why-text">
+            那須塩原市・大田原市・那須町をはじめとする各自治体の公認指定工事店です。法令に則った安心の工事と水道局への申請・減免手続きも行えます。
+          </p>
+          <div class="license-mini-list">
+            <span>那須塩原市</span> / <span>大田原市</span> / <span>那須町</span> / <span>矢板市</span> / <span>塩谷町</span> 指定
+          </div>
+        </div>
+      </div>
+
+      <!-- 理由3 -->
+      <div class="card why-card">
+        <div class="why-number">03</div>
+        <div class="why-body">
+          <span class="why-tag">完全自社施工</span>
+          <h3 class="why-title">中間マージンなし＆国家資格者が対応</h3>
+          <p class="why-text">
+            営業だけの会社や斡旋業者とは異なり、一級管工事施工管理技士などの国家資格を持つ職人が調査から施工まで責任を持って自社完結します。
+          </p>
+        </div>
+      </div>
+
+      <!-- 理由4 -->
+      <div class="card why-card">
+        <div class="why-number">04</div>
+        <div class="why-body">
+          <span class="why-tag">明瞭会計</span>
+          <h3 class="why-title">事前見積もり徹底・不当な高額請求ゼロ</h3>
+          <p class="why-text">
+            現地調査で原因を正確に突き止めた上で、必ず作業前に金額をご案内します。お客様のご納得をいただいてから着工するため安心です。
+          </p>
+        </div>
+      </div>
+
+      <!-- 理由5 -->
+      <div class="card why-card">
+        <div class="why-number">05</div>
+        <div class="why-body">
+          <span class="why-tag">24時間対応</span>
+          <h3 class="why-title">年中無休の緊急受付体制</h3>
+          <p class="why-text">
+            「深夜にトイレがつまった」「真冬の早朝に水道管が凍結破裂した」など、突然の緊急事態に直通ダイヤルで24時間365日対応します。
+          </p>
+        </div>
+      </div>
+
+      <!-- 理由6 -->
+      <div class="card why-card">
+        <div class="why-number">06</div>
+        <div class="why-body">
+          <span class="why-tag">寒冷地ノウハウ</span>
+          <h3 class="why-title">那須高原の別荘・凍結・井戸に精通</h3>
+          <p class="why-text">
+            冬期のマイナス気温下での水抜き・通水・解氷作業や、浅井戸・深井戸ポンプの修理など、那須特有の環境に精通した深い知見があります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-us-section {
+    padding: 70px 0;
+    background: var(--color-bg-sub);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .why-card {
+    padding: 30px 24px;
+    display: flex;
+    gap: 20px;
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-number {
+    font-family: var(--font-en);
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--color-sub);
+    opacity: 0.25;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .why-body {
+    flex: 1;
+  }
+
+  .why-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-sub);
+    background: var(--color-sub-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .why-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .why-text {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .license-mini-list {
+    margin-top: 10px;
+    font-size: 0.76rem;
+    color: var(--color-sub);
+    font-weight: 700;
+    background: var(--color-bg-sub);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .why-card {
+      padding: 20px 16px;
+      gap: 14px;
+    }
+    .why-number {
+      font-size: 1.8rem;
+    }
+    .why-title {
+      font-size: 1.05rem;
+    }
+  }
+</style>

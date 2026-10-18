@@ -1,0 +1,197 @@
+---
+---
+
+<section class="krypton-man-section" id="krypton-man">
+  <div class="container">
+    <div class="krypton-man-box">
+      <div class="character-col">
+        <div class="character-circle">
+          <img
+            src="/images/character/kripton-man4-1.jpg"
+            alt="水まわりの味方 クリプトンマン"
+            class="krypton-img"
+            width="260"
+            height="260"
+          />
+        </div>
+        <span class="character-name-badge">水まわりの味方「クリプトンマン」</span>
+      </div>
+
+      <div class="content-col">
+        <span class="sub-label">Krypton Man Column</span>
+        <h2 class="column-title">クリプトンマンの水まわり緊急ワンポイント講座</h2>
+        <p class="column-lead">
+          「水が止まらない！」「トイレがつまった！」そんな時、慌てずにまず確認してほしい応急処置を僕が教えます！
+        </p>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <span class="tip-num">TIP 01</span>
+            <h3 class="tip-title">水が溢れたら、まず「止水栓」を閉める！</h3>
+            <p class="tip-text">
+              トイレの壁際や洗面台の下、あるいは屋外の水道メーターボックス内にある「元栓」を時計回りに回せば、水漏れは即座に止まります！
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <span class="tip-num">TIP 02</span>
+            <h3 class="tip-title">トイレつまりで絶対にレバーを連続で引かない！</h3>
+            <p class="tip-text">
+              流れない状態でレバーを何度も引くと便器から汚水が溢れ出ます！まずは水が引くまで待ち、ラバーカップを静かに押し当ててください。
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <span class="tip-num">TIP 03</span>
+            <h3 class="tip-title">冬場の凍結配管に熱湯をかけるのは厳禁！</h3>
+            <p class="tip-text">
+              急激な温度変化で配管や蛇口が破裂します！タオルを巻いてぬるま湯（50度以下）をかけるか、ドライヤーでじわじわ温めましょう。
+            </p>
+          </div>
+        </div>
+
+        <div class="column-footer">
+          <p class="footer-notice">
+            ※無理に強い力を加えると配管を破損させることがあります。不安なときは無理をせずクリプトンへお電話ください！
+          </p>
+          <a href="#contact" class="btn btn-phone btn-tip">
+            水まわりのトラブルをクリプトンマンに相談する
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .krypton-man-section {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #0A243F 0%, #123B65 100%);
+    color: #FFFFFF;
+  }
+
+  .krypton-man-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .krypton-man-box {
+      grid-template-columns: 280px 1fr;
+    }
+  }
+
+  .character-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .character-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #FFD591;
+    box-shadow: 0 0 30px rgba(243, 152, 51, 0.4);
+    margin-bottom: 14px;
+    background: #FFFFFF;
+  }
+
+  .krypton-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .character-name-badge {
+    background: #F39833;
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sub-label {
+    font-family: var(--font-en);
+    font-size: 0.85rem;
+    color: #FFD591;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .column-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 6px 0 12px;
+    color: #FFFFFF;
+  }
+
+  .column-lead {
+    font-size: 0.95rem;
+    color: #DDE7F0;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tip-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    padding: 16px;
+  }
+
+  .tip-num {
+    font-family: var(--font-en);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #FFD591;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .tip-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .tip-text {
+    font-size: 0.82rem;
+    color: #DDE7F0;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .column-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .footer-notice {
+    font-size: 0.78rem;
+    color: #FFD591;
+    margin: 0;
+  }
+
+  .btn-tip {
+    max-width: 440px;
+  }
+</style>

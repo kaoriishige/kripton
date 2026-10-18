@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCardList from '../components/ServiceCardList.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import PriceSection from '../components/PriceSection.astro';
+import RecentCases from '../components/RecentCases.astro';
+import AreaSection from '../components/AreaSection.astro';
+import KryptonManGuide from '../components/KryptonManGuide.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<Layout
+  title="水まわり専門店クリプトン【公式】 - 那須塩原市・大田原市・那須町の水漏れ・つまり緊急対応"
+  description="那須塩原市・大田原市・那須町の水漏れ、トイレつまり、給湯器修理なら水まわり専門店クリプトン（有限会社クリプトン）。創業30年・水道局指定工事店・自社施工で24時間365日緊急駆けつけ！基本診断料3,500円、修理5,000円〜。"
+>
+  <!-- ② メインビジュアル -->
+  <Hero />
+
+  <!-- ③ 症状から探す -->
+  <ServiceCardList />
+
+  <!-- ④ クリプトンが選ばれる理由 -->
+  <WhyChooseUs />
+
+  <!-- ⑤ 料金案内 -->
+  <PriceSection />
+
+  <!-- ⑥ 施工事例 -->
+  <RecentCases />
+
+  <!-- ⑦ 対応地域 -->
+  <AreaSection />
+
+  <!-- ⑧ クリプトンマンのお役立ち情報 -->
+  <KryptonManGuide />
+
+  <!-- ⑨ よくある質問 -->
+  <FaqSection />
+
+  <!-- ⑩ 会社情報・問い合わせ -->
+  <ContactSection />
+</Layout>

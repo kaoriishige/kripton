@@ -1,0 +1,99 @@
+ID,ContentType,OldTitle,OldUrl,NewUrl,MigrationStatus,DataCompleteness,ActionRequired
+7,固定ページ,"水まわり専門店クリプトン【公式】","https://xn--bbkyao7065bpyck41as89d.com/","/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+526,固定ページ,"井戸ポンプのリフォーム","https://xn--bbkyao7065bpyck41as89d.com/pump/","/services/pump/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+207,固定ページ,"その他リフォーム","https://xn--bbkyao7065bpyck41as89d.com/other-reform/","/services/other-reform/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+195,固定ページ,"年に一度は水まわりの点検を！","https://xn--bbkyao7065bpyck41as89d.com/inspection/","/inspection/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+163,固定ページ,"給湯器のリフォーム","https://xn--bbkyao7065bpyck41as89d.com/eco-cute/","/services/eco-cute/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+103,固定ページ,"会社案内","https://xn--bbkyao7065bpyck41as89d.com/about/","/about/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+101,固定ページ,"個人情報保護方針","https://xn--bbkyao7065bpyck41as89d.com/privacy/","/privacy/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+89,固定ページ,"緊急対応！","https://xn--bbkyao7065bpyck41as89d.com/emergency/","/emergency/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+85,固定ページ,"お問い合わせ","https://xn--bbkyao7065bpyck41as89d.com/contact/","/contact/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+75,固定ページ,"リフォームの流れ","https://xn--bbkyao7065bpyck41as89d.com/flow/","/flow/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+69,固定ページ,"選ばれる７つの理由","https://xn--bbkyao7065bpyck41as89d.com/feature/","/feature/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+64,固定ページ,"トイレのリフォーム","https://xn--bbkyao7065bpyck41as89d.com/toilet/","/services/toilet/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+50,固定ページ,"洗面所のリフォーム","https://xn--bbkyao7065bpyck41as89d.com/washroom/","/services/washroom/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+38,固定ページ,"お風呂のリフォーム","https://xn--bbkyao7065bpyck41as89d.com/bath/","/services/bath/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+29,固定ページ,"キッチンのリフォーム","https://xn--bbkyao7065bpyck41as89d.com/ketchen/","/services/kitchen/",抽出完了・新デザインへ移植準備,HTML・テキスト取得済（100%）,新UIコンポーネントへの当て込み・最新確認
+1757,施工事例,"那須塩原市H邸｜シャワートイレの水漏れをきっかけにトイレをリフォーム","https://xn--bbkyao7065bpyck41as89d.com/toilet-048/","/works/toilet-048/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1746,施工事例,"那須塩原市H邸｜台所の水栓から水漏れ・修理ではなく交換しました","https://xn--bbkyao7065bpyck41as89d.com/kitchen-005/","/works/kitchen-005/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1693,お知らせ,"那須塩原市「クリプトン祭」開催！10月17日（土）地域感謝祭","https://xn--bbkyao7065bpyck41as89d.com/kuriputon-matsuri-2026/","/news/kuriputon-matsuri-2026/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1622,施工事例,"那須町H様邸のトイレリフォームご紹介","https://xn--bbkyao7065bpyck41as89d.com/toilet-047/","/works/toilet-047/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1539,施工事例,"【那須塩原市T様邸】突然のトイレ故障…20年使用で交換となりました","https://xn--bbkyao7065bpyck41as89d.com/toilet-046/","/works/toilet-046/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1529,施工事例,"【那須塩原市S様邸】トイレタンク内の水漏れ修理を行いました！","https://xn--bbkyao7065bpyck41as89d.com/toilet-045/","/works/toilet-045/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1518,施工事例,"トイレが流れない原因は“まさかの木の根”！｜那須塩原市W様邸","https://xn--bbkyao7065bpyck41as89d.com/other-008/","/works/other-008/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1499,施工事例,"【那須町T様邸】エコキュート水漏れ…寒波の影響で給湯器交換に","https://xn--bbkyao7065bpyck41as89d.com/boiler-011/","/works/boiler-011/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1488,施工事例,"黒い排気が出て緊急停止…石油給湯機を本体交換しました","https://xn--bbkyao7065bpyck41as89d.com/boiler-010/","/works/boiler-010/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1476,施工事例,"床が抜けそう…からのトイレ全面リフォームで見違える空間に！","https://xn--bbkyao7065bpyck41as89d.com/toilet-044/","/works/toilet-044/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1460,施工事例,"大田原市H様邸　大寒波による給湯トラブルと配管ヒーター交換工事","https://xn--bbkyao7065bpyck41as89d.com/boiler-009/","/works/boiler-009/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1449,施工事例,"那須塩原市Y様邸　和風兼用便器から洋風便器へ交換工事","https://xn--bbkyao7065bpyck41as89d.com/toilet-043/","/works/toilet-043/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1435,お知らせ,"あなたの給湯器、「発火寸前」かも？ 緊急告知-20260113","https://xn--bbkyao7065bpyck41as89d.com/event-20260113/","/news/event-20260113/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1410,施工事例,"大田原市Ｈ様邸　TOTO一体型ウォシュレット付きトイレ１F、２F 同時交換工事","https://xn--bbkyao7065bpyck41as89d.com/toilet-042/","/works/toilet-042/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1398,施工事例,"那須塩原市H邸の古くなった流し台を最新のシステムキッチンへ交換","https://xn--bbkyao7065bpyck41as89d.com/kitchen-008/","/works/kitchen-008/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1393,お知らせ,"冬季の水道管凍結にご注意ください！（目安：気温-4℃以下）","https://xn--bbkyao7065bpyck41as89d.com/event-20251204/","/news/event-20251204/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1383,施工事例,"那須塩原市 N様邸　ガス給湯器からエコキュートへ交換！","https://xn--bbkyao7065bpyck41as89d.com/boiler-008/","/works/boiler-008/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1373,施工事例,"矢板市S様邸 台所の水栓交換工事","https://xn--bbkyao7065bpyck41as89d.com/kitchn-007/","/works/kitchn-007/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1365,施工事例,"那須塩原市 S様邸　石油給湯機の交換工事","https://xn--bbkyao7065bpyck41as89d.com/boiler-007/","/works/boiler-007/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1356,施工事例,"那須塩原市 M様邸　エコキュート交換工事","https://xn--bbkyao7065bpyck41as89d.com/boiler-006/","/works/boiler-006/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1344,施工事例,"ユニットバスのシャワー交換とカウンターリメイク","https://xn--bbkyao7065bpyck41as89d.com/bath-007/","/works/bath-007/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1340,施工事例,"那須塩原市I邸 ベランダ防水補修工事","https://xn--bbkyao7065bpyck41as89d.com/etc-001/","/works/etc-001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1336,施工事例,"那須町H邸 井戸ポンプ交換工事","https://xn--bbkyao7065bpyck41as89d.com/pump-001/","/works/pump-001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1319,施工事例,"那須塩原市M邸 台所水栓交換工事","https://xn--bbkyao7065bpyck41as89d.com/kitchn-006/","/works/kitchn-006/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1307,施工事例,"那須塩原市M邸　20年以上使用したトイレを高級感あふれる癒しの空間にリフォーム！","https://xn--bbkyao7065bpyck41as89d.com/toilet-041/","/works/toilet-041/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1293,施工事例,"大田原市W様邸　TOTOウォシュレット一体型へ交換工事","https://xn--bbkyao7065bpyck41as89d.com/toilet-040/","/works/toilet-040/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1283,施工事例,"那須塩原市O邸 太陽熱温水器撤去・屋根補修工事のご紹介","https://xn--bbkyao7065bpyck41as89d.com/other-007/","/works/other-007/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1269,施工事例,"大田原市・H様邸 エコキュート交換工事","https://xn--bbkyao7065bpyck41as89d.com/boiler-005/","/works/boiler-005/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1212,お知らせ,"2025 キッチン＆バス展示会！！　byクリナップ","https://xn--bbkyao7065bpyck41as89d.com/event-20250530/","/news/event-20250530/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1220,施工事例,"クッションフロアーを変えて新しい便器に交換しました","https://xn--bbkyao7065bpyck41as89d.com/toilet-039/","/works/toilet-039/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1201,施工事例,"軟水器イオンソフナー、これで飲める水が作れます","https://xn--bbkyao7065bpyck41as89d.com/pump-002/","/works/pump-002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1188,施工事例,"腐食により水栓が折れたので交換しました","https://xn--bbkyao7065bpyck41as89d.com/kitchn-005/","/works/kitchn-005/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1176,施工事例,"ユニットバスの新しい浴室になりました","https://xn--bbkyao7065bpyck41as89d.com/bath-006/","/works/bath-006/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1164,施工事例,"不便を感じて洋風便器にする事にしました","https://xn--bbkyao7065bpyck41as89d.com/toilet-038/","/works/toilet-038/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1159,施工事例,"台所の換気扇、古くなり動かなくなりました","https://xn--bbkyao7065bpyck41as89d.com/kitchen-004/","/works/kitchen-004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1152,施工事例,"外流しの不凍栓が故障して困りました","https://xn--bbkyao7065bpyck41as89d.com/sink-area-007/","/works/sink-area-007/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1103,お知らせ,"2024 クリプトンおまつり 体験レポート","https://xn--bbkyao7065bpyck41as89d.com/event-20241123-2/","/news/event-20241123-2/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1095,お知らせ,"2024 クリプトンおまつリ バス＆キッチン展示会","https://xn--bbkyao7065bpyck41as89d.com/event-20241123/","/news/event-20241123/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1053,お知らせ,"2024 キッチン＆バス展示会！！byクリナップ","https://xn--bbkyao7065bpyck41as89d.com/event-20240614/","/news/event-20240614/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+1019,お知らせ,"冬季の-4℃以下　水道管凍結注意！","https://xn--bbkyao7065bpyck41as89d.com/event-20231122/","/news/event-20231122/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+973,お知らせ,"2023 クリプトン特別感謝祭の報告！","https://xn--bbkyao7065bpyck41as89d.com/event-20230916/","/news/event-20230916/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+868,お知らせ,"暑い夏が来る前に，エアコン清掃して，省エネに協力しませんか？","https://xn--bbkyao7065bpyck41as89d.com/event-20220701/","/news/event-20220701/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+472,お知らせ,"2020　夏のキャンペーン３選！！","https://xn--bbkyao7065bpyck41as89d.com/event-20200701/","/news/event-20200701/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+400,施工事例,"水回りメーカーの色々１０項目！","https://xn--bbkyao7065bpyck41as89d.com/sink-area006/","/works/sink-area006/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+394,施工事例,"水回り風水あるある９項目！","https://xn--bbkyao7065bpyck41as89d.com/sink-area005/","/works/sink-area005/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+389,施工事例,"水回り間取りについて１０件！","https://xn--bbkyao7065bpyck41as89d.com/sink-area004/","/works/sink-area004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+383,施工事例,"水回りコーティングについて９項目！","https://xn--bbkyao7065bpyck41as89d.com/sink-area003/","/works/sink-area003/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+376,施工事例,"水回り修理について９項目！","https://xn--bbkyao7065bpyck41as89d.com/sink-area002/","/works/sink-area002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+365,施工事例,"水回りのリフォーム９項目！","https://xn--bbkyao7065bpyck41as89d.com/sink-area001/","/works/sink-area001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+360,施工事例,"給湯器修理に関する９項目！","https://xn--bbkyao7065bpyck41as89d.com/boiler004/","/works/boiler004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+356,施工事例,"給湯器故障の９チェック項目！","https://xn--bbkyao7065bpyck41as89d.com/boiler003/","/works/boiler003/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+349,施工事例,"ボイラー修理の項目９選！","https://xn--bbkyao7065bpyck41as89d.com/boiler002/","/works/boiler002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+340,施工事例,"ボイラー故障の９パターン！","https://xn--bbkyao7065bpyck41as89d.com/boiler001/","/works/boiler001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+333,施工事例,"ボットン便所とは汲み取り式便所のこと？","https://xn--bbkyao7065bpyck41as89d.com/toilet008/","/works/toilet008/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+328,施工事例,"トイレの壁紙をおしゃれに張り替える方法！","https://xn--bbkyao7065bpyck41as89d.com/toilet007/","/works/toilet007/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+324,施工事例,"トイレリフォーム９項目！","https://xn--bbkyao7065bpyck41as89d.com/toilet006/","/works/toilet006/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+322,施工事例,"トイレ修理で安いのは？７項目について徹底解明しました！","https://xn--bbkyao7065bpyck41as89d.com/toilet005/","/works/toilet005/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+318,施工事例,"トイレ修理のタンクについて！７項目を徹底調査した結果？","https://xn--bbkyao7065bpyck41as89d.com/toilet004/","/works/toilet004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+316,施工事例,"トイレ修理の値段は？６項目を徹底調査してみた！","https://xn--bbkyao7065bpyck41as89d.com/%e3%83%88%e3%82%a4%e3%83%ac%e4%bf%ae%e7%90%86%e3%81%ae%e5%80%a4%e6%ae%b5%e3%81%af%ef%bc%9f%ef%bc%96%e9%a0%85%e7%9b%ae%e3%82%92%e5%be%b9%e5%ba%95%e8%aa%bf%e6%9f%bb%e3%81%97%e3%81%a6%e3%81%bf%e3%81%9f/","/works/%e3%83%88%e3%82%a4%e3%83%ac%e4%bf%ae%e7%90%86%e3%81%ae%e5%80%a4%e6%ae%b5%e3%81%af%ef%bc%9f%ef%bc%96%e9%a0%85%e7%9b%ae%e3%82%92%e5%be%b9%e5%ba%95%e8%aa%bf%e6%9f%bb%e3%81%97%e3%81%a6%e3%81%bf%e3%81%9f/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+312,施工事例,"トイレつまりの解消方法！８つの方法をまとめました！","https://xn--bbkyao7065bpyck41as89d.com/toilet002/","/works/toilet002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+299,施工事例,"トイレの故障は自分で直せるの？１２項目について徹底的に説明します！","https://xn--bbkyao7065bpyck41as89d.com/toilet001/","/works/toilet001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+294,施工事例,"洗面所のリフォーム１０項目！","https://xn--bbkyao7065bpyck41as89d.com/wash-basin004/","/works/wash-basin004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+290,施工事例,"洗面台リフォームの１０項目！","https://xn--bbkyao7065bpyck41as89d.com/wash-basin003/","/works/wash-basin003/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+287,施工事例,"洗面台修理の１０項目！","https://xn--bbkyao7065bpyck41as89d.com/wash-basin002/","/works/wash-basin002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+278,施工事例,"洗面台の故障１０項目！","https://xn--bbkyao7065bpyck41as89d.com/wash-basin001/","/works/wash-basin001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+275,施工事例,"お風呂リフォームの１０項目！","https://xn--bbkyao7065bpyck41as89d.com/bath004/","/works/bath004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+271,施工事例,"バスのリフォーム８項目！","https://xn--bbkyao7065bpyck41as89d.com/bath003/","/works/bath003/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+267,施工事例,"お風呂修理の１０項目！","https://xn--bbkyao7065bpyck41as89d.com/bath002/","/works/bath002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+259,施工事例,"お風呂の故障９項目！","https://xn--bbkyao7065bpyck41as89d.com/bath001/","/works/bath001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+254,施工事例,"キッチンのリフォーム１０項目！","https://xn--bbkyao7065bpyck41as89d.com/kitchen006/","/works/kitchen006/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+252,施工事例,"キッチン修理の費用１０項目！","https://xn--bbkyao7065bpyck41as89d.com/kitchen005/","/works/kitchen005/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+250,施工事例,"キッチンの故障１０項目！","https://xn--bbkyao7065bpyck41as89d.com/kitchen004/","/works/kitchen004/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+248,施工事例,"蛇口の水漏れ６項目！","https://xn--bbkyao7065bpyck41as89d.com/kitchen003/","/works/kitchen003/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+242,施工事例,"水道の水漏れ８項目！","https://xn--bbkyao7065bpyck41as89d.com/kitchen002/","/works/kitchen002/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+234,施工事例,"キッチン水漏れ主な９ヶ所！","https://xn--bbkyao7065bpyck41as89d.com/kitchen001/","/works/kitchen001/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+139,お知らせ,"2019 クリナップ70周年感謝フェア","https://xn--bbkyao7065bpyck41as89d.com/event-20191101/","/news/event-20191101/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+137,お知らせ,"2019 水洗トイレ交換フェア","https://xn--bbkyao7065bpyck41as89d.com/event-20190701/","/news/event-20190701/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+134,お知らせ,"2018 わくわく感謝祭","https://xn--bbkyao7065bpyck41as89d.com/event-20181202/","/news/event-20181202/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+130,お知らせ,"2018 クリナップ知って得する体感フェア","https://xn--bbkyao7065bpyck41as89d.com/event-20180629/","/news/event-20180629/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+127,お知らせ,"2018 第１回 感謝祭","https://xn--bbkyao7065bpyck41as89d.com/event-20180325/","/news/event-20180325/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+125,お知らせ,"2017 わくわく感謝祭","https://xn--bbkyao7065bpyck41as89d.com/event-20171125/","/news/event-20171125/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+123,お知らせ,"2017 キッチン＆バス リフォーム展示会","https://xn--bbkyao7065bpyck41as89d.com/event-20170401/","/news/event-20170401/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング
+113,お知らせ,"2016 わくわく感謝水まわりリフォーム祭り","https://xn--bbkyao7065bpyck41as89d.com/event-20161126/","/news/event-20161126/",抽出完了・Markdown変換準備,HTML・テキスト・画像リンク取得済（100%）,Astro Content Collectionスキーマへマッピング

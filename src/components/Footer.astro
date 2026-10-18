@@ -1,0 +1,191 @@
+---
+import { companyData } from '../data/company';
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <!-- 会社・キャラクター紹介 -->
+      <div class="footer-company-col">
+        <div class="footer-brand">
+          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" class="footer-avatar" width="40" height="40" />
+          <span class="footer-brand-name">水まわり専門店<strong>クリプトン</strong></span>
+        </div>
+        <p class="footer-address">
+          〒{companyData.postalCode} {companyData.address}<br />
+          TEL: {companyData.telMain} / FAX: {companyData.fax}<br />
+          緊急直通: {companyData.telEmergency}（24時間365日受付）
+        </p>
+        <div class="footer-badges">
+          <span class="f-badge">給水・排水指定工事店</span>
+          <span class="f-badge">自社責任施工</span>
+          <span class="f-badge">一級管工事施工管理技士</span>
+        </div>
+      </div>
+
+      <!-- ナビゲーション列1 -->
+      <div class="footer-nav-col">
+        <h4 class="footer-heading">修理・サービス</h4>
+        <ul class="footer-links">
+          <li><a href="/services/toilet/">トイレつまり・修理</a></li>
+          <li><a href="/#services">水漏れ・配管修繕</a></li>
+          <li><a href="/#services">蛇口・水栓交換</a></li>
+          <li><a href="/#services">給湯器・ボイラー故障</a></li>
+          <li><a href="/#services">水道管凍結・破裂</a></li>
+          <li><a href="/#services">井戸ポンプ修理・交換</a></li>
+          <li><a href="/#services">キッチン・お風呂・洗面所</a></li>
+        </ul>
+      </div>
+
+      <!-- ナビゲーション列2 -->
+      <div class="footer-nav-col">
+        <h4 class="footer-heading">対応地域・実績</h4>
+        <ul class="footer-links">
+          <li><a href="/#areas">那須塩原市の水まわり修理</a></li>
+          <li><a href="/#areas">大田原市の水まわり修理</a></li>
+          <li><a href="/#areas">那須町の水まわり修理</a></li>
+          <li><a href="/#pricing">安心の料金案内</a></li>
+          <li><a href="/#cases">実際の施工事例</a></li>
+          <li><a href="/#why-us">クリプトンが選ばれる理由</a></li>
+          <li><a href="/#faq">よくある質問</a></li>
+        </ul>
+      </div>
+
+      <!-- ナビゲーション列3 -->
+      <div class="footer-nav-col">
+        <h4 class="footer-heading">企業情報</h4>
+        <ul class="footer-links">
+          <li><a href="/#company">会社案内・保有資格</a></li>
+          <li><a href="/#krypton-man">クリプトンマンの豆知識</a></li>
+          <li><a href="/#contact">お問い合わせ</a></li>
+          <li><a href="/privacy/">個人情報保護方針</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {new Date().getFullYear()} 有限会社クリプトン All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0A243F;
+    color: #DDE7F0;
+    padding: 60px 0 30px;
+    font-size: 0.88rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 36px;
+    margin-bottom: 50px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .footer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-sub);
+    object-fit: cover;
+  }
+
+  .footer-brand-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .footer-brand-name strong {
+    color: #FFD591;
+  }
+
+  .footer-address {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #A3BFD9;
+  }
+
+  .footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .f-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFD591;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 213, 145, 0.3);
+  }
+
+  .footer-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--color-phone);
+    padding-left: 8px;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+
+  .footer-links a {
+    color: #A3BFD9;
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 24px;
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 0.78rem;
+    color: #7B9BB8;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>

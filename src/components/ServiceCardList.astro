@@ -1,0 +1,229 @@
+---
+import { servicesData } from '../data/services';
+---
+
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-en-title">Trouble & Services</span>
+      <h2 class="section-title">症状・場所から修理を探す</h2>
+      <p class="section-lead">
+        トイレつまり、蛇口からのポタポタ水漏れ、給湯器からのお湯が出ないトラブルなど、<br class="br-pc" />
+        水まわりの困りごとにプロが迅速に対処します。
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {servicesData.map(service => (
+        <div class="card service-card">
+          <div class="service-card-top">
+            <div class="service-icon-box">{service.icon}</div>
+            <div class="service-badges">
+              {service.badge && <span class="badge badge-emergency">{service.badge}</span>}
+              <span class="badge">緊急度: {service.emergencyLevel}</span>
+            </div>
+          </div>
+
+          <h3 class="service-card-title">{service.title}</h3>
+          <p class="service-card-desc">{service.shortDesc}</p>
+
+          <div class="service-trouble-list">
+            <span class="trouble-list-title">よくある症状：</span>
+            <ul>
+              {service.commonTroubles.slice(0, 3).map(t => (
+                <li>{t}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="service-card-bottom">
+            <div class="service-price">
+              <span class="price-label">修理目安</span>
+              <span class="price-value">{service.startingPrice}</span>
+            </div>
+            <a href={`/services/sample/`} class="service-link-btn" aria-label={`${service.title}の詳細を見る`}>
+              詳細・料金 →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 料金についての注釈ボックス -->
+    <div class="services-notice-box">
+      <div class="notice-icon">💡</div>
+      <div class="notice-text">
+        <strong>明瞭見積りをお約束：</strong>
+        症状や配管の状況を確認した上で、必ず作業前に確定料金をお伝えします。ご了承のないまま追加作業を行うことは絶対にありません。
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: 70px 0;
+    background: #FFFFFF;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .service-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .service-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+
+  .service-icon-box {
+    font-size: 2.2rem;
+    line-height: 1;
+    background: var(--color-bg-sub);
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 1px solid rgba(25, 118, 187, 0.15);
+  }
+
+  .service-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .service-card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .service-card-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .service-trouble-list {
+    background: var(--color-bg-sub);
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+  }
+
+  .trouble-list-title {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-sub);
+    margin-bottom: 6px;
+  }
+
+  .service-trouble-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .service-trouble-list li {
+    font-size: 0.82rem;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .service-trouble-list li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--color-sub);
+    font-weight: 700;
+  }
+
+  .service-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  .service-price {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+
+  .price-value {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #CF1322;
+  }
+
+  .service-link-btn {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-sub);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    background: var(--color-sub-light);
+    transition: all 0.2s;
+  }
+
+  .service-link-btn:hover {
+    background: var(--color-sub);
+    color: #FFFFFF;
+  }
+
+  .services-notice-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #FFFBE6;
+    border: 1px solid #FFE58F;
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .notice-icon {
+    font-size: 1.8rem;
+  }
+
+  .notice-text {
+    font-size: 0.9rem;
+    color: #874D00;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

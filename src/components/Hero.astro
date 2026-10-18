@@ -1,0 +1,375 @@
+---
+import { companyData } from '../data/company';
+---
+
+<section class="hero-section">
+  <div class="hero-bg-overlay"></div>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <!-- 信頼タグ -->
+      <div class="trust-tags">
+        <span class="trust-tag">那須エリア密着・創業30年</span>
+        <span class="trust-tag tag-primary">水道局指定工事店</span>
+        <span class="trust-tag">完全自社施工</span>
+      </div>
+
+      <!-- メインキャッチコピー -->
+      <h1 class="hero-title">
+        水漏れ・トイレつまり・<br />
+        <span class="text-highlight">給湯器の故障に。</span>
+      </h1>
+
+      <p class="hero-sub">
+        那須塩原市・大田原市・那須町の水まわりトラブルは、<br class="br-sp" />
+        地元密着の<strong>クリプトン</strong>へお任せください。
+      </p>
+
+      <!-- 特徴ピクトグラム -->
+      <div class="hero-features">
+        <div class="feature-item">
+          <span class="feature-icon">⏱️</span>
+          <div class="feature-desc">
+            <strong>最短30分駆けつけ</strong>
+            <span>那須塩原本社から急行</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💴</span>
+          <div class="feature-desc">
+            <strong>修理 5,000円〜</strong>
+            <span>事前見積・明瞭会計</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🪪</span>
+          <div class="feature-desc">
+            <strong>一級国家資格者が施工</strong>
+            <span>確かな技術力と保証</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- アクションボタンエリア -->
+      <div class="hero-cta-box">
+        <div class="cta-primary-group">
+          <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-hero-emergency">
+            <span class="icon">🚨</span>
+            <div class="btn-text-wrap">
+              <span class="btn-small">今すぐ繋がる緊急ダイヤル（24時間365日）</span>
+              <span class="btn-large">090-2463-6638</span>
+            </div>
+          </a>
+          <span class="cta-note">※夜間・休日も担当津久井が直接受付・出動いたします</span>
+        </div>
+
+        <div class="cta-secondary-group">
+          <a href="#services" class="btn btn-primary btn-hero-sub">
+            症状から探す（料金・事例） ↓
+          </a>
+          <a href="#contact" class="btn btn-outline btn-hero-sub">
+            Webフォームで相談
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- クリプトンマン・ビジュアルエリア -->
+    <div class="hero-visual">
+      <div class="hero-card-character">
+        <div class="character-glow"></div>
+        <img
+          src="/images/character/kripton-man4-1.jpg"
+          alt="水まわりのスーパーヒーロー クリプトンマン"
+          class="character-img"
+          width="320"
+          height="320"
+        />
+        <div class="speech-bubble">
+          <p class="bubble-title">水まわりの困りごと、<br /><strong>僕にお任せください！</strong></p>
+          <span class="bubble-sub">水道局指定工事店 クリプトン公式</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #F2F7FB 0%, #E6F0F8 60%, #D8E8F5 100%);
+    padding: 50px 0 60px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(25, 118, 187, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media (min-width: 960px) {
+    .hero-container {
+      grid-template-columns: 1.15fr 0.85fr;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  /* 信頼タグ */
+  .trust-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .trust-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #FFFFFF;
+    color: var(--color-main);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .trust-tag.tag-primary {
+    background: var(--color-main);
+    color: #FFFFFF;
+    border-color: var(--color-main);
+  }
+
+  /* メインタイトル */
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--color-main);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .text-highlight {
+    color: var(--color-sub);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-sub {
+    font-size: 1.08rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-sub strong {
+    color: var(--color-main);
+    text-decoration: underline;
+    text-decoration-color: var(--color-phone);
+    text-underline-offset: 4px;
+  }
+
+  /* 3つの特徴 */
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(25, 118, 187, 0.12);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .feature-desc {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  .feature-desc strong {
+    font-size: 0.88rem;
+    color: var(--color-main);
+  }
+
+  .feature-desc span {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+  }
+
+  /* CTAボックス */
+  .hero-cta-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cta-primary-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-hero-emergency {
+    padding: 16px 24px;
+    width: 100%;
+    max-width: 460px;
+    justify-content: flex-start;
+    border-radius: var(--radius-md);
+  }
+
+  .btn-hero-emergency .icon {
+    font-size: 1.8rem;
+    margin-right: 6px;
+  }
+
+  .btn-text-wrap {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  .btn-small {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.95;
+  }
+
+  .btn-large {
+    font-family: var(--font-en);
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+  }
+
+  .cta-note {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    margin-top: 6px;
+  }
+
+  .cta-secondary-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .btn-hero-sub {
+    padding: 12px 20px;
+    font-size: 0.92rem;
+  }
+
+  /* ビジュアル・クリプトンマン */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-card-character {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    border: 3px solid #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
+    width: 100%;
+  }
+
+  .character-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--color-sub-light);
+    box-shadow: 0 8px 24px rgba(18, 59, 101, 0.15);
+    margin-bottom: 16px;
+  }
+
+  .speech-bubble {
+    background: var(--color-main);
+    color: #FFFFFF;
+    padding: 14px 18px;
+    border-radius: 12px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent var(--color-main) transparent;
+  }
+
+  .bubble-title {
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+
+  .bubble-title strong {
+    color: #FFD591;
+    font-size: 1.1rem;
+  }
+
+  .bubble-sub {
+    font-size: 0.7rem;
+    opacity: 0.85;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 30px 0 40px;
+    }
+    .hero-title {
+      font-size: 1.7rem;
+    }
+    .btn-hero-emergency {
+      max-width: 100%;
+    }
+    .btn-large {
+      font-size: 1.35rem;
+    }
+    .character-img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+</style>

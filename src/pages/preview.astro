@@ -1,0 +1,297 @@
+---
+// src/pages/preview.astro
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【デザイン承認用プレビュー】水まわり専門店クリプトン 公式ホームページ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-main: #123B65;
+      --color-sub: #1976BB;
+      --color-phone: #F39833;
+      --color-bg: #0F172A;
+      --color-card: #1E293B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #0B132B;
+      color: #E2E8F0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 上部コントローラーバー */
+    .control-bar {
+      background: #1C2541;
+      border-bottom: 2px solid #3A506B;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: #F39833;
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .title-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    /* デバイス・ページ切り替えボタン */
+    .btn-group {
+      display: flex;
+      background: #0B132B;
+      padding: 4px;
+      border-radius: 8px;
+      gap: 4px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .mode-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mode-btn.active {
+      background: #1976BB;
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(25, 118, 187, 0.4);
+    }
+
+    .actions-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .direct-link-btn {
+      background: #123B65;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #3A506B;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .direct-link-btn:hover {
+      background: #1976BB;
+    }
+
+    /* プレビュー表示エリア */
+    .preview-viewport {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px;
+      overflow-y: auto;
+      background: #0B132B;
+    }
+
+    /* PCビュー */
+    .viewport-pc {
+      width: 100%;
+      height: calc(100vh - 120px);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #3A506B;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .viewport-pc iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* スマホビュー（iPhoneフレーム） */
+    .viewport-mobile {
+      width: 393px;
+      height: 844px;
+      background: #000000;
+      border-radius: 48px;
+      padding: 12px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 2px #334155;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto;
+    }
+
+    .mobile-notch {
+      width: 120px;
+      height: 25px;
+      background: #000000;
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 10;
+    }
+
+    .viewport-mobile iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 36px;
+      background: #FFFFFF;
+    }
+
+    /* フッター情報 */
+    .preview-footer {
+      background: #1C2541;
+      border-top: 1px solid #3A506B;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #94A3B8;
+    }
+
+    .design-spec-chips {
+      display: flex;
+      gap: 12px;
+    }
+
+    .spec-chip {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 上部コントロールバー -->
+  <header class="control-bar">
+    <div class="brand-title">
+      <span class="brand-badge">デザイン承認用</span>
+      <h1 class="title-text">クリプトン公式 新デザインプレビュー</h1>
+    </div>
+
+    <!-- 画面切り替え -->
+    <div class="btn-group">
+      <button class="mode-btn active" data-page="/" data-device="pc">
+        💻 トップページ（PC版）
+      </button>
+      <button class="mode-btn" data-page="/" data-device="mobile">
+        📱 トップページ（スマホ版）
+      </button>
+      <button class="mode-btn" data-page="/services/sample/" data-device="pc">
+        🚽 症状別ページ（サンプル）
+      </button>
+      <button class="mode-btn" data-page="/works/sample/" data-device="pc">
+        🛠️ 施工事例詳細（サンプル）
+      </button>
+    </div>
+
+    <!-- 外部リンク -->
+    <div class="actions-group">
+      <a href="/" target="_blank" class="direct-link-btn" id="openTabBtn">
+        別タブで全画面表示 ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- プレビュー枠 -->
+  <main class="preview-viewport">
+    <div class="viewport-pc" id="viewportContainer">
+      <iframe src="/" id="previewFrame" title="プレビュー画面"></iframe>
+    </div>
+  </main>
+
+  <!-- フッター：配色・仕様確認用 -->
+  <footer class="preview-footer">
+    <div class="design-spec-chips">
+      <span class="spec-chip">ベース: #FFFFFF</span>
+      <span class="spec-chip">メイン: #123B65 (ネイビー)</span>
+      <span class="spec-chip">サブ: #1976BB (ブルー)</span>
+      <span class="spec-chip">背景: #F2F7FB</span>
+      <span class="spec-chip">電話ボタン: #F39833 (オレンジ)</span>
+      <span class="spec-chip">文字色: #263747</span>
+    </div>
+    <span>水まわり専門店クリプトン リニューアルプロジェクト</span>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.mode-btn');
+    const container = document.getElementById('viewportContainer')!;
+    const iframe = document.getElementById('previewFrame') as HTMLIFrameElement;
+    const openTabBtn = document.getElementById('openTabBtn') as HTMLAnchorElement;
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const page = btn.getAttribute('data-page') || '/';
+        const device = btn.getAttribute('data-device') || 'pc';
+
+        iframe.src = page;
+        openTabBtn.href = page;
+
+        if (device === 'mobile') {
+          container.className = 'viewport-mobile';
+        } else {
+          container.className = 'viewport-pc';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

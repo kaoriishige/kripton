@@ -1,0 +1,267 @@
+---
+import { companyData } from '../data/company';
+---
+
+<section class="price-section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-en-title">Price Guide</span>
+      <h2 class="section-title">明瞭・安心の料金案内</h2>
+      <p class="section-lead">
+        クリプトンでは、作業前に必ず原因と見積金額を分かりやすくご説明します。<br class="br-pc" />
+        勝手な追加工事や不透明な請求は一切行いません。
+      </p>
+    </div>
+
+    <!-- 料金構成の3ステップ -->
+    <div class="price-structure-card">
+      <h3 class="structure-title">お支払い総額の仕組み</h3>
+      <div class="structure-steps">
+        <div class="step-box">
+          <span class="step-label">基本</span>
+          <span class="step-name">診断料</span>
+          <span class="step-amount">3,500円</span>
+          <span class="step-note">（8:00〜19:00）</span>
+        </div>
+        <div class="step-operator">＋</div>
+        <div class="step-box">
+          <span class="step-label">作業</span>
+          <span class="step-name">修理作業代</span>
+          <span class="step-amount">5,000円〜</span>
+          <span class="step-note">（1ヶ所・税込）</span>
+        </div>
+        <div class="step-operator">＋</div>
+        <div class="step-box">
+          <span class="step-label">部品（交換時のみ）</span>
+          <span class="step-name">部品・部材代</span>
+          <span class="step-amount">実費</span>
+          <span class="step-note">（パッキン・バルブ等）</span>
+        </div>
+      </div>
+      <p class="structure-caption">
+        ※修理作業を行わない場合（点検・原因調査のみ）は診断料のみ頂戴いたします。
+      </p>
+    </div>
+
+    <!-- 料金詳細表 -->
+    <div class="price-table-wrapper">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">項目</th>
+            <th style="width: 25%;">料金（税込）</th>
+            <th style="width: 40%;">適用条件・補足</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>基本診断料</strong></td>
+            <td><span class="table-price">3,500円</span></td>
+            <td>通常時間帯（8:00 ～ 19:00）の現地出動・点検診断</td>
+          </tr>
+          <tr>
+            <td><strong>時間外診断料</strong></td>
+            <td><span class="table-price">5,000円</span></td>
+            <td>日曜日・祝日、および夜間・早朝（平日19:00 ～ 翌8:00）の緊急出動</td>
+          </tr>
+          <tr>
+            <td><strong>水まわり修理作業代</strong></td>
+            <td><span class="table-price">5,000円〜</span></td>
+            <td>パッキン交換、軽度の配管詰まり除去、水漏れ修繕など（1ヶ所あたり）</td>
+          </tr>
+          <tr>
+            <td><strong>部品代・材料代</strong></td>
+            <td><span class="table-price">都度お見積り</span></td>
+            <td>交換が必要な水栓器具、ボールタップ、カートリッジ等の純正部品代</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 追加費用についての3大約束 -->
+    <div class="price-promises">
+      <div class="promise-item">
+        <span class="promise-icon">🛡️</span>
+        <h4>作業前の確定見積りを徹底</h4>
+        <p>現地を点検し、原因と必要作業を確定させてから見積書をご提示します。</p>
+      </div>
+      <div class="promise-item">
+        <span class="promise-icon">🚫</span>
+        <h4>無断での追加工事は一切なし</h4>
+        <p>作業中に追加の不具合が見つかった場合も、必ずご相談し承認をいただきます。</p>
+      </div>
+      <div class="promise-item">
+        <span class="promise-icon">🧾</span>
+        <h4>安心の明細付き領収書発行</h4>
+        <p>診断料・作業工賃・部品代を明確に区分した正式な領収書・明細書をお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .price-section {
+    padding: 70px 0;
+    background: #FFFFFF;
+  }
+
+  .price-structure-card {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    margin-bottom: 35px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .structure-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: 0.03em;
+  }
+
+  .structure-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .step-box {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    min-width: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-label {
+    font-size: 0.72rem;
+    background: #FFD591;
+    color: #874D00;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .step-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .step-amount {
+    font-family: var(--font-en);
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin: 4px 0;
+  }
+
+  .step-note {
+    font-size: 0.72rem;
+    opacity: 0.85;
+  }
+
+  .step-operator {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #FFD591;
+  }
+
+  .structure-caption {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .price-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 40px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: #FFFFFF;
+  }
+
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
+  }
+
+  .price-table th {
+    background: var(--color-bg-sub);
+    color: var(--color-main);
+    font-weight: 800;
+    padding: 14px 18px;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .price-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .price-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .table-price {
+    font-family: var(--font-en);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #CF1322;
+  }
+
+  .price-promises {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .promise-item {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .promise-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .promise-item h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .promise-item p {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .step-box {
+      min-width: 100%;
+    }
+    .step-operator {
+      transform: rotate(90deg);
+    }
+  }
+</style>

@@ -1,0 +1,170 @@
+---
+import { caseStudiesData } from '../data/case_studies';
+---
+
+<section class="cases-section" id="cases">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-en-title">Case Studies</span>
+      <h2 class="section-title">実際の施工事例</h2>
+      <p class="section-lead">
+        那須塩原市・大田原市・那須町での実際の修理・リフォーム実績をご紹介します。<br class="br-pc" />
+        現場写真と修理の具体的な工程・料金目安を公開しています。
+      </p>
+    </div>
+
+    <div class="cases-grid">
+      {caseStudiesData.map(c => (
+        <article class="card case-card">
+          <div class="case-badge-row">
+            <span class="badge badge-location">{c.municipality}</span>
+            <span class="badge">{c.category.replace('の故障・修理・リフォーム', '')}</span>
+            <time class="case-date" datetime={c.date}>{c.date}</time>
+          </div>
+
+          <h3 class="case-title">
+            <a href="/works/sample/">{c.title}</a>
+          </h3>
+
+          <div class="case-body-snippet">
+            <div class="snippet-row">
+              <span class="snippet-label">症状・原因：</span>
+              <p class="snippet-val">{c.cause}</p>
+            </div>
+            <div class="snippet-row">
+              <span class="snippet-label">作業内容：</span>
+              <p class="snippet-val">{c.workDetails}</p>
+            </div>
+            {c.workDuration && (
+              <div class="snippet-meta">
+                <span>⏱️ 作業時間: <strong>{c.workDuration}</strong></span>
+                {c.repairCost && <span>💴 費用目安: <strong>{c.repairCost}</strong></span>}
+              </div>
+            )}
+          </div>
+
+          <div class="case-footer">
+            <a href="/works/sample/" class="case-detail-btn">
+              施工詳細を見る →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="cases-bottom-cta">
+      <a href="/works/sample/" class="btn btn-primary">
+        施工事例一覧をもっと見る（全64件）
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cases-section {
+    padding: 70px 0;
+    background: var(--color-bg-sub);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 35px;
+  }
+
+  .case-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #FFFFFF;
+  }
+
+  .case-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .case-date {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-left: auto;
+  }
+
+  .case-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-main);
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .case-title a {
+    color: inherit;
+  }
+
+  .case-title a:hover {
+    color: var(--color-sub);
+  }
+
+  .case-body-snippet {
+    background: var(--color-bg-sub);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+  }
+
+  .snippet-row {
+    margin-bottom: 8px;
+  }
+
+  .snippet-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-sub);
+    display: block;
+  }
+
+  .snippet-val {
+    margin: 2px 0 0;
+    color: var(--color-text);
+    line-height: 1.45;
+  }
+
+  .snippet-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--color-main);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+
+  .case-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .case-detail-btn {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-sub);
+  }
+
+  .cases-bottom-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

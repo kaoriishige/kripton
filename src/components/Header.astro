@@ -1,0 +1,434 @@
+---
+import { companyData } from '../data/company';
+---
+
+<header class="site-header">
+  <div class="top-announcement">
+    <div class="container announcement-inner">
+      <span class="badge-tag">24時間365日緊急受付</span>
+      <p class="announcement-text">
+        那須塩原市・大田原市・那須町の水漏れ・つまり・給湯器修理に迅速駆けつけ！
+      </p>
+      <a href="tel:090-2463-6638" class="emergency-link">
+        <span class="icon">📞</span> 緊急直通: <strong>090-2463-6638</strong>（担当: 津久井）
+      </a>
+    </div>
+  </div>
+
+  <div class="main-header">
+    <div class="container header-inner">
+      <!-- ロゴ・社名 -->
+      <a href="/" class="brand-logo" aria-label="水まわり専門店クリプトン トップページ">
+        <div class="brand-symbol">
+          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" class="brand-avatar" width="46" height="46" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-sub">栃木県北部の指定工事店・自社施工</span>
+          <span class="brand-name">水まわり専門店<strong>クリプトン</strong></span>
+          <span class="brand-company">有限会社クリプトン</span>
+        </div>
+      </a>
+
+      <!-- デスクトップナビゲーション -->
+      <nav class="desktop-nav" aria-label="主要メニュー">
+        <ul class="nav-list">
+          <li><a href="/#services" class="nav-link">サービス・修理</a></li>
+          <li><a href="/#pricing" class="nav-link">料金案内</a></li>
+          <li><a href="/#cases" class="nav-link">施工事例</a></li>
+          <li><a href="/#areas" class="nav-link">対応地域</a></li>
+          <li><a href="/#why-us" class="nav-link">選ばれる理由</a></li>
+          <li><a href="/#faq" class="nav-link">よくある質問</a></li>
+          <li><a href="/#company" class="nav-link">会社案内</a></li>
+        </ul>
+      </nav>
+
+      <!-- 電話・問い合わせアクション -->
+      <div class="header-actions">
+        <div class="phone-block">
+          <span class="phone-label">通常受付（8:00〜19:00）</span>
+          <a href={`tel:${companyData.telMain}`} class="phone-number">
+            <svg class="phone-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            {companyData.telMain}
+          </a>
+        </div>
+        <a href="#contact" class="btn btn-phone btn-header">
+          相談・お問い合わせ
+        </a>
+      </div>
+
+      <!-- モバイルメニューボタン -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- モバイルドロワーメニュー -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="drawer-title">メニュー</span>
+      <button class="drawer-close" id="drawerCloseBtn" aria-label="閉じる">✕</button>
+    </div>
+    <div class="drawer-emergency">
+      <p class="drawer-em-title">🚨 24時間365日緊急受付</p>
+      <a href="tel:090-2463-6638" class="btn btn-phone btn-full">
+        090-2463-6638（直通電話）
+      </a>
+      <span class="drawer-em-note">担当：津久井が直接対応いたします</span>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="/#services" class="drawer-link">修理・サービス一覧</a></li>
+      <li><a href="/#pricing" class="drawer-link">安心の料金体系</a></li>
+      <li><a href="/#cases" class="drawer-link">実際の施工事例</a></li>
+      <li><a href="/#areas" class="drawer-link">対応地域（那須塩原・大田原・那須町）</a></li>
+      <li><a href="/#why-us" class="drawer-link">クリプトンが選ばれる理由</a></li>
+      <li><a href="/#krypton-man" class="drawer-link">クリプトンマンの豆知識</a></li>
+      <li><a href="/#faq" class="drawer-link">よくあるご質問</a></li>
+      <li><a href="/#company" class="drawer-link">会社案内・保有資格</a></li>
+      <li><a href="/#contact" class="drawer-link">Webお問い合わせ</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(18, 59, 101, 0.08);
+  }
+
+  .top-announcement {
+    background: var(--color-main);
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    padding: 6px 0;
+  }
+
+  .announcement-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .badge-tag {
+    background: #CF1322;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .announcement-text {
+    flex: 1;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .emergency-link {
+    color: #FFD591;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .emergency-link:hover {
+    color: #FFFFFF;
+  }
+
+  .main-header {
+    padding: 12px 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  /* ロゴ */
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-symbol {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-sub);
+    box-shadow: 0 2px 6px rgba(25, 118, 187, 0.2);
+    flex-shrink: 0;
+  }
+
+  .brand-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-sub {
+    font-size: 0.72rem;
+    color: var(--color-sub);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-main);
+    line-height: 1.2;
+  }
+
+  .brand-name strong {
+    color: var(--color-sub);
+    font-size: 1.35rem;
+  }
+
+  .brand-company {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+
+  /* ナビゲーション */
+  .desktop-nav {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-main);
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--color-sub);
+  }
+
+  /* アクションブロック */
+  .header-actions {
+    display: none;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .phone-block {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .phone-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .phone-number {
+    font-family: var(--font-en);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-main);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1;
+  }
+
+  .phone-icon {
+    color: var(--color-phone);
+  }
+
+  .btn-header {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* モバイルメニューボタン */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 38px;
+    height: 38px;
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-menu-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-main);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* モバイルドロワー */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    max-width: 85vw;
+    height: 100vh;
+    background: #FFFFFF;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    z-index: 2000;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .mobile-drawer.is-open {
+    display: block;
+  }
+
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+
+  .drawer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-main);
+  }
+
+  .drawer-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+  }
+
+  .drawer-emergency {
+    background: #FFF7E6;
+    border: 1px solid #FFE7BA;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .drawer-em-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #D4380D;
+    margin-bottom: 8px;
+  }
+
+  .btn-full {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .drawer-em-note {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    margin-top: 6px;
+  }
+
+  .drawer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .drawer-link {
+    display: block;
+    padding: 12px 8px;
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 1px solid #F0F4F8;
+    font-size: 0.95rem;
+  }
+
+  .drawer-link:hover {
+    color: var(--color-sub);
+    background: var(--color-bg-sub);
+  }
+
+  @media (min-width: 992px) {
+    .desktop-nav {
+      display: block;
+    }
+    .header-actions {
+      display: flex;
+    }
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .announcement-text {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  const close = document.getElementById('drawerCloseBtn');
+
+  if (btn && drawer) {
+    btn.addEventListener('click', () => {
+      drawer.classList.add('is-open');
+    });
+  }
+  if (close && drawer) {
+    close.addEventListener('click', () => {
+      drawer.classList.remove('is-open');
+    });
+  }
+  // リンクタップで閉じる
+  document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer?.classList.remove('is-open');
+    });
+  });
+</script>

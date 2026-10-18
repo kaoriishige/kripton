@@ -1,0 +1,184 @@
+---
+const faqs = [
+  {
+    q: "那須塩原市・大田原市・那須町なら、電話してからどれくらいで来てもらえますか？",
+    a: "那須塩原本社（黒磯）に待機しておりますので、道路状況や作業状況にもよりますが、最短30分〜1時間以内を目安に急行いたします。夜間や休日も緊急連絡先（090-2463-6638）にて24時間体制で直接受付しております。"
+  },
+  {
+    q: "見積もりだけで断っても料金はかかりますか？",
+    a: "作業を行う前に必ず原因と確定お見積もりを提示いたします。現地での点検・原因究明作業を伴う場合、基本診断料（3,500円／時間外5,000円）が発生しますが、お客様の承諾なしに勝手に高額な修理を始めて請求することはありません。"
+  },
+  {
+    q: "水道局の指定工事店とは何が違うのですか？",
+    a: "各自治体の水道局から『適切な技術力と設備、有資格者（給水装置工事主任技術者）を有している』と正式に認定された事業者です。指定工事店以外の無資格業者は給水管の本管工事や漏水証明書（減免申請）の発行ができません。クリプトンは那須塩原市・大田原市・那須町・矢板市・塩谷町の公認指定店です。"
+  },
+  {
+    q: "那須高原の別荘ですが、不在時でも対応してもらえますか？",
+    a: "はい、多くの別荘オーナー様や管理会社様からご依頼をいただいております。鍵の手配や現地状況の確認、作業前後の写真付きメール報告など、立ち会いなしでも安心してお任せいただける体制を整えています。冬期の水抜き・通水点検も承っております。"
+  },
+  {
+    q: "夜間や早朝でも対応してもらえますか？",
+    a: "はい。緊急ダイヤル（090-2463-6638 / 担当：津久井）にて24時間365日受付しております。夜間・休日の緊急出動時は時間外診断料（5,000円）が適用されますが、お困りの際は時間を問わずご遠慮なくお電話ください。"
+  }
+];
+---
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-en-title">Frequently Asked Questions</span>
+      <h2 class="section-title">よくある質問</h2>
+      <p class="section-lead">
+        水道修理のご依頼にあたって、お客様から多く寄せられるご質問にお答えします。
+      </p>
+    </div>
+
+    <div class="faq-accordion-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary class="faq-question">
+            <span class="q-icon">Q</span>
+            <span class="q-text">{faq.q}</span>
+            <span class="toggle-icon">＋</span>
+          </summary>
+          <div class="faq-answer">
+            <span class="a-icon">A</span>
+            <div class="a-text">
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQPage 構造化データ（JSON-LD） -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a
+    }
+  }))
+})} />
+
+<style>
+  .faq-section {
+    padding: 70px 0;
+    background: #FFFFFF;
+  }
+
+  .faq-accordion-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .faq-item {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.25s ease;
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-sub);
+    background: #FFFFFF;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--color-main);
+    font-size: 1.05rem;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .q-icon {
+    font-family: var(--font-en);
+    background: var(--color-main);
+    color: #FFFFFF;
+    font-weight: 900;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+
+  .q-text {
+    flex: 1;
+    line-height: 1.45;
+  }
+
+  .toggle-icon {
+    font-size: 1.3rem;
+    color: var(--color-sub);
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] .toggle-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 20px 20px 58px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .a-icon {
+    font-family: var(--font-en);
+    background: var(--color-phone);
+    color: #FFFFFF;
+    font-weight: 900;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+
+  .a-text p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .faq-question {
+      padding: 14px;
+      font-size: 0.95rem;
+    }
+    .faq-answer {
+      padding: 0 14px 14px 14px;
+    }
+  }
+</style>
