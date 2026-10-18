@@ -7,6 +7,7 @@ export interface CompanyInfo {
   telMain: string;
   telEmergency: string;
   fax: string;
+  email: string;
   emergencyContactPerson: string;
   businessHours: string;
   emergencyHours: string;
@@ -33,6 +34,7 @@ export const companyData: CompanyInfo = {
   telMain: "0287-60-5050",
   telEmergency: "090-2463-6638",
   fax: "0287-60-5054",
+  email: "kripton@sweet.ocn.ne.jp",
   emergencyContactPerson: "津久井",
   businessHours: "8:00 ～ 19:00",
   emergencyHours: "24時間365日緊急受付対応",

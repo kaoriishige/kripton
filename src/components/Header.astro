@@ -20,7 +20,7 @@ import { companyData } from '../data/company';
       <!-- ロゴ・社名 -->
       <a href="/" class="brand-logo" aria-label="水まわり専門店クリプトン トップページ">
         <div class="brand-symbol">
-          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" class="brand-avatar" width="46" height="46" />
+          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" class="brand-avatar" width="46" height="46" loading="eager" fetchpriority="high" decoding="async" />
         </div>
         <div class="brand-text">
           <span class="brand-sub">栃木県北部の指定工事店・自社施工</span>
@@ -53,11 +53,8 @@ import { companyData } from '../data/company';
             {companyData.telMain}
           </a>
         </div>
-        <a href="/contact/#line" class="btn btn-line btn-header" aria-label="LINEで写真相談">
-          LINE相談
-        </a>
         <a href="/contact/" class="btn btn-phone btn-header">
-          WEB問合せ
+          相談・お問い合わせ
         </a>
       </div>
 

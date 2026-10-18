@@ -35,28 +35,28 @@ import { companyData } from '../data/company';
           <a href={`tel:${companyData.telMain}`} class="reg-num">TEL: {companyData.telMain}</a>
         </div>
 
-        <!-- LINE相談ボックス -->
-        <div class="line-call-box" id="line">
-          <div class="line-badge">写真で簡単見積り</div>
-          <h4 class="line-title">💬 LINEで写真を送って無料相談</h4>
-          <p class="line-desc">
-            水漏れ箇所や給湯器・蛇口の型番プレートの写真をLINEで送信するだけで、概算費用や修理可能かをスピーディーにご案内します。
+        <!-- メールお問い合わせ案内ボックス -->
+        <div class="email-direct-box">
+          <span class="email-badge">メールでの写真送信用</span>
+          <h4 class="email-title">✉️ メールでのお問い合わせ・写真送付</h4>
+          <p class="email-desc">
+            水漏れ箇所や蛇口・給湯器の型番プレートの写真をメールに添付して直接お送りいただくことも可能です。
           </p>
-          <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="line-big-btn">
-            LINE友だち追加で相談する
+          <a href={`mailto:${companyData.email}?subject=水まわり修理のご相談`} class="email-link-btn">
+            {companyData.email}
           </a>
         </div>
       </div>
 
       <!-- Webフォーム -->
       <div class="contact-action-card form-box">
-        <span class="card-badge badge-blue">無料お見積り・ご相談</span>
+        <span class="card-badge badge-blue">無料お見積り・写真添付対応</span>
         <h3 class="card-title">Webお問い合わせフォーム</h3>
         <p class="card-desc">
-          リフォームのご相談、定期点検、写真付きでの事前相談などはこちらからお送りください。
+          リフォームのご相談、現場写真付きでの事前見積もり依頼はこちらからお送りください。
         </p>
 
-        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden-field" style="display:none;">
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -73,6 +73,11 @@ import { companyData } from '../data/company';
           </div>
 
           <div class="form-group">
+            <label for="email">メールアドレス <span class="optional">任意</span></label>
+            <input type="email" id="email" name="email" placeholder="例：example@sweet.ocn.ne.jp" class="form-control" />
+          </div>
+
+          <div class="form-group">
             <label for="city">お住まいの地域 <span class="required">必須</span></label>
             <select id="city" name="city" required class="form-control">
               <option value="">選択してください</option>
@@ -81,6 +86,12 @@ import { companyData } from '../data/company';
               <option value="那須町">那須町</option>
               <option value="その他地域">その他近隣地域</option>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label for="photo">現場の写真添付 <span class="optional">任意（水漏れ箇所や型番など）</span></label>
+            <input type="file" id="photo" name="photo" accept="image/*" class="form-control file-input" />
+            <span class="input-help">※スマホで撮影した写真（JPEG/PNG等）をそのまま選択していただけます。</span>
           </div>
 
           <div class="form-group">
@@ -124,6 +135,12 @@ import { companyData } from '../data/company';
             <td>
               代表TEL: {companyData.telMain} / FAX: {companyData.fax}<br />
               緊急直通: {companyData.telEmergency}（24時間365日受付）
+            </td>
+          </tr>
+          <tr>
+            <th>公式メールアドレス</th>
+            <td>
+              <a href={`mailto:${companyData.email}`} class="mail-link">{companyData.email}</a>
             </td>
           </tr>
           <tr>
@@ -272,16 +289,16 @@ import { companyData } from '../data/company';
     color: var(--color-main);
   }
 
-  .line-call-box {
+  .email-direct-box {
     margin-top: 16px;
-    background: #F0FDF4;
-    border: 2px solid #86EFAC;
+    background: #EFF6FF;
+    border: 2px solid #BFDBFE;
     border-radius: var(--radius-sm);
     padding: 16px;
   }
-  .line-badge {
+  .email-badge {
     display: inline-block;
-    background: #05A847;
+    background: #1D4ED8;
     color: #FFFFFF;
     font-size: 0.72rem;
     font-weight: 800;
@@ -289,34 +306,53 @@ import { companyData } from '../data/company';
     border-radius: 4px;
     margin-bottom: 6px;
   }
-  .line-title {
-    font-size: 1.05rem;
+  .email-title {
+    font-size: 1.02rem;
     font-weight: 800;
-    color: #065F46;
+    color: #1E3A8A;
     margin-bottom: 6px;
   }
-  .line-desc {
+  .email-desc {
     font-size: 0.82rem;
-    color: #047857;
+    color: #1E40AF;
     line-height: 1.5;
     margin-bottom: 12px;
   }
-  .line-big-btn {
+  .email-link-btn {
     display: block;
     text-align: center;
-    background: #06C755;
+    background: #1976BB;
     color: #FFFFFF !important;
     font-weight: 800;
-    font-size: 0.95rem;
-    padding: 12px;
+    font-size: 0.92rem;
+    padding: 11px;
     border-radius: 6px;
     text-decoration: none;
-    box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+    box-shadow: 0 4px 10px rgba(25, 118, 187, 0.25);
     transition: background 0.2s, transform 0.2s;
   }
-  .line-big-btn:hover {
-    background: #05A847;
+  .email-link-btn:hover {
+    background: #123B65;
     transform: translateY(-2px);
+  }
+
+  .optional {
+    font-size: 0.7rem;
+    background: #E2E8F0;
+    color: #475569;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+  }
+  .file-input {
+    padding: 8px;
+    background: #FFFFFF;
+    border: 1px dashed var(--color-border);
+  }
+  .input-help {
+    font-size: 0.76rem;
+    color: #64748B;
+    margin-top: 4px;
   }
 
   /* フォーム */
