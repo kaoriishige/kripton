@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import ServiceCardList from '../components/ServiceCardList.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import PriceSection from '../components/PriceSection.astro';
+import CustomerReviews from '../components/CustomerReviews.astro';
 import RecentCases from '../components/RecentCases.astro';
 import AreaSection from '../components/AreaSection.astro';
 import KryptonManGuide from '../components/KryptonManGuide.astro';
@@ -12,11 +13,27 @@ import ContactSection from '../components/ContactSection.astro';
 ---
 
 <Layout
-  title="水まわり専門店クリプトン【公式】 - 那須塩原市・大田原市・那須町の水漏れ・つまり緊急対応"
-  description="那須塩原市・大田原市・那須町の水漏れ、トイレつまり、給湯器修理なら水まわり専門店クリプトン（有限会社クリプトン）。創業30年・水道局指定工事店・自社施工で24時間365日緊急駆けつけ！基本診断料3,500円、修理5,000円〜。"
+  title="水まわり専門店クリプトン【公式】 - 那須塩原市・大田原市・那須町の水漏れ・トイレつまり緊急対応"
+  description="那須塩原市・大田原市・那須町の水漏れ、トイレつまり、給湯器修理なら水まわり専門店クリプトン（有限会社クリプトン）。1993年創業・水道局指定工事店・自社施工で24時間365日緊急駆けつけ！基本診断料3,500円、修理5,500円〜。"
 >
   <!-- ② メインビジュアル -->
   <Hero />
+
+  <!-- モバイルUX改善：クイックジャンプ目次バー -->
+  <nav class="quick-jump-nav" aria-label="ページ内目次">
+    <div class="container jump-container">
+      <span class="jump-label">クイック移動:</span>
+      <div class="jump-links">
+        <a href="#services" class="jump-chip">症状から探す</a>
+        <a href="#price" class="jump-chip">修理料金表</a>
+        <a href="#reviews" class="jump-chip">お客様の声</a>
+        <a href="#cases" class="jump-chip">施工事例</a>
+        <a href="#areas" class="jump-chip">対応地域</a>
+        <a href="#faq" class="jump-chip">よくある質問</a>
+        <a href="#contact" class="jump-chip highlight">無料相談・問合せ</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- ③ 症状から探す -->
   <ServiceCardList />
@@ -26,6 +43,9 @@ import ContactSection from '../components/ContactSection.astro';
 
   <!-- ⑤ 料金案内 -->
   <PriceSection />
+
+  <!-- お客様の声・口コミ（レビュー構造化データ連動） -->
+  <CustomerReviews />
 
   <!-- ⑥ 施工事例 -->
   <RecentCases />
@@ -42,3 +62,68 @@ import ContactSection from '../components/ContactSection.astro';
   <!-- ⑩ 会社情報・問い合わせ -->
   <ContactSection />
 </Layout>
+
+<style>
+  .quick-jump-nav {
+    background: #F1F5F9;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .jump-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .jump-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #475569;
+    white-space: nowrap;
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .jump-label {
+      display: inline-block;
+    }
+  }
+  .jump-links {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .jump-links::-webkit-scrollbar {
+    display: none;
+  }
+  .jump-chip {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #123B65;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .jump-chip:hover {
+    background: #1976BB;
+    color: #FFFFFF;
+    border-color: #1976BB;
+  }
+  .jump-chip.highlight {
+    background: #F39833;
+    color: #FFFFFF;
+    border-color: #F39833;
+  }
+</style>

@@ -34,6 +34,18 @@ import { companyData } from '../data/company';
           <span class="reg-label">通常のお問い合わせ・ご予約（8:00〜19:00）：</span>
           <a href={`tel:${companyData.telMain}`} class="reg-num">TEL: {companyData.telMain}</a>
         </div>
+
+        <!-- LINE相談ボックス -->
+        <div class="line-call-box" id="line">
+          <div class="line-badge">写真で簡単見積り</div>
+          <h4 class="line-title">💬 LINEで写真を送って無料相談</h4>
+          <p class="line-desc">
+            水漏れ箇所や給湯器・蛇口の型番プレートの写真をLINEで送信するだけで、概算費用や修理可能かをスピーディーにご案内します。
+          </p>
+          <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="line-big-btn">
+            LINE友だち追加で相談する
+          </a>
+        </div>
       </div>
 
       <!-- Webフォーム -->
@@ -258,6 +270,53 @@ import { companyData } from '../data/company';
     font-size: 1.25rem;
     font-weight: 800;
     color: var(--color-main);
+  }
+
+  .line-call-box {
+    margin-top: 16px;
+    background: #F0FDF4;
+    border: 2px solid #86EFAC;
+    border-radius: var(--radius-sm);
+    padding: 16px;
+  }
+  .line-badge {
+    display: inline-block;
+    background: #05A847;
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .line-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #065F46;
+    margin-bottom: 6px;
+  }
+  .line-desc {
+    font-size: 0.82rem;
+    color: #047857;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .line-big-btn {
+    display: block;
+    text-align: center;
+    background: #06C755;
+    color: #FFFFFF !important;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .line-big-btn:hover {
+    background: #05A847;
+    transform: translateY(-2px);
   }
 
   /* フォーム */

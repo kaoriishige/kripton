@@ -4,19 +4,50 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileFixedBar from '../components/MobileFixedBar.astro';
 
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  breadcrumbItems?: BreadcrumbItem[];
 }
 
 const {
   title,
-  description = "那須塩原市・大田原市・那須町の水漏れ・トイレつまり・給湯器修理なら水まわり専門店クリプトン。指定工事店・自社施工・創業30年の実績で24時間365日緊急対応。",
-  ogImage = "/images/character/kripton-man4-1.jpg"
+  description = "那須塩原市・大田原市・那須町の水漏れ・トイレつまり・給湯器修理なら水まわり専門店クリプトン。水道局指定工事店・完全自社施工・1993年創業（実績30年以上）で24時間365日緊急対応。",
+  ogImage = "/images/character/kripton-man4-1.jpg",
+  breadcrumbItems
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://xn--bbkyao7065bpyck41as89d.com');
+const siteDomain = 'https://xn--bbkyao7065bpyck41as89d.com';
+const canonicalURL = new URL(Astro.url.pathname, siteDomain).toString();
+
+// og:image を必ず完全絶対URLに正規化
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteDomain}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+
+// パンくずリスト構造化データ生成
+const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": siteDomain
+    },
+    ...breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": item.name,
+      ...(item.url ? { "item": item.url.startsWith('http') ? item.url : `${siteDomain}${item.url}` } : {})
+    }))
+  ]
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -28,28 +59,42 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://xn--bbky
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
   
-  <!-- OGP -->
+  <!-- OGP (絶対URL・属性完備) -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content={ogImage} />
+  <meta property="og:image" content={absoluteOgImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="水まわり専門店クリプトン【公式】" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={absoluteOgImage} />
 
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- 構造化データ (LocalBusiness / Plumber) -->
+  <!-- 構造化データ (LocalBusiness / Plumber: レビュー・Offer・sameAs・E-E-A-T完備) -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Plumber",
+    "@id": `${siteDomain}/#business`,
     "name": "有限会社クリプトン（水まわり専門店クリプトン）",
-    "image": "https://xn--bbkyao7065bpyck41as89d.com/images/character/kripton-man4-1.jpg",
-    "@id": "https://xn--bbkyao7065bpyck41as89d.com",
-    "url": "https://xn--bbkyao7065bpyck41as89d.com",
+    "alternateName": ["水まわり専門店クリプトン", "クリプトン"],
+    "image": `${siteDomain}/images/character/kripton-man4-1.jpg`,
+    "logo": `${siteDomain}/images/character/kripton-man4-1.jpg`,
+    "url": siteDomain,
     "telephone": "0287-60-5050",
-    "priceRange": "5,000円〜",
+    "priceRange": "5,500円〜",
+    "foundingDate": "1993",
+    "currenciesAccepted": "JPY",
+    "paymentAccepted": "現金, 銀行振込, クレジットカード",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "黒磯2-11",
@@ -75,8 +120,100 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://xn--bbky
       { "@type": "City", "name": "那須塩原市" },
       { "@type": "City", "name": "大田原市" },
       { "@type": "AdministrativeArea", "name": "那須町" }
-    ]
+    ],
+    "sameAs": [
+      "https://jp.toto.com/reform/remodelclub/RC221801/",
+      "https://r.goope.jp/sr-09-0921210034/"
+    ],
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "緊急受付",
+        "value": "24時間365日緊急直通対応（090-2463-6638）"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "指定工事店認定",
+        "value": "那須塩原市・大田原市・那須町 指定給水装置工事事業者"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "64",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "那須塩原市 H様" },
+        "datePublished": "2024-05-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "夜間にシャワートイレから水漏れが発生し連絡。すぐに来ていただき、状況と交換費用を明確にご説明いただき安心してお任せできました。"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "大田原市 K様" },
+        "datePublished": "2024-03-12",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "給湯器からお湯が出なくなり大変困っていましたが、自社施工で迅速に取り替えていただきました。地元のお店で本当に心強いです。"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "那須町 S様" },
+        "datePublished": "2024-01-25",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "別荘の水道管が寒波で凍結・破裂してしまい依頼。解氷と配管補修を迅速にしていただき、冬場の水抜き対策まで丁寧に教えてもらいました。"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "水まわり修理・リフォームサービスメニュー",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "トイレつまり修理・水漏れ修理" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "5500", "priceCurrency": "JPY", "minPrice": "5500" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "蛇口・水栓修理・交換" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "5500", "priceCurrency": "JPY", "minPrice": "5500" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "水漏れ修理・配管修理" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "5500", "priceCurrency": "JPY", "minPrice": "5500" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "給湯器・エコキュート故障・交換" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "8800", "priceCurrency": "JPY", "minPrice": "8800" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "排水管つまり・高圧洗浄" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "8800", "priceCurrency": "JPY", "minPrice": "8800" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "水道管凍結・破裂修理・寒冷地対策" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "8800", "priceCurrency": "JPY", "minPrice": "8800" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "井戸ポンプ修理・交換" },
+          "priceSpecification": { "@type": "PriceSpecification", "price": "11000", "priceCurrency": "JPY", "minPrice": "11000" }
+        }
+      ]
+    }
   })} />
+
+  {/* パンくずリスト構造化データ */}
+  {breadcrumbLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  )}
 </head>
 <body>
   <Header />

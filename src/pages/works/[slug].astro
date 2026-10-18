@@ -21,6 +21,10 @@ const { caseItem } = Astro.props;
   title={`${caseItem.title}｜水まわり専門店クリプトン【公式】`}
   description={`${caseItem.municipality}での水まわり修理実績。${caseItem.consultation} 原因：${caseItem.cause}。那須エリア指定工事店・自社施工のクリプトンが迅速解決。`}
   ogImage={caseItem.beforeImage}
+  breadcrumbItems={[
+    { name: "施工事例一覧", url: "/works/" },
+    { name: caseItem.title }
+  ]}
 >
   <div class="works-single-header">
     <div class="container">

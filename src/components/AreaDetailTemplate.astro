@@ -39,6 +39,10 @@ const displayCases = areaCases.length > 0 ? areaCases : allCasesData.slice(0, 4)
 <Layout
   title={`${name}の水まわり修理・水道局指定工事店｜水まわり専門店クリプトン【公式】`}
   description={metaDescription}
+  breadcrumbItems={[
+    { name: "対応地域", url: "/#areas" },
+    { name: `${name}の水まわり修理`, url: `/areas/${areaId}/` }
+  ]}
 >
   <div class="area-page-header">
     <div class="container">

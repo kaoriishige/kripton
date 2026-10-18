@@ -1,48 +1,57 @@
 ---
+// src/components/MobileFixedBar.astro
 import { companyData } from '../data/company';
 ---
 
-<div class="mobile-fixed-cta" id="mobileFixedCta">
+<aside class="mobile-fixed-cta" id="mobileFixedCta" aria-label="モバイル緊急連絡バー">
   <div class="cta-container">
-    <a href={`tel:${companyData.telEmergency}`} class="cta-btn cta-emergency">
-      <span class="cta-badge">24時間</span>
+    <a href={`tel:${companyData.telEmergency}`} class="cta-btn cta-emergency" aria-label="夜間・緊急直通電話をかける">
+      <span class="cta-badge">24時間対応</span>
       <span class="cta-icon">🚨</span>
       <div class="cta-text-group">
-        <span class="cta-sub">夜間・緊急直通</span>
+        <span class="cta-sub">急な水漏れ・つまり</span>
         <span class="cta-main">今すぐ電話相談</span>
       </div>
     </a>
-    <a href={`tel:${companyData.telMain}`} class="cta-btn cta-regular">
+    <a href="/contact/#line" class="cta-btn cta-line" aria-label="LINEで写真を送って相談">
+      <span class="cta-badge line-badge">無料見積</span>
+      <span class="cta-icon">💬</span>
+      <div class="cta-text-group">
+        <span class="cta-sub">写真を送るだけ</span>
+        <span class="cta-main">LINE相談</span>
+      </div>
+    </a>
+    <a href={`tel:${companyData.telMain}`} class="cta-btn cta-regular" aria-label="通常受付電話をかける">
       <span class="cta-icon">📞</span>
       <div class="cta-text-group">
-        <span class="cta-sub">通常受付 8〜19時</span>
-        <span class="cta-main">{companyData.telMain}</span>
+        <span class="cta-sub">8〜19時受付</span>
+        <span class="cta-main">黒磯店</span>
       </div>
     </a>
   </div>
-</div>
+</aside>
 
 <style>
   .mobile-fixed-cta {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 -3px 16px rgba(18, 59, 101, 0.15);
-    border-top: 1px solid var(--color-border);
-    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    display: block !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 99999 !important;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid #E2E8F0;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
   }
 
   .cta-container {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 8px;
-    max-width: 500px;
+    grid-template-columns: 1.4fr 1fr 0.9fr;
+    gap: 6px;
+    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -50,41 +59,51 @@ import { companyData } from '../data/company';
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 8px 10px;
-    border-radius: var(--radius-md);
+    gap: 4px;
+    padding: 6px 4px;
+    border-radius: 8px;
     text-decoration: none;
     position: relative;
-    overflow: hidden;
-    min-height: 52px;
+    min-height: 50px;
+    box-sizing: border-box;
   }
 
   .cta-emergency {
-    background: linear-gradient(135deg, #FF7A00, #E65100);
+    background: linear-gradient(135deg, #FF6B00, #E65100);
     color: #FFFFFF !important;
-    box-shadow: 0 4px 10px rgba(230, 81, 0, 0.35);
+    box-shadow: 0 2px 8px rgba(230, 81, 0, 0.3);
+  }
+
+  .cta-line {
+    background: linear-gradient(135deg, #06C755, #05A847);
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 8px rgba(6, 199, 85, 0.3);
   }
 
   .cta-regular {
-    background: var(--color-main);
+    background: #123B65;
     color: #FFFFFF !important;
   }
 
   .cta-badge {
     position: absolute;
-    top: 3px;
-    left: 4px;
-    font-size: 0.6rem;
+    top: 2px;
+    left: 3px;
+    font-size: 0.58rem;
     font-weight: 800;
-    background: #FFF;
+    background: #FFFFFF;
     color: #CF1322;
-    padding: 1px 4px;
-    border-radius: 3px;
-    line-height: 1;
+    padding: 0 3px;
+    border-radius: 2px;
+    line-height: 1.1;
+  }
+  .line-badge {
+    color: #05A847;
   }
 
   .cta-icon {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
+    line-height: 1;
   }
 
   .cta-text-group {
@@ -95,20 +114,22 @@ import { companyData } from '../data/company';
   }
 
   .cta-sub {
-    font-size: 0.65rem;
-    opacity: 0.9;
-    font-weight: 500;
+    font-size: 0.6rem;
+    opacity: 0.95;
+    font-weight: 600;
+    white-space: nowrap;
   }
 
   .cta-main {
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 0.02em;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
   }
 
   @media (min-width: 900px) {
     .mobile-fixed-cta {
-      display: none;
+      display: none !important;
     }
   }
 </style>

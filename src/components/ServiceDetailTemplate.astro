@@ -44,6 +44,10 @@ const displayCases = relatedCases.length > 0 ? relatedCases : allCasesData.slice
 <Layout
   title={`${title}｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町`}
   description={metaDescription}
+  breadcrumbItems={[
+    { name: "水まわり修理サービス", url: "/#services" },
+    { name: title }
+  ]}
 >
   <!-- ページヘッダー -->
   <div class="service-page-header">

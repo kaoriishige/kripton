@@ -53,7 +53,30 @@ const videoTopics = [
 <Layout
   title="水まわりお役立ち情報・クリプトンマン動画一覧｜水まわり専門店クリプトン【公式】"
   description="クリプトンマンがお届けする水まわりの豆知識・トラブル対処法・ショート動画一覧。トイレつまりや水道管凍結、別荘の水抜き手順を分かりやすく解説します。"
+  breadcrumbItems={[
+    { name: "お役立ち情報・動画一覧", url: "/tips/" }
+  ]}
 >
+  <!-- VideoObject 構造化データ (AI検索・動画検索最適化) -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": videoTopics.map(v => ({
+      "@type": "VideoObject",
+      "name": `【水まわり緊急解決】${v.theme}`,
+      "description": v.desc,
+      "thumbnailUrl": "https://xn--bbkyao7065bpyck41as89d.com/images/character/kripton-man4-1.jpg",
+      "uploadDate": "2024-04-01",
+      "publisher": {
+        "@type": "Organization",
+        "name": "水まわり専門店クリプトン",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://xn--bbkyao7065bpyck41as89d.com/images/character/kripton-man4-1.jpg"
+        }
+      }
+    }))
+  })} />
+
   <div class="tips-header">
     <div class="container">
       <nav class="breadcrumb" aria-label="パンくずリスト">
