@@ -1,0 +1,303 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { allCasesData } from '../../data/all_cases';
+import { companyData } from '../../data/company';
+
+// カテゴリ一覧
+const categories = [
+  'すべて',
+  'トイレの故障・修理・リフォーム',
+  'キッチンの故障・修理・リフォーム',
+  'ボイラーの故障・修理・リフォーム',
+  '水まわりの故障・修理・リフォーム',
+  'お風呂の故障・修理・リフォーム',
+  '洗面所の故障・修理・リフォーム'
+];
+---
+
+<Layout
+  title="施工事例一覧｜水まわり専門店クリプトン【公式】那須塩原・大田原・那須町"
+  description="那須塩原市・大田原市・那須町での水まわり修理・リフォームの施工実績一覧。トイレつまり、水漏れ、給湯器交換、蛇口修理のBefore/After写真と作業内容・費用を公開。"
+>
+  <div class="works-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>施工事例一覧</span>
+      </nav>
+      <h1 class="page-title">那須地域の水まわり施工事例</h1>
+      <p class="page-lead">
+        那須塩原市・大田原市・那須町での実際の修理・リフォーム実績をご紹介します。<br />
+        創業30年、公認指定工事店としての確かな自社責任施工の記録です。
+      </p>
+    </div>
+  </div>
+
+  <div class="container works-archive-container">
+    <!-- 市町村フィルターバッジ -->
+    <div class="filter-bar">
+      <span class="filter-label">地域で絞り込む：</span>
+      <div class="filter-chips">
+        <a href="#all" class="chip active">全地域（{allCasesData.length}件）</a>
+        <a href="#nasushiobara" class="chip">那須塩原市</a>
+        <a href="#ohtawara" class="chip">大田原市</a>
+        <a href="#nasu" class="chip">那須町</a>
+      </div>
+    </div>
+
+    <!-- 施工事例グリッド -->
+    <div class="works-archive-grid">
+      {allCasesData.map(c => (
+        <article class="card work-card-item" data-area={c.municipality}>
+          <div class="work-card-img-wrap">
+            <img
+              src={c.beforeImage}
+              alt={`${c.municipality} ${c.title} 施工写真`}
+              class="work-card-thumb"
+              loading="lazy"
+              onerror="this.src='/images/character/kripton-man4-1.jpg'"
+            />
+            <span class="badge badge-location-chip">{c.municipality}</span>
+          </div>
+
+          <div class="work-card-body">
+            <div class="work-meta-row">
+              <span class="work-cat">{c.category.replace('の故障・修理・リフォーム', '')}</span>
+              <time datetime={c.date} class="work-date">{c.date}</time>
+            </div>
+
+            <h2 class="work-item-title">
+              <a href={`/works/${c.slug}/`}>{c.title}</a>
+            </h2>
+
+            <p class="work-snippet">{c.consultation}</p>
+
+            <div class="work-footer-info">
+              <span class="work-cost">費用: <strong>{c.repairCost}</strong></span>
+              <a href={`/works/${c.slug}/`} class="work-link-text">詳細を見る →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- 相談バナー -->
+    <div class="archive-cta-box">
+      <div class="cta-inner">
+        <h3>同じ症状でお困りですか？</h3>
+        <p>那須塩原・大田原・那須町なら最短30分で駆けつけ現地確認・明瞭見積もりいたします！</p>
+        <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-archive-cta">
+          🚨 090-2463-6638（24時間受付）
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .works-hero {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .page-lead {
+    font-size: 1.05rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+  }
+
+  .works-archive-container {
+    padding: 50px 20px;
+  }
+
+  /* フィルターバー */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--color-bg-sub);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 35px;
+    border: 1px solid var(--color-border);
+  }
+
+  .filter-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-main);
+  }
+
+  .filter-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    background: #FFFFFF;
+    color: var(--color-main);
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+  }
+
+  .chip:hover, .chip.active {
+    background: var(--color-main);
+    color: #FFFFFF;
+    border-color: var(--color-main);
+  }
+
+  /* グリッド */
+  .works-archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    margin-bottom: 50px;
+  }
+
+  .work-card-item {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .work-card-img-wrap {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background: #EBF4FA;
+  }
+
+  .work-card-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .work-card-item:hover .work-card-thumb {
+    transform: scale(1.05);
+  }
+
+  .badge-location-chip {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  .work-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .work-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .work-cat {
+    color: var(--color-sub);
+    font-weight: 700;
+  }
+
+  .work-item-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  .work-item-title a {
+    color: var(--color-main);
+  }
+
+  .work-item-title a:hover {
+    color: var(--color-sub);
+  }
+
+  .work-snippet {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .work-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed var(--color-border);
+    padding-top: 12px;
+    font-size: 0.8rem;
+  }
+
+  .work-cost strong {
+    color: #CF1322;
+  }
+
+  .work-link-text {
+    font-weight: 700;
+    color: var(--color-sub);
+  }
+
+  /* CTA */
+  .archive-cta-box {
+    background: linear-gradient(135deg, #123B65, #0A243F);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 35px 24px;
+    text-align: center;
+  }
+
+  .archive-cta-box h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .archive-cta-box p {
+    font-size: 0.92rem;
+    color: #DDE7F0;
+    margin-bottom: 20px;
+  }
+
+  .btn-archive-cta {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .page-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

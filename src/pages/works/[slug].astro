@@ -1,0 +1,464 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { allCasesData, type CaseStudyItem } from '../../data/all_cases';
+import { companyData } from '../../data/company';
+
+export async function getStaticPaths() {
+  return allCasesData.map((item) => ({
+    params: { slug: item.slug },
+    props: { caseItem: item }
+  }));
+}
+
+interface Props {
+  caseItem: CaseStudyItem;
+}
+
+const { caseItem } = Astro.props;
+---
+
+<Layout
+  title={`${caseItem.title}｜水まわり専門店クリプトン【公式】`}
+  description={`${caseItem.municipality}での水まわり修理実績。${caseItem.consultation} 原因：${caseItem.cause}。那須エリア指定工事店・自社施工のクリプトンが迅速解決。`}
+  ogImage={caseItem.beforeImage}
+>
+  <div class="works-single-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <a href="/works/">施工事例一覧</a> &gt; <span>{caseItem.municipality}の事例</span>
+      </nav>
+      <div class="header-badges">
+        <span class="badge badge-location">{caseItem.municipality}</span>
+        <span class="badge">{caseItem.category}</span>
+        <time class="case-header-date" datetime={caseItem.date}>施工日: {caseItem.date}</time>
+      </div>
+      <h1 class="works-single-title">{caseItem.title}</h1>
+    </div>
+  </div>
+
+  <div class="container works-container">
+    <div class="works-main-col">
+      <!-- サマリースペック -->
+      <div class="works-summary-card">
+        <div class="summary-item">
+          <span class="s-label">ご相談地域</span>
+          <strong class="s-value">{caseItem.municipality}</strong>
+        </div>
+        <div class="summary-item">
+          <span class="s-label">作業時間</span>
+          <strong class="s-value">{caseItem.workDuration}</strong>
+        </div>
+        <div class="summary-item">
+          <span class="s-label">修理料金</span>
+          <strong class="s-value price-text">{caseItem.repairCost}</strong>
+        </div>
+        <div class="summary-item">
+          <span class="s-label">施工担当</span>
+          <strong class="s-value">国家資格者自社施工</strong>
+        </div>
+      </div>
+
+      <!-- 写真ギャラリー（Before / After） -->
+      <section class="works-section">
+        <h2 class="section-subheading">施工写真（Before / After）</h2>
+        <div class="before-after-grid">
+          <div class="ba-card">
+            <span class="ba-badge before-badge">施工前（Before）</span>
+            <div class="ba-img-container">
+              <img
+                src={caseItem.beforeImage}
+                alt={`${caseItem.municipality} ${caseItem.title} 施工前写真`}
+                class="ba-real-img"
+                loading="lazy"
+                onerror="this.src='/images/character/kripton-man4-1.jpg'"
+              />
+            </div>
+            <p class="ba-caption">現地調査時の状態。不具合の原因と損傷箇所を特定しました。</p>
+          </div>
+
+          <div class="ba-card">
+            <span class="ba-badge after-badge">施工後（After）</span>
+            <div class="ba-img-container">
+              <img
+                src={caseItem.afterImage}
+                alt={`${caseItem.municipality} ${caseItem.title} 施工後写真`}
+                class="ba-real-img"
+                loading="lazy"
+                onerror="this.src='/images/character/kripton-man4-1.jpg'"
+              />
+            </div>
+            <p class="ba-caption">修繕・交換完了後。正常な通水・排水動作を確認いたしました。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 施工詳細リスト（指示書 6-2 登録項目に完全準拠） -->
+      <section class="works-section">
+        <h2 class="section-subheading">施工内容の詳細</h2>
+        <div class="details-list">
+          <div class="detail-row">
+            <span class="d-label">1. お客様からのご相談内容</span>
+            <p class="d-text">{caseItem.consultation}</p>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">2. 現地での調査・点検内容</span>
+            <p class="d-text">{caseItem.investigation}</p>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">3. 故障の原因</span>
+            <p class="d-text">{caseItem.cause}</p>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">4. 実施した作業内容</span>
+            <p class="d-text">{caseItem.workDetails}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 関連エリア・サービスリンク -->
+      <div class="related-links-bar">
+        <span>関連するページ：</span>
+        <a href="/works/" class="related-tag">施工事例一覧に戻る</a>
+        <a href={`/areas/${caseItem.relatedAreaId}/`} class="related-tag">{caseItem.municipality}の水まわり修理</a>
+        <a href="/#services" class="related-tag">修理サービス一覧</a>
+      </div>
+    </div>
+
+    <!-- サイドバー -->
+    <aside class="works-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-avatar">
+          <img src="/images/character/kripton-man4-1.jpg" alt="クリプトンマン" width="70" height="70" />
+        </div>
+        <h3 class="sidebar-title">同じ症状でお困りですか？</h3>
+        <p class="sidebar-desc">
+          那須塩原市・大田原市・那須町なら、最短30分で駆けつけ現地確認いたします！
+        </p>
+        <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-full">
+          🚨 090-2463-6638（電話相談）
+        </a>
+        <span class="sidebar-note">24時間365日緊急受付中</span>
+      </div>
+
+      <div class="sidebar-card">
+        <h4 class="sidebar-card-title">最新の施工実績</h4>
+        <ul class="sidebar-case-list">
+          {allCasesData.slice(0, 5).map(item => (
+            <li>
+              <a href={`/works/${item.slug}/`}>{item.municipality}｜{item.title}</a>
+            </li>
+          ))}
+        </ul>
+        <a href="/works/" class="btn btn-outline btn-full btn-sm">すべての事例一覧 →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Article 構造化データ（JSON-LD） -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": caseItem.title,
+    "image": [caseItem.beforeImage, caseItem.afterImage],
+    "datePublished": caseItem.date,
+    "dateModified": caseItem.date,
+    "author": {
+      "@type": "Organization",
+      "name": "有限会社クリプトン"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "有限会社クリプトン",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://xn--bbkyao7065bpyck41as89d.com/images/character/kripton-man4-1.jpg"
+      }
+    },
+    "description": caseItem.consultation
+  })} />
+</Layout>
+
+<style>
+  .works-single-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 35px 0 40px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .header-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .case-header-date {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin-left: auto;
+  }
+
+  .works-single-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .works-container {
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 960px) {
+    .works-container {
+      grid-template-columns: 1fr 320px;
+    }
+  }
+
+  /* サマリーカード */
+  .works-summary-card {
+    background: var(--color-bg-sub);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .s-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .s-value {
+    font-size: 1.05rem;
+    color: var(--color-main);
+  }
+
+  .price-text {
+    color: #CF1322;
+    font-family: var(--font-en);
+  }
+
+  /* セクション */
+  .works-section {
+    margin-bottom: 45px;
+  }
+
+  .section-subheading {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-main);
+    border-left: 4px solid var(--color-sub);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  /* Before / After */
+  .before-after-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .ba-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+
+  .ba-badge {
+    display: block;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .before-badge {
+    background: #5A6D80;
+  }
+
+  .after-badge {
+    background: var(--color-sub);
+  }
+
+  .ba-img-container {
+    height: 240px;
+    background: #EBF4FA;
+    overflow: hidden;
+  }
+
+  .ba-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ba-caption {
+    padding: 14px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* 詳細リスト */
+  .details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .detail-row {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+  }
+
+  .d-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--color-sub);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .d-text {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .related-links-bar {
+    background: var(--color-bg-sub);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+  }
+
+  .related-tag {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+  }
+
+  /* サイドバー */
+  .works-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sidebar-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 12px;
+    border: 3px solid var(--color-sub);
+  }
+
+  .sidebar-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sidebar-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  .sidebar-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .sidebar-note {
+    font-size: 0.72rem;
+    color: var(--color-phone);
+    font-weight: 700;
+    display: block;
+    margin-top: 8px;
+  }
+
+  .sidebar-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+  }
+
+  .sidebar-case-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+    text-align: left;
+  }
+
+  .sidebar-case-list li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar-case-list a {
+    font-size: 0.82rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    display: block;
+  }
+
+  .sidebar-case-list a:hover {
+    color: var(--color-sub);
+  }
+
+  .btn-sm {
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+</style>
