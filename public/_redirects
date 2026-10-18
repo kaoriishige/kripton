@@ -1,14 +1,7 @@
-/toilet/  /services/toilet/  301
-/bath/  /services/bath/  301
-/ketchen/  /services/kitchen/  301
-/washroom/  /services/washroom/  301
-/eco-cute/  /services/eco-cute/  301
-/pump/  /services/pump/  301
-/other-reform/  /services/other-reform/  301
-/feature/  /#why-us  301
-/emergency/  /#contact  301
-/flow/  /#flow  301
-/inspection/  /#krypton-man  301
+# 旧WordPress URLからの正規リダイレクト（実在ページはそのまま配信）
+/ketchen/  /kitchen/  301
+/emergency/  /contact/  301
+
 /toilet-048/  /works/toilet-048/  301
 /kitchen-005/  /works/kitchen-005/  301
 /kuriputon-matsuri-2026/  /news/kuriputon-matsuri-2026/  301

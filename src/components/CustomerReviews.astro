@@ -1,31 +1,14 @@
 ---
 // src/components/CustomerReviews.astro
-// Googleポリシーに完全準拠：自社偽装レビューは排除し、実在のGoogleクチコミ導線と施工アンケート原本実績を掲載
-const surveyExcerpts = [
-  {
-    location: "那須塩原市 H様邸",
-    workType: "シャワートイレ水漏れ・トイレリフォーム",
-    excerpt: "夜遅くに水漏れが発生し緊急連絡。迅速に来ていただき、原因の特定から交換の見積もりまでその場で分かりやすく説明してくれたので安心してお任せできました。"
-  },
-  {
-    location: "大田原市 K様邸",
-    workType: "石油給湯器・ボイラー故障交換",
-    excerpt: "冬の朝にお湯が出なくなり途方に暮れていましたが、地元指定店のクリプトンさんに相談したら当日中に現地調査に来て適合品を手配・交換してもらえました。"
-  },
-  {
-    location: "那須町 S様（別荘）",
-    workType: "水道管凍結・破裂修理・寒冷地対策",
-    excerpt: "別荘の水道管が寒波で凍結・破裂してしまい依頼。那須の寒冷地事情に詳しく、特殊な解氷作業と配管補修を手際よく完了していただきました。"
-  }
-];
+// Googleポリシー・事実確認に完全準拠：原本・許諾が照合できていないアンケート本文は保留し、公式Googleクチコミと写真付き施工実績へ一本化
 ---
 
 <section id="reviews" class="reviews-section">
   <div class="container">
     <div class="section-title-wrap">
-      <span class="badge">CUSTOMER'S VOICE</span>
-      <h2 class="section-title">施工アンケートとお客さまからのご評価</h2>
-      <p class="section-subtitle">那須塩原市・大田原市・那須町での工事完了後、お客さまからいただいたアンケートやGoogleクチコミのご紹介です</p>
+      <span class="badge">CUSTOMER REVIEWS</span>
+      <h2 class="section-title">お客さまの声・クチコミについて</h2>
+      <p class="section-subtitle">有限会社クリプトンでは、透明性と信頼を第一に考え、架空の口コミやサクラレビューの掲載は一切行いません</p>
     </div>
 
     <!-- Googleビジネスプロフィール公式クチコミ案内バナー -->
@@ -35,7 +18,7 @@ const surveyExcerpts = [
           <span class="google-g">G</span>
           <div>
             <h3 class="gbp-name">有限会社クリプトン（Googleビジネスプロフィール）</h3>
-            <p class="gbp-desc">栃木県那須塩原市黒磯2-11｜水道局指定給水装置工事事業者</p>
+            <p class="gbp-desc">栃木県那須塩原市黒磯2-11｜水道局指定給水装置工事事業者・排水設備指定工事店</p>
           </div>
         </div>
       </div>
@@ -46,7 +29,7 @@ const surveyExcerpts = [
           rel="noopener noreferrer"
           class="btn-gbp btn-view-review"
         >
-          📍 Googleマップで地図・評価を見る
+          📍 Googleマップで地図・クチコミを見る
         </a>
         <a
           href="https://maps.google.com/?q=有限会社クリプトン+栃木県那須塩原市黒磯2-11"
@@ -59,24 +42,19 @@ const surveyExcerpts = [
       </div>
     </div>
 
-    <!-- 施工実績アンケート抜粋 -->
-    <div class="reviews-grid">
-      {surveyExcerpts.map(item => (
-        <div class="review-card">
-          <div class="card-tag-row">
-            <span class="location-badge">{item.location}</span>
-            <span class="work-badge">{item.workType}</span>
-          </div>
-          <p class="card-quote">「{item.excerpt}」</p>
-          <div class="card-footer">
-            <span class="source-note">※現地施工後の完了アンケートより抜粋</span>
-          </div>
-        </div>
-      ))}
+    <!-- アンケート原本照合に関する透明性ポリシー通知 -->
+    <div class="review-policy-notice">
+      <div class="notice-badge">安心・誠実なお約束</div>
+      <h4>施工アンケート原本照合および掲載基準について</h4>
+      <p>
+        水まわり修理業界において、自作自演の口コミや根拠のない高評価が社会問題となる中、クリプトンでは厳格な掲載基準を設けております。<br />
+        現在、過去にいただいた工事完了アンケートの原本・投稿日・お客様のWeb掲載許諾の再確認作業を行っており、照合が完了するまで個別のアンケート本文掲載を一時保留としております。<br />
+        地域の皆さまに嘘のない確かな技術をお届けするため、第三者プラットフォームであるGoogleマップでの公開レビュー、ならびに自社で撮影・記録した<strong>全64件の施工写真・実績詳細</strong>を公開しております。
+      </p>
     </div>
 
     <div class="reviews-bottom-cta">
-      <p class="cases-link-lead">クリプトンでは、過去に施工した<strong>全64件の現場写真・工事記録</strong>をすべて公開しています。</p>
+      <p class="cases-link-lead">クリプトンが実際に手がけた<strong>全64件の現場写真・工事記録</strong>をすべて公開しています。</p>
       <a href="/works/" class="btn-all-cases">
         施工事例・工事写真一覧（全64件）を見る →
       </a>
@@ -251,6 +229,37 @@ const surveyExcerpts = [
   .source-note {
     font-size: 0.75rem;
     color: #94A3B8;
+  }
+
+  .review-policy-notice {
+    background: #FFFFFF;
+    border-left: 4px solid #1976BB;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .notice-badge {
+    display: inline-block;
+    background: #E0F2FE;
+    color: #0369A1;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .review-policy-notice h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 10px;
+  }
+  .review-policy-notice p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.7;
+    margin: 0;
   }
 
   .reviews-bottom-cta {
