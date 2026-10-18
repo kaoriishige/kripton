@@ -1,8 +1,8 @@
 ---
 import { allCasesData } from '../data/all_cases';
 
-// 最新の6件を表示
-const recentCases = allCasesData.slice(0, 6);
+// トップページでは最新4件を厳選表示（全件は一覧ページへ誘導しモバイル長尺を抑制）
+const recentCases = allCasesData.slice(0, 4);
 ---
 
 <section class="cases-section" id="cases">
