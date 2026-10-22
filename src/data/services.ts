@@ -20,7 +20,7 @@ export const servicesData: ServiceItem[] = [
     badge: "緊急対応多数",
     emergencyLevel: "高",
     commonTroubles: ["異物を流した・紙づまり", "便器内へのチョロチョロ給水漏れ", "床と便器の隙間からの水漏れ", "温水洗浄便座（ウォシュレット）故障"],
-    startingPrice: "5,000円〜"
+    startingPrice: "8,000円〜"
   },
   {
     id: "water-leak",
@@ -31,7 +31,7 @@ export const servicesData: ServiceItem[] = [
     badge: "至急対応",
     emergencyLevel: "高",
     commonTroubles: ["水道局から漏水指摘を受けた", "壁・床から水の音がする", "元栓を閉めてもメーターが回る"],
-    startingPrice: "5,000円〜"
+    startingPrice: "8,000円〜"
   },
   {
     id: "faucet",
@@ -41,7 +41,7 @@ export const servicesData: ServiceItem[] = [
     icon: "🚰",
     emergencyLevel: "中",
     commonTroubles: ["吐水口からのポタポタ漏れ", "レバー下からの水にじみ", "シングルレバーの動作不良", "最新タッチレス水栓への交換"],
-    startingPrice: "5,000円〜"
+    startingPrice: "8,000円〜"
   },
   {
     id: "boiler",
@@ -83,7 +83,7 @@ export const servicesData: ServiceItem[] = [
     icon: "⚙️",
     emergencyLevel: "高",
     commonTroubles: ["ポンプが動きっぱなしになる", "蛇口を開けても水圧が極端に弱い", "砂を噛んで異音がする", "新型インバーターポンプへの交換"],
-    startingPrice: "10,000円〜"
+    startingPrice: "8,000円〜"
   },
   {
     id: "kitchen",
@@ -93,7 +93,7 @@ export const servicesData: ServiceItem[] = [
     icon: "🍳",
     emergencyLevel: "中",
     commonTroubles: ["シンク下の床が濡れている", "排水口からの強烈な臭い", "換気扇・IH・ビルトイン食洗機の不具合", "キッチン全体のリフォーム"],
-    startingPrice: "5,000円〜"
+    startingPrice: "8,000円〜"
   },
   {
     id: "bath",
@@ -103,7 +103,7 @@ export const servicesData: ServiceItem[] = [
     icon: "🛁",
     emergencyLevel: "中",
     commonTroubles: ["洗い場にお湯が溜まって流れない", "サーモスタット混合栓の温度調整不良", "浴槽循環口の詰まり・汚れ", "浴室暖房乾燥機の導入"],
-    startingPrice: "5,000円〜"
+    startingPrice: "8,000円〜"
   },
   {
     id: "washroom",
@@ -113,6 +113,6 @@ export const servicesData: ServiceItem[] = [
     icon: "🪞",
     emergencyLevel: "中",
     commonTroubles: ["洗面台下収納の漏水", "排水Sトラップの詰まり・ヘアキャッチャー破損", "洗濯機給水ホース接続部からの水漏れ", "洗面化粧台交換"],
-    startingPrice: "5,000円〜"
+    startingPrice: "8,000円〜"
   }
 ];

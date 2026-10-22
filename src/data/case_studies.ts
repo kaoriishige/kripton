@@ -77,7 +77,7 @@ export const caseStudiesData: CaseStudy[] = [
     workDetails: "タンク内のボールタップ・フロートバルブ・サイフォン管を純正新品部品に交換し、正常な給水停止と密閉を確認しました。",
     partsUsed: "ボールタップ一式、フロートゴム玉、給水管パッキン",
     workDuration: "約45分",
-    repairCost: "1ヶ所 5,000円（税込）＋部品代＋診断料",
+    repairCost: "1ヶ所 8,000円（税込）＋部品代＋診断料",
     beforeImage: "/images/works/sample-tank-before.jpg",
     afterImage: "/images/works/sample-tank-after.jpg",
     notes: "便器内にわずかに波紋が出ている状態は水道代が跳ね上がる原因になります。",

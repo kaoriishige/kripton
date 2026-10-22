@@ -10,6 +10,7 @@ export interface CompanyInfo {
   email: string;
   emergencyContactPerson: string;
   businessHours: string;
+  regularHoliday?: string;
   emergencyHours: string;
   primaryAreas: string[];
   allAreas: string[];
@@ -36,8 +37,9 @@ export const companyData: CompanyInfo = {
   fax: "0287-60-5054",
   email: "kripton@sweet.ocn.ne.jp",
   emergencyContactPerson: "津久井",
-  businessHours: "8:00 ～ 19:00",
-  emergencyHours: "24時間365日緊急受付対応",
+  businessHours: "08:00 ～ 17:00",
+  regularHoliday: "日曜日（緊急時は24時間365日緊急受付）",
+  emergencyHours: "24時間365日緊急受付",
   primaryAreas: ["那須塩原市", "大田原市", "那須町"],
   allAreas: ["那須塩原市", "大田原市", "那須町", "矢板市", "塩谷町"],
   qualifications: [
@@ -65,9 +67,9 @@ export const companyData: CompanyInfo = {
   ],
   pricing: {
     diagnosisRegular: "3,500円",
-    diagnosisRegularHours: "8:00 ～ 19:00",
+    diagnosisRegularHours: "08:00 ～ 17:00",
     diagnosisOvertime: "5,000円",
-    diagnosisOvertimeHours: "日曜・休日・平日19:00 ～ 翌8:00",
-    repairStartingFrom: "1ヶ所 5,000円（税込）～"
+    diagnosisOvertimeHours: "日曜・祝日・平日17:00 ～ 翌8:00",
+    repairStartingFrom: "1ヶ所 8,000円（税込）～"
   }
 };

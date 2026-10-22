@@ -3,73 +3,182 @@ import Layout from '../../layouts/Layout.astro';
 import KryptonManGuide from '../../components/KryptonManGuide.astro';
 import { companyData } from '../../data/company';
 
-// 指示書第8章 8-3 に完全準拠した動画・お役立ちテーマ
-const videoTopics = [
+// 写真と文字でわかりやすく解説する水まわりお役立ちテーマ
+const visualTopics = [
   {
-    id: "v1",
-    theme: "水漏れで水が止まらない！",
-    desc: "焦らず最初に止水栓を閉める手順と、元栓の場所を動画で分かりやすく解説します。",
+    id: "guide-1",
+    theme: "水漏れで水が止まらない！最初にやるべき応急処置",
     tag: "緊急応急処置",
-    status: "動画公開準備中"
+    image: "/images/works/pump-001-3.jpg",
+    imageAlt: "配管の止水栓とバルブの操作イメージ",
+    summary: "焦らず最初に止水栓または家全体の元栓を閉めることで、水漏れ被害の拡大を最小限に防ぎます。",
+    steps: [
+      {
+        num: "01",
+        title: "器具の足元にある止水栓を閉める",
+        desc: "キッチン・洗面台の下、またはトイレタンク横にあるマイナス溝やハンドルを時計回り（右）に回して水を止めます。"
+      },
+      {
+        num: "02",
+        title: "止まらない時は家全体の「元栓」を閉める",
+        desc: "屋外の地面にある水道メーターボックス（青いフタ等）を開け、中にあるバルブを右に回すと家全体の水が完全に止まります。"
+      }
+    ],
+    point: "普段から屋外の元栓ボックスの場所と開閉方法を家族で確認しておくと、万一の噴水トラブル時も慌てず対処できます！"
   },
   {
-    id: "v2",
-    theme: "トイレがつまったときの正しいラバーカップの使い方",
-    desc: "レバーを引いてはいけない理由と、汚水を飛び散らせずに一発で抜くプロの技。",
+    id: "guide-2",
+    theme: "トイレがつまったときの正しいラバーカップ（スッポン）の使い方",
     tag: "トイレトラブル",
-    status: "動画公開準備中"
+    image: "/images/works/toilet-038-1-768x1024.jpg",
+    imageAlt: "トイレつまり修理とラバーカップ作業イメージ",
+    summary: "レバーを何度も引くのは絶対にNG！プロが教える、汚水を飛び散らせずに一発で抜く正しい手順。",
+    steps: [
+      {
+        num: "01",
+        title: "レバーは絶対に引かない（水が溢れます）",
+        desc: "つまっている状態でレバーを引くと便器から汚水が溢れ出します。便器内の水位が高い場合はバケツ等で汲み出してください。"
+      },
+      {
+        num: "02",
+        title: "ゆっくり押し込んで排水口に密着させる",
+        desc: "ラバーカップを排水口に隙間なく押し当て、ゴム内の空気をゆっくり押し出します。飛び散り防止にゴミ袋の中央に穴を開けて柄を通すと安全です。"
+      },
+      {
+        num: "03",
+        title: "勢いよく一気に手前に引き抜く！",
+        desc: "スッポンは押す時ではなく「引く時の陰圧」で詰まりを引き抜きます。手応えがあるまで数回繰り返してください。"
+      }
+    ],
+    point: "おもちゃ・スマホ・おむつなどの固形物を誤って落とした場合は、スッポンを使うと奥に押し込んでしまうため使わずにすぐご連絡ください！"
   },
   {
-    id: "v3",
+    id: "guide-3",
     theme: "水道管が凍結した！熱湯がNGな理由と安全な解氷法",
-    desc: "那須エリアの冬の風物詩。ドライヤーやぬるま湯を使った安全な解凍手順。",
     tag: "冬期・寒冷地",
-    status: "動画公開準備中"
+    image: "/images/works/boiler-005-2-768x576.jpg",
+    imageAlt: "寒冷地配管・給湯器の凍結対処イメージ",
+    summary: "那須エリアの冬の風物詩。焦って熱湯をかけると急激な温度差で配管が破裂します！ぬるま湯とドライヤーで安全に対処しましょう。",
+    steps: [
+      {
+        num: "01",
+        title: "熱湯は厳禁！タオルを巻いてぬるま湯をかける",
+        desc: "急激な熱膨張で配管や蛇口金具が割れてしまいます。露出した配管や蛇口にタオルを巻き、50℃程度のぬるま湯をゆっくりかけます。"
+      },
+      {
+        num: "02",
+        title: "立ち上がり配管にはドライヤーの温風",
+        desc: "凍結しやすい床下の立ち上がり管や曲がり角に、ドライヤーの温風をまんべんなく当ててじっくり解凍します。"
+      },
+      {
+        num: "03",
+        title: "蛇口は少し開けて作業する",
+        desc: "管内の氷が溶けた瞬間に水が流れるよう、蛇口をわずかに開けておきます。水が出始めたら一気に流して氷を押し流します。"
+      }
+    ],
+    point: "もし水道管が破裂して水が噴き出したら、即座に屋外の元栓を閉めてクリプトンへお電話ください（緊急時24時間受付）！"
   },
   {
-    id: "v4",
+    id: "guide-4",
     theme: "那須高原の別荘必見！冬期の完全水抜き（水落とし）マニュアル",
-    desc: "不在時の水道管破裂を防ぐ、水抜き栓の正しい操作手順と給湯器の水抜き。",
     tag: "那須別荘対策",
-    status: "動画公開準備中"
+    image: "/images/works/004-1-1.jpg",
+    imageAlt: "別荘の水抜き栓操作と給湯設備点検",
+    summary: "不在時の水道管破裂事故を防ぐ！正しい水抜き栓の操作手順と、給湯器・トイレトラップの不凍液対策。",
+    steps: [
+      {
+        num: "01",
+        title: "不凍栓（水抜き栓）を完全に閉める",
+        desc: "手動の場合はハンドルを「止」方向へ最後まで回しきります（中途半端だと水が漏れ続けます）。電動式は操作盤の「水抜」ボタンを押します。"
+      },
+      {
+        num: "02",
+        title: "屋内のすべての蛇口を全開にする",
+        desc: "キッチン、洗面、お風呂、屋外散水栓の蛇口をすべて開けます。空気が入ることで配管内に溜まった水が地中に排出されます。"
+      },
+      {
+        num: "03",
+        title: "給湯器の水抜き栓を開け、トイレに不凍液を投入",
+        desc: "給湯器下部の水抜きプラグを外して機器内の水を抜き、トイレ便器の水たまりには凍結防止の不凍液を入れておきます。"
+      }
+    ],
+    point: "那須高原の冬期氷点下では、わずかな残り水でも配管破裂の原因に。ご自身での水抜きが不安な方はクリプトンの水抜き代行をご利用ください！"
   },
   {
-    id: "v5",
-    theme: "給湯器からお湯が出ない！修理か交換かどっちが得？",
-    desc: "使用年数8年〜10年を境にした判断基準と、エラーコードの見方を解説。",
+    id: "guide-5",
+    theme: "給湯器からお湯が出ない！修理か交換かどっちがお得？",
     tag: "給湯器・ボイラー",
-    status: "動画公開準備中"
+    image: "/images/works/boiler-010-1-768x1024.jpg",
+    imageAlt: "石油給湯器・ボイラーの修理点検",
+    summary: "使用年数8年〜10年が大きな判断基準。故障状況と寿命を見極めて、無駄な二重出費を防ぎましょう。",
+    steps: [
+      {
+        num: "01",
+        title: "設置後7年未満なら「部分修理」が経済的",
+        desc: "メーカーの部品保有期間内であり、電磁弁やセンサーなどの部分交換で直る可能性が高く、費用も抑えられます。"
+      },
+      {
+        num: "02",
+        title: "設置後10年以上なら「本体交換」がお得",
+        desc: "1箇所直しても他の部品が経年劣化で次々故障するリスクがあります。最新の高効率型に交換した方が燃料代も節約できます。"
+      },
+      {
+        num: "03",
+        title: "リモコンのエラーコードをメモして相談",
+        desc: "「111（点火不良）」「710（回路基板異常）」などの数字をメモしてお電話いただければ、その場で概算費用や対処法をお伝えできます。"
+      }
+    ],
+    point: "クリプトンは石油ボイラー・ガス給湯器・エコキュートの各種メーカー正規取扱店です。在庫があれば即日復旧にも対応します！"
   },
   {
-    id: "v6",
+    id: "guide-6",
     theme: "悪徳業者に騙されない！信頼できる水道修理業者の見極め方",
-    desc: "マグネット広告の激安トラップと、自治体公認の『指定工事店』を選ぶ重要性。",
     tag: "業界のウラ話",
-    status: "動画公開準備中"
+    image: "/images/character/kripton-man-1.jpg",
+    imageAlt: "水道修理の安心ポイントを解説するクリプトンマン",
+    summary: "ポスト投函の「数百円〜激安マグネット広告」の落とし穴。自治体公認の水道局指定工事店を選ぶべき理由。",
+    steps: [
+      {
+        num: "01",
+        title: "「基本料数百円〜」の極端な激安広告に注意",
+        desc: "安い基本料金で訪問し、「今すぐ配管全交換しないと家が水浸しになる」と数十万円の高額請求を迫る被害が急増しています。"
+      },
+      {
+        num: "02",
+        title: "自治体公認の「指定給水装置工事事業者」か確認",
+        desc: "国家資格者を配置し、市町の水道局から正規に指定を受けた事業者なら、適切な施工基準と適正価格が担保されています。"
+      },
+      {
+        num: "03",
+        title: "作業前に必ず「明確な事前見積もり」を提示するか",
+        desc: "作業内容と総額費用を工事前に明確に説明し、お客様の同意を得てから着工する業者を選びましょう。"
+      }
+    ],
+    point: "クリプトンは那須塩原市・大田原市・那須町の各自治体公認水道局指定工事店です。適正価格・事前見積もりをお約束します！"
   }
 ];
 ---
 
 <Layout
-  title="水まわりお役立ち情報・クリプトンマン動画一覧｜水まわり専門店クリプトン【公式】"
-  description="クリプトンマンがお届けする水まわりの豆知識・トラブル対処法・ショート動画一覧。トイレつまりや水道管凍結、別荘の水抜き手順を分かりやすく解説します。"
+  title="水まわりお役立ち情報・クリプトンマンの図解解説｜水まわり専門店クリプトン【公式】"
+  description="クリプトンマンがお届けする水まわりの豆知識・トラブル対処法。トイレつまりや水道管凍結、別荘の水抜き手順を写真とわかりやすい文字でステップ解説します。"
   breadcrumbItems={[
-    { name: "お役立ち情報・動画一覧", url: "/tips/" }
+    { name: "お役立ち情報・図解解説", url: "/tips/" }
   ]}
 >
   <div class="tips-header">
     <div class="container">
       <nav class="breadcrumb" aria-label="パンくずリスト">
-        <a href="/">ホーム</a> &gt; <span>お役立ち情報・動画</span>
+        <a href="/">ホーム</a> &gt; <span>お役立ち情報・図解解説</span>
       </nav>
       <div class="header-badges">
         <span class="badge">クリプトンマン公式</span>
-        <span class="badge">トラブル解決ショート動画シリーズ</span>
+        <span class="badge">写真と文字でわかる水まわり解説</span>
       </div>
-      <h1 class="page-title">水まわりのお役立ち情報・動画</h1>
+      <h1 class="page-title">水まわりのお役立ち情報・図解解説</h1>
       <p class="page-lead">
         いざという時に慌てないための応急処置から那須高原の別荘水抜きまで、<br />
-        水まわりのスーパーヒーロー「クリプトンマン」が分かりやすく解説します！
+        水まわりのスーパーヒーロー「クリプトンマン」が画像と文字でわかりやすくステップ解説します！
       </p>
     </div>
   </div>
@@ -78,25 +187,47 @@ const videoTopics = [
     <!-- クリプトンマンワンポイント解説 -->
     <KryptonManGuide />
 
-    <!-- ショート動画・専門解説一覧 -->
-    <section class="video-section">
+    <!-- 画像と文字でわかる専門解説一覧 -->
+    <section class="guide-section">
       <div class="section-header">
-        <span class="section-en-title">Video & Columns</span>
-        <h2 class="section-title">クリプトンマンのお役立ち動画・解説シリーズ</h2>
-        <p class="section-lead">YouTube Shorts・Instagram Reelsにて順次配信予定の動画テーマ一覧です。</p>
+        <span class="section-en-title">Visual Guide & Steps</span>
+        <h2 class="section-title">クリプトンマンのお役立ち解説シリーズ（写真と文字で解決）</h2>
+        <p class="section-lead">水漏れ・トイレつまりの応急処置から那須特有の冬期凍結・別荘水抜きまで、プロの対処法を写真とわかりやすい手順でまとめました。</p>
       </div>
 
-      <div class="video-grid">
-        {videoTopics.map(item => (
-          <article class="card video-card">
-            <div class="video-thumb-mock">
-              <span class="play-icon">▶</span>
-              <span class="video-tag">{item.tag}</span>
-              <span class="video-status">{item.status}</span>
+      <div class="guide-grid">
+        {visualTopics.map(item => (
+          <article class="card guide-card" id={item.id}>
+            <div class="guide-image-wrap">
+              <img src={item.image} alt={item.imageAlt} class="guide-thumb" loading="lazy" />
+              <span class="guide-tag">{item.tag}</span>
             </div>
-            <div class="video-body">
-              <h3 class="video-title">{item.theme}</h3>
-              <p class="video-desc">{item.desc}</p>
+
+            <div class="guide-body">
+              <h3 class="guide-title">{item.theme}</h3>
+              <p class="guide-summary">{item.summary}</p>
+
+              <div class="steps-container">
+                <p class="steps-heading">📌 対処の手順・ポイント</p>
+                <ol class="step-list">
+                  {item.steps.map(step => (
+                    <li class="step-item">
+                      <span class="step-num">Step {step.num}</span>
+                      <div class="step-content">
+                        <strong class="step-title">{step.title}</strong>
+                        <p class="step-desc">{step.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div class="krypton-point-box">
+                <div class="krypton-point-header">
+                  <span class="krypton-badge">🦸 クリプトンマンのアドバイス</span>
+                </div>
+                <p class="krypton-point-text">{item.point}</p>
+              </div>
             </div>
           </article>
         ))}
@@ -117,7 +248,7 @@ const videoTopics = [
 
     <!-- CTA -->
     <div class="tips-cta-box">
-      <h3>動画や解説を見ても解決しない時は、すぐお電話ください！</h3>
+      <h3>解説を見ても解決しない・不安な時は、すぐお電話ください！</h3>
       <p>無理にいじって配管を破損させる前に、那須エリアの公認指定工事店へお任せください。</p>
       <a href={`tel:${companyData.telEmergency}`} class="btn btn-phone btn-cta-large">
         🚨 090-2463-6638（24時間受付）
@@ -145,6 +276,7 @@ const videoTopics = [
 
   .header-badges {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 12px;
   }
@@ -163,83 +295,178 @@ const videoTopics = [
 
   .tips-page-body {
     padding: 60px 20px 80px;
-    max-width: 980px;
+    max-width: 1040px;
   }
 
-  .video-section {
+  .guide-section {
     margin: 60px 0;
   }
 
-  .video-grid {
+  .guide-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
   }
 
-  .video-card {
+  .guide-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border: 1px solid var(--color-border);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .video-thumb-mock {
-    height: 180px;
-    background: linear-gradient(135deg, #0A243F, #123B65);
+  .guide-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  .guide-image-wrap {
+    height: 200px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    background: #E8F0F7;
   }
 
-  .play-icon {
-    font-size: 3rem;
-    color: #FFD591;
-    opacity: 0.9;
+  .guide-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
   }
 
-  .video-tag {
+  .guide-card:hover .guide-thumb {
+    transform: scale(1.03);
+  }
+
+  .guide-tag {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 12px;
+    left: 12px;
     background: #F39833;
     color: #FFFFFF;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   }
 
-  .video-status {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.6);
-    color: #FFFFFF;
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  .video-body {
-    padding: 20px;
+  .guide-body {
+    padding: 24px;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  .video-title {
-    font-size: 1.05rem;
+  .guide-title {
+    font-size: 1.15rem;
     font-weight: 800;
     color: var(--color-main);
-    line-height: 1.4;
-    margin-bottom: 8px;
+    line-height: 1.45;
+    margin-bottom: 10px;
   }
 
-  .video-desc {
-    font-size: 0.84rem;
+  .guide-summary {
+    font-size: 0.88rem;
     color: var(--color-text-muted);
-    line-height: 1.55;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .steps-container {
+    margin-bottom: 20px;
+  }
+
+  .steps-heading {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .step-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #F7FAFC;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #1976BB;
+  }
+
+  .step-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #1976BB;
+    background: #E1EBF5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1A365D;
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+
+  .step-desc {
+    font-size: 0.8rem;
+    color: #4A5568;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .krypton-point-box {
+    margin-top: auto;
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .krypton-point-header {
+    margin-bottom: 6px;
+  }
+
+  .krypton-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #C2410C;
+    display: inline-block;
+  }
+
+  .krypton-point-text {
+    font-size: 0.8rem;
+    color: #7C2D12;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
   }
 
   .inspection-column-card {
@@ -307,6 +534,12 @@ const videoTopics = [
   @media (max-width: 600px) {
     .page-title {
       font-size: 1.7rem;
+    }
+    .guide-grid {
+      grid-template-columns: 1fr;
+    }
+    .guide-body {
+      padding: 18px 16px;
     }
   }
 </style>
