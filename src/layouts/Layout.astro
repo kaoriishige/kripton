@@ -83,19 +83,17 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
   <!-- 構造化データ (LocalBusiness / Plumber: レビュー・Offer・sameAs・E-E-A-T完備) -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": ["Plumber", "LocalBusiness", "HomeAndConstructionBusiness"],
+    "@type": ["Plumber", "LocalBusiness"],
     "@id": `${siteDomain}/#business`,
-    "name": "有限会社クリプトン（水まわり専門店クリプトン）",
-    "alternateName": ["水まわり専門店クリプトン", "クリプトン"],
-    "image": [
-      `${siteDomain}/images/company/kripton.png`,
-      `${siteDomain}/images/character/kripton-man4-1.jpg`
-    ],
-    "logo": `${siteDomain}/images/character/kripton-man4-1.jpg`,
+    "name": "水まわり専門店クリプトン（有限会社クリプトン）",
+    "alternateName": ["水まわり専門店クリプトン", "有限会社クリプトン", "クリプトン"],
+    "description": "那須塩原市・大田原市・那須町の水漏れ、トイレつまり、給湯器修理、水道管凍結に迅速駆けつけ。創業30年の水道局指定工事店。",
+    "image": "https://kripton-ai.netlify.app/images/character/kripton-man4-1.jpg",
+    "logo": "https://kripton-ai.netlify.app/images/character/kripton-man4-1.jpg",
     "url": siteDomain,
-    "telephone": "0287-60-5050",
+    "telephone": "090-2463-6638",
     "email": "kripton@sweet.ocn.ne.jp",
-    "priceRange": "8,000円〜",
+    "priceRange": "¥3,500 - ¥50,000",
     "foundingDate": "1993",
     "currenciesAccepted": "JPY",
     "paymentAccepted": "現金, 銀行振込, クレジットカード",
@@ -107,16 +105,16 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "0287-60-5050",
-        "contactType": "customer support",
-        "areaServed": ["那須塩原市", "大田原市", "那須町"],
+        "telephone": "090-2463-6638",
+        "contactType": "emergency",
+        "areaServed": ["那須塩原市", "大田原市", "那須郡那須町", "矢板市", "塩谷郡塩谷町"],
         "availableLanguage": "Japanese"
       },
       {
         "@type": "ContactPoint",
-        "telephone": "090-2463-6638",
-        "contactType": "emergency",
-        "areaServed": ["那須塩原市", "大田原市", "那須町"],
+        "telephone": "0287-60-5050",
+        "contactType": "customer service",
+        "areaServed": ["那須塩原市", "大田原市", "那須郡那須町", "矢板市", "塩谷郡塩谷町"],
         "availableLanguage": "Japanese"
       }
     ],
@@ -138,14 +136,18 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "08:00",
-        "closes": "17:00"
+        "closes": "17:00",
+        "description": "通常受付（店舗・代表電話 0287-60-5050）"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59",
+        "description": "24時間緊急直通ダイヤル（090-2463-6638）"
       }
     ],
-    "areaServed": [
-      { "@type": "City", "name": "那須塩原市" },
-      { "@type": "City", "name": "大田原市" },
-      { "@type": "AdministrativeArea", "name": "那須町" }
-    ],
+    "areaServed": ["那須塩原市", "大田原市", "那須郡那須町", "矢板市", "塩谷郡塩谷町"],
     "sameAs": [
       "https://jp.toto.com/reform/remodelclub/RC221801/",
       "https://r.goope.jp/sr-09-0921210034/"
@@ -178,38 +180,101 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
       "itemListElement": [
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "トイレつまり修理・水漏れ修理" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "5500", "priceCurrency": "JPY", "minPrice": "5500" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "水漏れ修理・配管修理",
+            "description": "蛇口、給排水管、床下・壁内配管の水漏れ調査・修理"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "3500",
+            "minPrice": "3500",
+            "priceCurrency": "JPY"
+          }
         },
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "蛇口・水栓修理・交換" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "5500", "priceCurrency": "JPY", "minPrice": "5500" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "トイレつまり解消・水漏れ修理",
+            "description": "便器つまり解消、ロータンク給水不良、フロート弁・パッキン交換"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "8000",
+            "minPrice": "8000",
+            "priceCurrency": "JPY"
+          }
         },
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "水漏れ修理・配管修理" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "5500", "priceCurrency": "JPY", "minPrice": "5500" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "寒冷地解氷作業・水道管凍結破裂修理",
+            "description": "電気解氷機による凍結融解作業、凍結破裂した水道管・給湯管の緊急復旧"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "8000",
+            "minPrice": "8000",
+            "priceCurrency": "JPY"
+          }
         },
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "給湯器・エコキュート故障・交換" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "8800", "priceCurrency": "JPY", "minPrice": "8800" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "給湯器・エコキュート点検修理・交換",
+            "description": "お湯が出ない、エラー表示、給湯器本体・エコキュートの点検修理・本体交換"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "8000",
+            "minPrice": "8000",
+            "priceCurrency": "JPY"
+          }
         },
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "排水管つまり・高圧洗浄" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "8800", "priceCurrency": "JPY", "minPrice": "8800" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "蛇口・水栓修理・交換",
+            "description": "キッチン、浴室、洗面台の蛇口水漏れ、パッキン交換、本体交換"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "5500",
+            "minPrice": "5500",
+            "priceCurrency": "JPY"
+          }
         },
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "水道管凍結・破裂修理・寒冷地対策" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "8800", "priceCurrency": "JPY", "minPrice": "8800" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "排水管つまり・高圧洗浄",
+            "description": "台所・風呂・屋外排水マスの油汚れ・木の根除去、高圧洗浄"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "8800",
+            "minPrice": "8800",
+            "priceCurrency": "JPY"
+          }
         },
         {
           "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "井戸ポンプ修理・交換" },
-          "priceSpecification": { "@type": "PriceSpecification", "price": "11000", "priceCurrency": "JPY", "minPrice": "11000" }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "井戸ポンプ点検・修理・交換",
+            "description": "浅井戸・深井戸ポンプの動作不良、異音、圧力スイッチ交換"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "11000",
+            "minPrice": "11000",
+            "priceCurrency": "JPY"
+          }
         }
       ]
     }
