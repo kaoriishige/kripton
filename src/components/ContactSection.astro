@@ -532,10 +532,19 @@ import { companyData } from '../data/company';
             reader.onload = (e) => {
               const card = document.createElement('div');
               card.className = 'photo-preview-card';
-              card.innerHTML = `
-                <img src="${e.target?.result}" alt="添付写真 ${index + 1}" />
-                <span class="photo-preview-name">${file.name}</span>
-              `;
+
+              const img = document.createElement('img');
+              if (typeof e.target?.result === 'string') {
+                img.src = e.target.result;
+              }
+              img.alt = `添付写真 ${index + 1}`;
+
+              const nameSpan = document.createElement('span');
+              nameSpan.className = 'photo-preview-name';
+              nameSpan.textContent = file.name;
+
+              card.appendChild(img);
+              card.appendChild(nameSpan);
               previewGrid.appendChild(card);
             };
             reader.readAsDataURL(file);
