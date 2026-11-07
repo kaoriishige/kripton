@@ -33,7 +33,7 @@ if (netlifyHeaders.includes('X-Robots-Tag: noindex, nofollow')) {
 }
 // index.html の canonical 確認
 const indexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
-if (indexHtml.includes('<link rel="canonical"') && indexHtml.includes('https://xn--bbkyao7065bpyck41as89d.com/')) {
+if (indexHtml.includes('<link rel="canonical"') && indexHtml.includes('https://mizumawari-kripton.com/')) {
   crawlScore += 2.5;
   audit.crawl.details.push('Canonical: 正式公開ドメインへの完全正規化URL設定 (+2.5)');
 }
@@ -57,7 +57,7 @@ if (toiletHtml.includes('"@type":"Service"') && toiletHtml.includes('"@type":"Of
 // Article 構造化データ（施工事例ページ）
 const sampleCaseHtml = fs.readFileSync(path.join(distDir, 'works/toilet-048/index.html'), 'utf8');
 if (sampleCaseHtml.includes('"@type":"Article"') &&
-    sampleCaseHtml.includes('https://xn--bbkyao7065bpyck41as89d.com/images/works/')) {
+    sampleCaseHtml.includes('https://mizumawari-kripton.com/images/works/')) {
   sdScore += 2.5;
   audit.structuredData.details.push('Article構造化データ: 施工事例に完全絶対URLの画像・著者・場所情報完備 (+2.5)');
 }

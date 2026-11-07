@@ -25,7 +25,7 @@ const sitemapPath = 'public/sitemap-0.xml';
 assert(fs.existsSync(sitemapPath), 'sitemap-0.xml が存在する');
 
 const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
-const urls = [...sitemapContent.matchAll(/<loc>(https:\/\/xn--bbkyao7065bpyck41as89d\.com([^<]*))<\/loc>/g)];
+const urls = [...sitemapContent.matchAll(/<loc>(https:\/\/mizumawari-kripton\.com([^<]*))<\/loc>/g)];
 console.log(`サイトマップ登録URL数: ${urls.length}件`);
 
 let missingPages = [];
@@ -56,12 +56,12 @@ sampleFiles.forEach(f => {
     const match = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
     if (!match) {
       canonicalErrors.push({ file: f, error: 'canonical tag not found' });
-    } else if (!match[1].startsWith('https://xn--bbkyao7065bpyck41as89d.com')) {
+    } else if (!match[1].startsWith('https://mizumawari-kripton.com')) {
       canonicalErrors.push({ file: f, error: `Invalid canonical domain: ${match[1]}` });
     }
   }
 });
-assert(canonicalErrors.length === 0, `主要ページのCanonicalが正式ドメイン (https://xn--bbkyao7065bpyck41as89d.com/) で完全記述されている`);
+assert(canonicalErrors.length === 0, `主要ページのCanonicalが正式ドメイン (https://mizumawari-kripton.com/) で完全記述されている`);
 
 // 3. JSON-LD 構造化データの構文と内容検査
 console.log('\n--- 3. JSON-LD 構造化データ構文・内容実測検査 ---');
@@ -106,12 +106,18 @@ t048Matches.forEach(m => {
 });
 assert(hasArticle, '施工事例ページに Article 構造化データが正常に出力されている');
 
-// 4. Netlify リダイレクトと noindex 保護ヘッダーの検査
-console.log('\n--- 4. Netlify _headers と _redirects 検査 ---');
+// 4. Netlify リダイレクトと noindex 保護・ドメイン別制御の検査
+console.log('\n--- 4. Netlify _headers と _redirects および Edge Functions ドメイン別noindex制御検査 ---');
 const headersPath = 'public/_headers';
 assert(fs.existsSync(headersPath), '_headers ファイルが存在する');
 const headersContent = fs.readFileSync(headersPath, 'utf8');
-assert(headersContent.includes('X-Robots-Tag: noindex, nofollow'), 'Netlify仮サイト用の X-Robots-Tag: noindex 保護ヘッダーが設定されている');
+assert(!headersContent.includes('X-Robots-Tag: noindex'), 'Netlifyの_headersで全ホスト共通のnoindexが設定されていないこと（本番ドメインのインデックス保護）');
+
+const edgeFuncPath = 'netlify/edge-functions/robots-control.ts';
+assert(fs.existsSync(edgeFuncPath), 'Netlify Edge Function (robots-control.ts) が存在する');
+const edgeFuncContent = fs.existsSync(edgeFuncPath) ? fs.readFileSync(edgeFuncPath, 'utf8') : '';
+assert(edgeFuncContent.includes('.netlify.app') && edgeFuncContent.includes('noindex, nofollow'), '仮ドメイン (*.netlify.app) にのみ X-Robots-Tag: noindex, nofollow を動的付与する制御が実装されている');
+assert(edgeFuncContent.includes('delete("X-Robots-Tag")'), '正式本番ドメインでは X-Robots-Tag を削除して正常インデックスさせる制御が実装されている');
 
 const redirectsPath = 'public/_redirects';
 assert(fs.existsSync(redirectsPath), '_redirects ファイルが存在する');

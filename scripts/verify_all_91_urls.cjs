@@ -5,7 +5,7 @@ const path = require('path');
 console.log('=== 全91URLのHTTPステータス・Canonical・内部リンク実測検査 ===\n');
 
 const sitemapContent = fs.readFileSync('public/sitemap-0.xml', 'utf8');
-const urls = [...sitemapContent.matchAll(/<loc>(https:\/\/xn--bbkyao7065bpyck41as89d\.com([^<]*))<\/loc>/g)];
+const urls = [...sitemapContent.matchAll(/<loc>(https:\/\/mizumawari-kripton\.com([^<]*))<\/loc>/g)];
 
 console.log(`検査対象URL総数: ${urls.length}件\n`);
 

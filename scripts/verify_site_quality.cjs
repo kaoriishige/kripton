@@ -19,7 +19,7 @@ console.log(`【1. サイトマップ検査】`);
 console.log(`サイトマップ記載URL数: ${locMatches.length} 件`);
 
 let missingPages = 0;
-const domainBase = 'https://xn--bbkyao7065bpyck41as89d.com';
+const domainBase = 'https://mizumawari-kripton.com';
 
 const checkedPages = [];
 
@@ -107,10 +107,10 @@ const fileHeaders = path.join(distDir, '_headers');
 if (fs.existsSync(fileHeaders)) {
   const headersContent = fs.readFileSync(fileHeaders, 'utf8');
   console.log(`✅ dist/_headers が存在します。内容:\n${headersContent.trim()}`);
-  if (headersContent.includes('X-Robots-Tag: noindex, nofollow')) {
-    console.log(`✅ Netlify仮環境用の noindex, nofollow が正しく配備されています。`);
+  if (headersContent.includes('X-Robots-Tag: noindex')) {
+    console.warn(`⚠️ _headers に全ホスト共通の X-Robots-Tag: noindex が含まれています（本番ドメインもインデックスされなくなるため禁止）`);
   } else {
-    console.warn(`⚠️ X-Robots-Tag: noindex, nofollow が見つかりません`);
+    console.log(`✅ _headers に全ホスト共通の noindex は設定されていません（Edge Functionsでドメイン別制御）。`);
   }
 } else {
   console.error(`❌ dist/_headers が存在しません`);

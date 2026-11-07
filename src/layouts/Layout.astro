@@ -23,7 +23,7 @@ const {
   breadcrumbItems
 } = Astro.props;
 
-const siteDomain = 'https://xn--bbkyao7065bpyck41as89d.com';
+const siteDomain = 'https://mizumawari-kripton.com';
 const canonicalURL = new URL(Astro.url.pathname, siteDomain).toString();
 
 // og:image を必ず完全絶対URLに正規化
@@ -88,8 +88,8 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
     "name": "水まわり専門店クリプトン（有限会社クリプトン）",
     "alternateName": ["水まわり専門店クリプトン", "有限会社クリプトン", "クリプトン"],
     "description": "那須塩原市・大田原市・那須町の水漏れ、トイレつまり、給湯器修理、水道管凍結に迅速駆けつけ。創業30年の水道局指定工事店。",
-    "image": "https://kripton-ai.netlify.app/images/character/kripton-man4-1.jpg",
-    "logo": "https://kripton-ai.netlify.app/images/character/kripton-man4-1.jpg",
+    "image": `${siteDomain}/images/character/kripton-man4-1.jpg`,
+    "logo": `${siteDomain}/images/character/kripton-man4-1.jpg`,
     "url": siteDomain,
     "telephone": "090-2463-6638",
     "email": "kripton@sweet.ocn.ne.jp",

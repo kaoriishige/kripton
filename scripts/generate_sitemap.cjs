@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const distDir = path.join(__dirname, '../dist');
-const siteUrl = 'https://xn--bbkyao7065bpyck41as89d.com';
+const siteUrl = 'https://mizumawari-kripton.com';
 
 function getAllHtmlFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;

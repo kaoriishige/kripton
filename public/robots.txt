@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xn--bbkyao7065bpyck41as89d.com/sitemap-index.xml
+Sitemap: https://mizumawari-kripton.com/sitemap-index.xml

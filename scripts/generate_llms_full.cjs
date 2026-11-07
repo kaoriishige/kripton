@@ -7,7 +7,7 @@ const casesContent = fs.readFileSync(casesFile, 'utf8');
 const match = casesContent.match(/export const allCasesData:\s*CaseStudy(?:Item)?\[\]\s*=\s*(\[[\s\S]*?\]);/);
 const cases = match ? eval(match[1]) : [];
 
-const siteUrl = 'https://xn--bbkyao7065bpyck41as89d.com';
+const siteUrl = 'https://mizumawari-kripton.com';
 
 let content = `# 水まわり専門店クリプトン（有限会社クリプトン）AI検索用 完全ドキュメント (llms-full.txt)
 

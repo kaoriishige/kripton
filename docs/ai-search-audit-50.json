@@ -1,21 +1,19 @@
 {
-  "totalScore": 50,
+  "totalScore": 45,
   "audit": {
     "crawl": {
-      "score": 10,
+      "score": 7.5,
       "max": 10,
       "details": [
         "robots.txt: 適切なSitemap参照とクローラー許可設定 (+2.5)",
         "sitemap.xml: 91URL以上のインデックス用XMLサイトマップ生成完了 (+2.5)",
-        "Netlify仮サイト保護: X-Robots-Tag による重複インデックス防止完備 (+2.5)",
         "Canonical: 正式公開ドメインへの完全正規化URL設定 (+2.5)"
       ]
     },
     "structuredData": {
-      "score": 10,
+      "score": 7.5,
       "max": 10,
       "details": [
-        "Plumber/LocalBusiness: contactPoint, areaServed, 代表者津久井三男を含む完全構造化 (+2.5)",
         "Service構造化データ: 症状別ページにOfferCatalog/PriceSpecification完備 (+2.5)",
         "Article構造化データ: 施工事例に完全絶対URLの画像・著者・場所情報完備 (+2.5)",
         "BreadcrumbList & Google規約遵守: パンくず完備、自社Review違反排除 (+2.5)"
