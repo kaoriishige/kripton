@@ -44,30 +44,30 @@ import { companyData } from '../data/company';
           リフォームのご相談、現場写真付きでの事前見積もり依頼はこちらからお送りください。
         </p>
 
-        <form class="contact-form" name="contact" method="POST" action="/contact/thanks/" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden-field" style="display:none;">
-            <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-          </p>
+        <form class="contact-form" action="https://ssgform.com/s/8Sf994VDeoSM" method="post" enctype="multipart/form-data">
+          <!-- SSGform 簡易スパム対策 -->
+          <div style="display: none;">
+            <input type="text" name="wana" />
+          </div>
 
           <div class="form-group">
             <label for="name">お名前 <span class="required">必須</span></label>
-            <input type="text" id="name" name="name" required placeholder="例：那須 太郎" class="form-control" />
+            <input type="text" id="name" name="お名前" required placeholder="例：那須 太郎" class="form-control" />
           </div>
 
           <div class="form-group">
             <label for="tel">お電話番号 <span class="required">必須</span></label>
-            <input type="tel" id="tel" name="tel" required placeholder="例：090-1234-5678" class="form-control" />
+            <input type="tel" id="tel" name="お電話番号" required placeholder="例：090-1234-5678" class="form-control" />
           </div>
 
           <div class="form-group">
             <label for="email">メールアドレス <span class="optional">任意</span></label>
-            <input type="email" id="email" name="email" placeholder="例：example@sweet.ocn.ne.jp" class="form-control" />
+            <input type="email" id="email" name="メールアドレス" placeholder="例：example@sweet.ocn.ne.jp" class="form-control" />
           </div>
 
           <div class="form-group">
             <label for="city">お住まいの地域 <span class="required">必須</span></label>
-            <select id="city" name="city" required class="form-control">
+            <select id="city" name="お住まいの地域" required class="form-control">
               <option value="">選択してください</option>
               <option value="那須塩原市">那須塩原市</option>
               <option value="大田原市">大田原市</option>
@@ -84,7 +84,7 @@ import { companyData } from '../data/company';
               <input 
                 type="file" 
                 id="photo" 
-                name="photo" 
+                name="現場写真" 
                 accept="image/*" 
                 multiple 
                 class="photo-hidden-input" 
@@ -101,7 +101,7 @@ import { companyData } from '../data/company';
 
           <div class="form-group">
             <label for="message">ご相談内容 <span class="required">必須</span></label>
-            <textarea id="message" name="message" rows="4" required placeholder="症状やご希望をご記入ください（例：キッチンの蛇口の根元から水がにじみ出ています）" class="form-control"></textarea>
+            <textarea id="message" name="ご相談内容" rows="4" required placeholder="症状やご希望をご記入ください（例：キッチンの蛇口の根元から水がにじみ出ています）" class="form-control"></textarea>
           </div>
 
           <button type="submit" class="btn btn-phone btn-full-submit">
