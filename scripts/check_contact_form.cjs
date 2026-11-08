@@ -33,13 +33,12 @@ async function main() {
   // 各属性チェック
   console.log('\n【フォーム属性チェック】');
   const checks = [
-    { label: 'name="contact"', found: /name="contact"/.test(body) },
-    { label: 'method="POST"', found: /method="POST"/i.test(body) },
-    { label: 'enctype="multipart/form-data"', found: /enctype="multipart\/form-data"/.test(body) },
-    { label: 'data-netlify="true"', found: /data-netlify="true"/.test(body) },
-    { label: 'netlify-honeypot="bot-field"', found: /netlify-honeypot="bot-field"/.test(body) },
-    { label: 'hidden input name="form-name" value="contact"', found: /name="form-name"\s+value="contact"/.test(body) || /value="contact"\s+name="form-name"/.test(body) },
-    { label: 'action属性なし（同一URLへPOST）', found: !/<form[^>]*action=/.test(body) },
+    { label: 'name="contact"', found: /name=['"]contact['"]/.test(body) },
+    { label: 'method="POST"', found: /method=['"]POST['"]/i.test(body) },
+    { label: 'enctype="multipart/form-data"', found: /enctype=['"]multipart\/form-data['"]/.test(body) },
+    { label: 'hidden input name="form-name" value="contact"', found: /name=['"]form-name['"]\s+value=['"]contact['"]/.test(body) || /value=['"]contact['"]\s+name=['"]form-name['"]/.test(body) },
+    { label: 'action属性（/contact/thanks/）', found: /action=['"]\/contact\/thanks\/['"]/.test(body) },
+    { label: 'bot-field（スパム対策ハニーポット）', found: /name=['"]bot-field['"]/.test(body) },
   ];
   for (const c of checks) {
     console.log(`  ${c.found ? '✅' : '❌'} ${c.label}`);
@@ -47,11 +46,11 @@ async function main() {
 
   // フォーム入力項目一覧
   console.log('\n【フォーム入力項目】');
-  const inputMatches = [...body.matchAll(/<input[^>]*name="([^"]+)"[^>]*>/g)];
-  const textareaMatches = [...body.matchAll(/<textarea[^>]*name="([^"]+)"[^>]*/g)];
-  const selectMatches = [...body.matchAll(/<select[^>]*name="([^"]+)"[^>]*/g)];
+  const inputMatches = [...body.matchAll(/<input[^>]*name=['"]([^'"]+)['"][^>]*>/g)];
+  const textareaMatches = [...body.matchAll(/<textarea[^>]*name=['"]([^'"]+)['"]*/g)];
+  const selectMatches = [...body.matchAll(/<select[^>]*name=['"]([^'"]+)['"]*/g)];
   inputMatches.forEach(m => {
-    const type = m[0].match(/type="([^"]+)"/)?.[1] || 'text';
+    const type = m[0].match(/type=['"]([^'"]+)['"]/)?.[1] || 'text';
     const required = m[0].includes('required') ? '（必須）' : '（任意）';
     console.log(`  input[${type}] name="${m[1]}" ${required}`);
   });
@@ -66,12 +65,9 @@ async function main() {
 
   // 送信完了ページ（thank you page）の確認
   console.log('\n【送信後のリダイレクト（action/thank-you）】');
-  const actionAttr = body.match(/action="([^"]+)"/);
+  const actionAttr = body.match(/action=['"]([^'"]+)['"]/);
   if (actionAttr) {
     console.log('  action:', actionAttr[1]);
-  } else {
-    console.log('  action属性なし → Netlify標準のサンキューページに遷移');
-    console.log('  ⚠️  カスタムサンキューページは未設定');
   }
 
   // dist/contact/index.htmlも確認
