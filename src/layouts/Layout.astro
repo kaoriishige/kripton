@@ -14,13 +14,15 @@ interface Props {
   description?: string;
   ogImage?: string;
   breadcrumbItems?: BreadcrumbItem[];
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "那須塩原市・大田原市・那須町の水漏れ・トイレつまり・給湯器修理なら水まわり専門店クリプトン。水道局指定工事店・完全自社施工・1993年創業（実績30年以上）で24時間365日緊急対応。",
   ogImage = "/images/company/kripton.png",
-  breadcrumbItems
+  breadcrumbItems,
+  noindex = false
 } = Astro.props;
 
 const siteDomain = 'https://mizumawari-kripton.com';
@@ -58,6 +60,7 @@ const breadcrumbLd = breadcrumbItems && breadcrumbItems.length > 0 ? {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
   
   <!-- OGP (絶対URL・属性完備) -->
   <meta property="og:title" content={title} />

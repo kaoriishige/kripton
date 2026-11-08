@@ -30,8 +30,8 @@ htmlFiles.forEach(file => {
   if (!urlPath.endsWith('/') && urlPath !== '') urlPath += '/';
   if (urlPath === '//') urlPath = '/';
 
-  // Exclude preview, sample, or 404
-  if (urlPath.includes('/preview/') || urlPath.includes('/404/')) return;
+  // Exclude preview, sample, 404, or thanks page
+  if (urlPath.includes('/preview/') || urlPath.includes('/404/') || urlPath.includes('/thanks/')) return;
 
   let priority = '0.7';
   let changefreq = 'weekly';

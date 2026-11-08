@@ -1,0 +1,264 @@
+---
+// src/pages/contact/thanks.astro
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+---
+
+<Layout
+  title="お問い合わせありがとうございます｜水まわり専門店クリプトン"
+  description="お問い合わせを受け付けました。水まわり専門店クリプトンより折り返しご連絡いたします。"
+  noindex={true}
+>
+  <div class="thanks-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <a href="/contact/">お問い合わせ</a> &gt; <span>送信完了</span>
+      </nav>
+      <h1 class="page-title">お問い合わせありがとうございます</h1>
+    </div>
+  </div>
+
+  <div class="thanks-body">
+    <div class="container">
+      <div class="thanks-card">
+        <div class="thanks-icon">✅</div>
+        <h2 class="thanks-heading">送信が完了しました</h2>
+        <p class="thanks-lead">
+          お問い合わせを受け付けました。<br />
+          内容を確認のうえ、担当者よりご連絡いたします。
+        </p>
+
+        <div class="thanks-info-box">
+          <h3 class="info-title">📋 返信についてのご案内</h3>
+          <ul class="info-list">
+            <li>通常、<strong>営業時間内（08:00〜17:00）</strong>に順次ご連絡いたします。</li>
+            <li>メールアドレスをご入力いただいた場合は、自動返信メールをお送りする場合があります。</li>
+            <li>内容によっては、折り返しお電話でご確認させていただく場合があります。</li>
+            <li>日曜日・年末年始は定休日のため、翌営業日以降のご連絡となります。</li>
+          </ul>
+        </div>
+
+        <div class="emergency-notice">
+          <p class="emergency-label">🚨 緊急・至急の水トラブルは今すぐお電話ください</p>
+          <a href={`tel:${companyData.telEmergency}`} class="emergency-tel-btn">
+            <span class="tel-label">緊急直通（担当：津久井）</span>
+            <span class="tel-num">{companyData.telEmergency}</span>
+            <span class="tel-hours">24時間365日受付</span>
+          </a>
+        </div>
+
+        <div class="thanks-actions">
+          <a href="/" class="btn-back-top">トップページへ戻る</a>
+          <a href="/works/" class="btn-works">施工事例を見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .thanks-header {
+    background: linear-gradient(135deg, #123B65 0%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 40px 0 50px;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .breadcrumb a {
+    color: #FFFFFF;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0;
+  }
+
+  .thanks-body {
+    padding: 60px 0 80px;
+    background: var(--color-bg-sub);
+    min-height: 60vh;
+  }
+
+  .thanks-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 50px 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .thanks-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+
+  .thanks-heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 16px;
+  }
+
+  .thanks-lead {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .thanks-info-box {
+    background: #F4F9FD;
+    border: 1px solid #BFDBF7;
+    border-radius: var(--radius-sm);
+    padding: 20px 24px;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  .info-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-main);
+    margin-bottom: 12px;
+  }
+
+  .info-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .info-list li {
+    font-size: 0.88rem;
+    color: var(--color-text);
+    line-height: 1.55;
+  }
+
+  .emergency-notice {
+    background: #FFF8F0;
+    border: 2px solid var(--color-phone);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+
+  .emergency-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #923E00;
+    margin-bottom: 12px;
+  }
+
+  .emergency-tel-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #FF9E2C, #F39833);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-phone);
+    transition: transform 0.2s;
+  }
+
+  .emergency-tel-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .tel-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .tel-num {
+    font-family: var(--font-en);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+  }
+
+  .tel-hours {
+    font-size: 0.72rem;
+    opacity: 0.9;
+  }
+
+  .thanks-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-back-top {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--color-main);
+    color: #FFFFFF;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+
+  .btn-back-top:hover {
+    background: var(--color-sub);
+  }
+
+  .btn-works {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: #FFFFFF;
+    color: var(--color-main);
+    border: 2px solid var(--color-main);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+
+  .btn-works:hover {
+    background: var(--color-main);
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 600px) {
+    .thanks-card {
+      padding: 36px 20px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+    }
+
+    .thanks-heading {
+      font-size: 1.3rem;
+    }
+
+    .thanks-actions {
+      flex-direction: column;
+    }
+
+    .btn-back-top,
+    .btn-works {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>
+

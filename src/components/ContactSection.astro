@@ -44,7 +44,7 @@ import { companyData } from '../data/company';
           リフォームのご相談、現場写真付きでの事前見積もり依頼はこちらからお送りください。
         </p>
 
-        <form class="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="contact-form" name="contact" method="POST" action="/contact/thanks/" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden-field" style="display:none;">
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
