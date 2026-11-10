@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import WinterAlertBanner from '../components/WinterAlertBanner.astro';
 import ServiceCardList from '../components/ServiceCardList.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import PriceSection from '../components/PriceSection.astro';
@@ -19,11 +20,15 @@ import ContactSection from '../components/ContactSection.astro';
   <!-- ② メインビジュアル -->
   <Hero />
 
+  <!-- 冬季限定：水道管凍結注意お知らせバナー -->
+  <WinterAlertBanner />
+
   <!-- モバイルUX改善：クイックジャンプ目次バー -->
   <nav class="quick-jump-nav" aria-label="ページ内目次">
     <div class="container jump-container">
       <span class="jump-label">クイック移動:</span>
       <div class="jump-links">
+        <a href="/winter/" class="jump-chip jump-chip-winter">❄️ 冬の凍結対策</a>
         <a href="#services" class="jump-chip">症状から探す</a>
         <a href="#price" class="jump-chip">修理料金表</a>
         <a href="#reviews" class="jump-chip">お客様の声</a>
@@ -125,5 +130,15 @@ import ContactSection from '../components/ContactSection.astro';
     background: #F39833;
     color: #FFFFFF;
     border-color: #F39833;
+  }
+  .jump-chip-winter {
+    background: #EBF8FF;
+    color: #0369A1;
+    border-color: #7DD3FC;
+  }
+  .jump-chip-winter:hover {
+    background: #0284C7;
+    color: #FFFFFF;
+    border-color: #0284C7;
   }
 </style>

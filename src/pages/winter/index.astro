@@ -1,0 +1,1665 @@
+---
+// src/pages/winter/index.astro
+// 那須地域の冬の水まわり対策完全ガイド（予防・給湯器・解氷・別荘水抜き）
+import Layout from '../../layouts/Layout.astro';
+import { companyData } from '../../data/company';
+import { allCasesData } from '../../data/all_cases';
+
+// 凍結・給湯器・寒波に関連する実際の施工事例を抽出（ファクト遵守）
+const winterCaseSlugs = ['boiler-011', 'boiler-009', 'boiler-010'];
+const relatedCases = allCasesData.filter(c => winterCaseSlugs.includes(c.slug));
+
+// 構造化データ（FAQPage）
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "水道管が凍結する気温の目安は何℃ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "外気温がマイナス4℃以下になると水道管内部の水が凍結しやすくなります。特に那須町や那須塩原市の北風が当たる場所、屋外露出配管、日当たりの悪い北側の配管はマイナス1〜2℃でも凍結することがあります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "凍結した水道管に熱湯をかけてもいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "熱湯をかけるのは絶対に厳禁です。急激な熱膨張により金属配管や蛇口器具が破損・破裂し、大規模な漏水事故につながります。タオルを巻いて人肌〜50℃程度のぬるま湯をかけるか、ドライヤーの温風でゆっくり解凍してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "冬の間、給湯器の電源は切っておいた方がいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "給湯器の電源プラグ（コンセント）は絶対に抜かないでください。給湯器には外気温を感知して自動作動する凍結防止ヒーターが内蔵されています。リモコンの運転スイッチをOFFにしても電源プラグは差したままにしてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "那須高原の別荘で冬に不在にする時はどうすればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不凍栓（水抜き栓）による完全な「水抜き（水落とし）」が必要です。不凍栓を閉めた後、家中の蛇口をすべて開けて管内の水を排出し、給湯器の水抜き栓の開放、トイレのトラップへの不凍液注入を行ってください。"
+      }
+    }
+  ]
+};
+
+// 構造化データ（Article）
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "那須地域の冬の水まわり対策｜水道管・給湯器の凍結予防と対処法【クリプトン公式】",
+  "description": "那須塩原市・大田原市・那須町の水道管・給湯器の凍結予防、万が一の正しい解氷法、破裂時の応急処置、別荘の水抜き手順を水道局指定工事店クリプトンが解説。",
+  "image": "https://mizumawari-kripton.com/images/winter/winter-kripton-hero.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "水まわり専門店クリプトン（有限会社クリプトン）",
+    "url": "https://mizumawari-kripton.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "水まわり専門店クリプトン",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://mizumawari-kripton.com/images/character/kripton-man4-1.jpg"
+    }
+  },
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10"
+};
+
+const breadcrumbItems = [
+  { name: "冬の水まわり対策", url: "/winter/" }
+];
+---
+
+<Layout
+  title="那須地域の冬の水まわり対策｜水道管・給湯器の凍結予防と対処法【クリプトン公式】"
+  description="那須塩原市・大田原市・那須町の水道管・給湯器の凍結予防、万が一の正しい解氷法、破裂時の応急処置、別荘の水抜き手順を水道局指定工事店クリプトンが解説。創業30年の寒冷地ノウハウ。"
+  ogImage="/images/winter/winter-kripton-hero.webp"
+  breadcrumbItems={breadcrumbItems}
+>
+  <!-- 構造化データ埋め込み -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <!-- ヒーローヘッダー -->
+  <header class="winter-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; <span>冬の水まわり対策</span>
+      </nav>
+      <div class="header-badge">
+        <span class="badge-tag">❄️ 那須地域（那須塩原・大田原・那須町）特化</span>
+        <span class="badge-sub">寒冷地の水道局指定工事店が直伝</span>
+      </div>
+      <h1 class="page-title">
+        那須地域の冬の水まわり対策<br />
+        <span class="title-sub">水道管・給湯器の凍結予防と万が一の正しい対処法</span>
+      </h1>
+      <p class="page-lead">
+        那須塩原市・大田原市・那須町は、真冬になると氷点下4℃以下まで厳しく冷え込みます。<br class="br-pc" />
+        水道管の凍結予防から、万が一凍った時の安全な解氷手順、破裂時の応急処置、別荘の水抜きまで、創業30年の専門店が分かりやすく解説します。
+      </p>
+    </div>
+  </header>
+
+  <!-- クイックアンカーナビ -->
+  <div class="toc-bar">
+    <div class="container toc-inner">
+      <span class="toc-title">目次ジャンプ：</span>
+      <div class="toc-links">
+        <a href="#cause" class="toc-chip">① 凍結の原因</a>
+        <a href="#places" class="toc-chip">② 凍結しやすい場所</a>
+        <a href="#prevention" class="toc-chip">③ 自宅でできる予防</a>
+        <a href="#boiler" class="toc-chip">④ 給湯器・エコキュート</a>
+        <a href="#defrost" class="toc-chip highlight-chip">⑤ 凍った時の対処法</a>
+        <a href="#burst" class="toc-chip highlight-chip">⑥ 破裂時の応急処置</a>
+        <a href="#villa" class="toc-chip">⑦ 別荘の水抜き</a>
+        <a href="#cases" class="toc-chip">⑧ 実際の施工事例</a>
+        <a href="#contact" class="toc-chip contact-chip">点検・修理相談</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="winter-main">
+    <div class="container">
+
+      <!-- 緊急連絡コールアウト -->
+      <div class="emergency-callout">
+        <div class="ec-icon">🚨</div>
+        <div class="ec-body">
+          <h2 class="ec-heading">今まさに「水が出ない」「配管から水が噴き出している」方へ</h2>
+          <p class="ec-desc">
+            破裂して水が噴き出している場合は、直ちに<strong>屋外の水道メーターボックス内の元栓（止水栓）</strong>を閉めてください。<br />
+            専用の電気解氷機による迅速解氷や、破裂配管の緊急復旧工事に直行いたします。
+          </p>
+          <div class="ec-actions">
+            <a href={`tel:${companyData.telEmergency}`} class="btn-emergency-tel">
+              <span class="tel-sub">24時間365日緊急直通（担当：津久井）</span>
+              <span class="tel-num">📞 {companyData.telEmergency}</span>
+            </a>
+            <span class="ec-note">※夜間・早朝も直接職人がお電話をお受けします</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ① 水道管が凍結する原因 -->
+      <section id="cause" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">01</span>
+          <div>
+            <span class="section-sub-en">Cause of Freezing</span>
+            <h2 class="section-h2">なぜ那須の冬は水道管が凍結するのか？（凍結の目安気温）</h2>
+          </div>
+        </div>
+
+        <div class="section-body-grid">
+          <div class="text-col">
+            <p class="lead-text">
+              水道管の凍結は、<strong>外気温がマイナス4℃以下</strong>になると急激にリスクが高まります。
+            </p>
+            <p>
+              那須塩原市・大田原市・那須町は内陸性気候のため、12月下旬から2月下旬にかけて夜間から早朝の放射冷却が激しく、平野部でも氷点下5℃〜8℃、那須高原の山間部ではマイナス10℃以下に達することが珍しくありません。
+            </p>
+            <div class="info-alert-box">
+              <h3 class="iab-title">特に凍結警戒が必要な気象・使用条件</h3>
+              <ul class="check-list">
+                <li><strong>気象庁の天気予報で「最低気温がマイナス4℃以下」と予想された夜</strong></li>
+                <li><strong>一日中気温が氷点下のまま上がらない「真冬日」</strong></li>
+                <li><strong>旅行や帰省、出張などで数日間水道を使わず家を留守にするとき</strong></li>
+                <li><strong>北風（那須おろし）が強く吹き付ける冷え込みの夜</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="visual-col">
+            <div class="highlight-stat-box">
+              <span class="stat-badge">凍結警戒ライン</span>
+              <span class="stat-temp">-4℃</span>
+              <span class="stat-unit">以下で水道管凍結多発</span>
+              <p class="stat-desc">
+                那須高原エリアでは−10℃以下になる日もあり、屋内配管でも凍結する危険があります。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ② 凍結しやすい場所 -->
+      <section id="places" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">02</span>
+          <div>
+            <span class="section-sub-en">Vulnerable Places</span>
+            <h2 class="section-h2">要注意！家の中で「凍結しやすい場所」チェックリスト</h2>
+          </div>
+        </div>
+
+        <p class="lead-text">
+          日頃から以下の場所を確認し、保温材の劣化や隙間がないか点検しておきましょう。
+        </p>
+
+        <div class="places-grid">
+          <div class="place-card">
+            <span class="place-icon">🚰</span>
+            <h3>屋外の露出配管・立水栓・散水栓</h3>
+            <p>外気に直接さらされている庭の立水栓や、給湯器へ接続する立ち上がり配管は最も凍結しやすい場所です。保温材が破れて配管が剥き出しになっていないか確認してください。</p>
+          </div>
+
+          <div class="place-card">
+            <span class="place-icon">🧭</span>
+            <h3>建物の北側・日当たりの悪い場所</h3>
+            <p>日光が当たらず、日中でも気温が上がりにくい北側の勝手口、台所、給湯器設置場所は、冷気が滞留して凍結が夕方まで続くことがあります。</p>
+          </div>
+
+          <div class="place-card">
+            <span class="place-icon">💨</span>
+            <h3>北風・すきま風が強く当たる場所</h3>
+            <p>風通しのよい床下、車庫内、渡り廊下、勝手口の通気口付近の配管は、強い北風によって急速に熱を奪われ凍結します。</p>
+          </div>
+
+          <div class="place-card">
+            <span class="place-icon">📦</span>
+            <h3>水道メーターボックス内部</h3>
+            <p>地面に埋め込まれた青いプラスチックや鉄製のメーターボックスは、フタの隙間から冷気が吹き込み、ボックス内の水道管やバルブが凍結することがあります。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ③ 自宅でできる凍結予防 -->
+      <section id="prevention" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">03</span>
+          <div>
+            <span class="section-sub-en">Home Prevention</span>
+            <h2 class="section-h2">今日から自宅ですぐできる水道管の凍結予防策</h2>
+          </div>
+        </div>
+
+        <div class="prevention-steps">
+          <div class="prev-item">
+            <div class="prev-head">
+              <span class="prev-badge">対策 1</span>
+              <h3>露出している水道管・蛇口に保温材を巻く</h3>
+            </div>
+            <p>
+              ホームセンター等で販売されている水道用保温チューブ（ウレタンフォーム）を配管に巻き、雨水が入らないよう上からビニールテープを隙間なく巻き付けます。<br />
+              手元に保温チューブがない場合は、<strong>不要になった毛布や厚手のタオル</strong>を巻き付け、その上からビニール袋を被せてテープでしっかり固定するだけでも大きな予防効果があります。
+            </p>
+          </div>
+
+          <div class="prev-item">
+            <div class="prev-head">
+              <span class="prev-badge">対策 2</span>
+              <h3>水道メーターボックス内に保温材を入れる</h3>
+            </div>
+            <p>
+              屋外のメーターボックスのフタを開け、ビニール袋に入れた発泡スチロール片や布切れ、古タオルを隙間に詰めて冷気を遮断します。<br />
+              <strong>注意：</strong>水道検針の邪魔にならないよう、メーター針の表示部分は見えるようにしてください。また、布が濡れると逆効果になるため、必ずビニール袋に入れて密封してください。
+            </p>
+          </div>
+
+          <div class="prev-item">
+            <div class="prev-head">
+              <span class="prev-badge">対策 3</span>
+              <h3>冷え込みが厳しい夜は「チョロチョロ水出し」</h3>
+            </div>
+            <p>
+              マイナス4℃以下が予報される真冬の夜は、就寝前に一番冷えやすい蛇口（台所や浴室など）から、<strong>鉛筆の芯ほどの太さ（糸を引く程度）</strong>で水を流し続けておきます。<br />
+              水は動いていれば凍りにくいため、極めて効果的です。流した水はバケツや浴槽に溜めておけば、翌日の洗濯や掃除、お風呂の水張りに無駄なく使えます。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ④ 給湯器・エコキュートの凍結予防 -->
+      <section id="boiler" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">04</span>
+          <div>
+            <span class="section-sub-en">Water Heater Protection</span>
+            <h2 class="section-h2">給湯器・エコキュート・ボイラーの冬期凍結予防</h2>
+          </div>
+        </div>
+
+        <p class="lead-text">
+          「朝起きたらお湯側の蛇口から水も出ない！」というトラブルは、給湯器配管の凍結が原因です。
+        </p>
+
+        <div class="boiler-guides">
+          <div class="boiler-point-card">
+            <div class="bp-icon">🔌</div>
+            <div class="bp-content">
+              <h3>給湯器の電源プラグは絶対に抜かない！</h3>
+              <p>
+                ガス給湯器・石油給湯機・エコキュートには、外気温が下がると自動で作動する「凍結防止ヒーター」が内蔵されています。<br />
+                リモコンの運転スイッチをOFFにしても、<strong>屋外のコンセントに差してある電源プラグは絶対に抜かないでください</strong>。プラグを抜いてしまうとヒーターが作動せず、機器内部の熱交換器が凍結破裂して高額な交換修理になってしまいます。
+              </p>
+            </div>
+          </div>
+
+          <div class="boiler-point-card">
+            <div class="bp-icon">🛁</div>
+            <div class="bp-content">
+              <h3>追い焚き配管の循環予防（お風呂の残り湯を残す）</h3>
+              <p>
+                フルオートタイプの給湯器・エコキュートは、外気温が下がると浴槽の水を自動循環させて配管凍結を防ぐ機能が付いています。<br />
+                冬の間は、<strong>浴槽の循環口（丸い金具）の中心より5cm以上上まで残り湯（水）を張った状態</strong>にしておいてください。循環口より水位が低いとポンプが空転し、エラーが出て配管が凍結します。
+              </p>
+            </div>
+          </div>
+
+          <div class="boiler-point-card">
+            <div class="bp-icon">🔥</div>
+            <div class="bp-content">
+              <h3>凍結防止帯（配管ヒーター線）の通電チェック</h3>
+              <p>
+                寒冷地那須では、給湯器へ接続される配管に電気式の凍結防止帯（ヒーター線）が巻かれています。コンセントが抜けていないか、ブレーカーが落ちていないか冬の初めに必ず確認してください。<br />
+                サーモスタットの寿命は一般的に7〜10年程度です。電気代が急に上がった場合や、ヒーターが温まらない場合は断線の可能性があるため点検をご相談ください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⑤ 水道管が凍った場合の正しい対処法 -->
+      <section id="defrost" class="content-section card highlight-section">
+        <div class="section-title-wrap">
+          <span class="section-num">05</span>
+          <div>
+            <span class="section-sub-en">Safe Defrost Method</span>
+            <h2 class="section-h2">水道管が凍ってしまった場合の正しい対処法（熱湯厳禁！）</h2>
+          </div>
+        </div>
+
+        <!-- 警告バナー -->
+        <div class="danger-banner">
+          <span class="db-icon">🚫</span>
+          <div>
+            <strong>【絶対厳禁】凍った水道管に熱湯を直接かけてはいけません！</strong>
+            <p>熱湯をかけると急激な熱膨張により、銅管や塩ビパイプ、蛇口の内部バルブが破裂します。破裂すると解氷後に大量の水が吹き出し、床下・壁内が水浸しになる二次被害につながります。</p>
+          </div>
+        </div>
+
+        <div class="defrost-figure-wrap">
+          <img 
+            src="/images/winter/guide-defrost-safety.webp" 
+            alt="水道管が凍った場合の熱湯NGとぬるま湯を使った安全な解氷手順の解説図" 
+            width="800" 
+            height="500" 
+            loading="lazy" 
+            class="guide-diagram" 
+          />
+          <span class="diagram-caption">※解説用図解：安全な解氷手順と熱湯厳禁の理由</span>
+        </div>
+
+        <div class="safe-steps-box">
+          <h3 class="ss-title">ご自身でできる安全な解凍手順</h3>
+          <ol class="step-ol">
+            <li>
+              <strong>蛇口をわずかに開けておく</strong><br />
+              水が出なくても蛇口を少し開けておきます。管内の氷が溶けた時の圧力の逃げ道を作り、水が出始めたらすぐに気づくことができます。
+            </li>
+            <li>
+              <strong>凍結した配管や蛇口にタオルを巻く</strong><br />
+              直接お湯をかけるのではなく、タオルを巻くことで熱をまんべんなく行き渡らせ、配管への急激な熱衝撃を防ぎます。
+            </li>
+            <li>
+              <strong>人肌〜50℃程度の「ぬるま湯」をゆっくりかける</strong><br />
+              お風呂の湯温程度（ぬるま湯）をタオル越しにゆっくりと少しずつかけます。バケツや洗面器を下に置いて水を受け止めましょう。
+            </li>
+            <li>
+              <strong>または、ドライヤーの温風をまんべんなく当てる</strong><br />
+              屋内の蛇口の足元や露出配管には、ヘアドライヤーの温風を一定箇所に集中させず、前後に動かしながら温めます。
+            </li>
+            <li>
+              <strong>水が出始めたら蛇口を閉めて元に戻す</strong><br />
+              水が出たらしばらく流して管内に残った氷の粒を排出し、周りに飛び散った水分を乾いたタオルで完全に拭き取ります（拭き取らないと再び凍結します）。
+            </li>
+          </ol>
+        </div>
+
+        <div class="expert-note">
+          <span class="en-icon">💡</span>
+          <p>
+            <strong>地中深くや壁の中が完全に凍結している場合：</strong><br />
+            ぬるま湯やドライヤーでは届かない地中・壁内の凍結は、無理にいじらずクリプトンへご相談ください。専用の<strong>電気解氷機</strong>を通電させ、配管を傷めずに安全・迅速に氷を溶かします（配管解氷作業：10,000円〜）。
+          </p>
+        </div>
+      </section>
+
+      <!-- ⑥ 水道管が破裂した場合の応急処置 -->
+      <section id="burst" class="content-section card highlight-section-orange">
+        <div class="section-title-wrap">
+          <span class="section-num">06</span>
+          <div>
+            <span class="section-sub-en">Emergency Burst Action</span>
+            <h2 class="section-h2">水道管が破裂して水が噴き出したら？（応急止水手順）</h2>
+          </div>
+        </div>
+
+        <p class="lead-text">
+          凍結した水道管は、気温が上がる日中や解氷時に氷が溶けた瞬間、割れ目から大量の水が噴き出します。慌てず直ちに以下の手順で水を止めてください。
+        </p>
+
+        <div class="burst-figure-wrap">
+          <img 
+            src="/images/winter/guide-burst-emergency.webp" 
+            alt="水道管破裂時に水道メーターボックス内の元栓を閉める応急処置手順図" 
+            width="800" 
+            height="500" 
+            loading="lazy" 
+            class="guide-diagram" 
+          />
+          <span class="diagram-caption">※解説用図解：水道管破裂時の元栓止水3ステップ</span>
+        </div>
+
+        <div class="burst-emergency-guide">
+          <div class="beg-card">
+            <span class="beg-num">1</span>
+            <h3>メーターボックス内の元栓（止水栓）を閉める</h3>
+            <p>
+              屋外の地面（玄関脇や駐車場など）にある、青いプラスチックまたは鉄製のフタを開けます。<br />
+              フタには「量水器」「水道メーター」と書かれています。中にあるバルブハンドルを<strong>時計回り（右）へ最後まで回し切る</strong>と、家全体の水道が完全に止まります。
+            </p>
+          </div>
+
+          <div class="beg-card">
+            <span class="beg-num">2</span>
+            <h3>破裂箇所に応急テープ・タオルを巻く</h3>
+            <p>
+              元栓を閉めても、配管内に残った水がしばらく漏れ出します。水漏れ箇所にタオルや防水自己融着テープを巻き付けて飛散を防ぎ、バケツを置いて水を受け止めます。
+            </p>
+          </div>
+
+          <div class="beg-card">
+            <span class="beg-num">3</span>
+            <h3>水道局指定工事店クリプトンへ電話連絡</h3>
+            <p>
+              止水が完了したら、直ちにクリプトンへお電話ください（緊急直通：`090-2463-6638`）。<br />
+              熟練職人が駆けつけ、破裂した配管の切断・新規パイプ接続バイパス工事を行い、即日復旧いたします（水道管破裂修理：8,000円〜）。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⑦ 那須高原の別荘・空き家の水抜き -->
+      <section id="villa" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">07</span>
+          <div>
+            <span class="section-sub-en">Villa & Vacant House Drain</span>
+            <h2 class="section-h2">那須高原の別荘・長期不在時の「完全水抜きマニュアル」</h2>
+          </div>
+        </div>
+
+        <div class="section-body-grid">
+          <div class="text-col">
+            <p class="lead-text">
+              冬期に不在となる那須高原の別荘地では、水抜き（水落とし）の不備による水道管・給湯器の全損破裂事故が毎年発生しています。
+            </p>
+            <p>
+              不在期間は暖房が完全に切れるため、室内でもマイナス5℃以下まで冷え込みます。中途半端な水抜きは配管内に水が残り、破裂の原因となります。
+            </p>
+            <h3 class="subsection-title">正しい冬期水抜きの4大ステップ</h3>
+            <ol class="step-ol">
+              <li>
+                <strong>不凍栓（水抜き栓）を最後まで閉める</strong><br />
+                手動ハンドルは「止」方向へ最後まで回し切ります。電動式の場合は操作盤の「水抜」ボタンを押します（中途半端な位置だと水が地中に漏れ続けます）。
+              </li>
+              <li>
+                <strong>屋内のすべての蛇口を全開にする</strong><br />
+                キッチン・洗面所・浴室・シャワー・散水栓の蛇口をすべて開けます。空気が入ることで管内の水が重力で地中へ抜け落ちます。
+              </li>
+              <li>
+                <strong>給湯器・ボイラーの水抜き栓を開放する</strong><br />
+                給湯器本体下部にある水抜きバルブを開け、内部の熱交換器の水を完全に抜きます。
+              </li>
+              <li>
+                <strong>トイレ便器・排水トラップに不凍液を注入する</strong><br />
+                便器内や排水口のトラップに溜まっている水（封水）は水抜き栓では抜けません。専用の不凍液を注入して凍結割れを防ぎます。
+              </li>
+            </ol>
+          </div>
+          <div class="visual-col">
+            <div class="villa-photo-card">
+              <img 
+                src="/images/works/004-1-1.jpg" 
+                alt="那須高原の建物における不凍栓と給水バルブの点検作業写真" 
+                width="600" 
+                height="450" 
+                loading="lazy" 
+                class="actual-case-photo" 
+              />
+              <span class="photo-badge">実際の施工事例写真</span>
+              <p class="photo-caption">【那須高原の別荘】不凍栓（水抜き栓）と給水配管バルブの開閉動作点検</p>
+            </div>
+            <div class="villa-service-box">
+              <h4>別荘の水抜き・水出し点検代行</h4>
+              <p>「自分で行うのが不安」「東京から行く前に水出しをしておいてほしい」というオーナー様向けに、現地代行作業を承っております。</p>
+              <span class="vsb-price">作業料金：8,000円〜（税込）</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⑧ 実際の施工事例（寒波・凍結・給湯器交換） -->
+      <section id="cases" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">08</span>
+          <div>
+            <span class="section-sub-en">Actual Case Studies</span>
+            <h2 class="section-h2">那須エリアでの実際の冬トラブル施工事例（64件の実績より）</h2>
+          </div>
+        </div>
+
+        <p class="lead-text">
+          有限会社クリプトンが那須塩原市・大田原市・那須町で実際に施工した、寒波・凍結による水まわり修繕の実例をご紹介します。
+        </p>
+
+        <div class="winter-cases-grid">
+          {relatedCases.map(item => (
+            <article class="case-card">
+              <div class="case-img-wrap">
+                <img 
+                  src={item.beforeImage} 
+                  alt={item.title} 
+                  width="400" 
+                  height="300" 
+                  loading="lazy" 
+                  class="case-img" 
+                />
+                <span class="case-city-badge">{item.municipality}</span>
+              </div>
+              <div class="case-info">
+                <span class="case-category">{item.category}</span>
+                <h3 class="case-title">{item.title}</h3>
+                <p class="case-consultation"><strong>ご相談内容：</strong>{item.consultation}</p>
+                <div class="case-meta-row">
+                  <span class="case-meta-price">費用：{item.repairCost}</span>
+                  <a href={`/works/${item.slug}/`} class="case-detail-btn">事例詳細を見る →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="more-cases-cta">
+          <a href="/works/" class="btn-outline-main">施工事例一覧（全64件）を見る →</a>
+        </div>
+      </section>
+
+      <!-- ⑨ 冬季点検・修理の相談方法（ファクト遵守・創作なし） -->
+      <section id="pricing-info" class="content-section card">
+        <div class="section-title-wrap">
+          <span class="section-num">09</span>
+          <div>
+            <span class="section-sub-en">Inspection & Price</span>
+            <h2 class="section-h2">冬季水まわり点検・凍結修繕の作業料金のご案内</h2>
+          </div>
+        </div>
+
+        <p class="lead-text">
+          クリプトンでは、作業前に必ず現地を確認し、正確なお見積もりをご提示してから作業に着手いたします。追加料金の心配は一切ございません。
+        </p>
+
+        <div class="price-table-wrap">
+          <table class="winter-price-table">
+            <thead>
+              <tr>
+                <th>作業項目・サービス内容</th>
+                <th>作業時間目安</th>
+                <th>基本料金（税込目安）</th>
+                <th>備考</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>基本出張診断・現地事前点検</strong></td>
+                <td>約30分</td>
+                <td><span class="price-val">3,500円〜</span></td>
+                <td>水漏れ・凍結箇所の現地調査と見積もり</td>
+              </tr>
+              <tr>
+                <td><strong>水道管凍結・破裂修理</strong></td>
+                <td>約45分〜</td>
+                <td><span class="price-val">8,000円〜</span></td>
+                <td>軽度の解氷・部分配管修繕</td>
+              </tr>
+              <tr>
+                <td><strong>専用電気解氷機による配管解氷作業</strong></td>
+                <td>約45分〜1時間</td>
+                <td><span class="price-val">10,000円〜</span></td>
+                <td>地中・壁内配管を通電により安全解凍</td>
+              </tr>
+              <tr>
+                <td><strong>凍結破裂した配管の切断・バイパス修繕</strong></td>
+                <td>約1〜2時間</td>
+                <td><span class="price-val">12,000円〜</span></td>
+                <td>部材実費別途・即日配管復旧</td>
+              </tr>
+              <tr>
+                <td><strong>那須高原別荘の冬期水抜き・水出し点検</strong></td>
+                <td>約1時間</td>
+                <td><span class="price-val">8,000円〜</span></td>
+                <td>不在時の水抜き代行・開通点検</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">
+          ※上記料金は作業内容・配管の口径・現場状況により事前にお見積もりいたします。<br />
+          ※夜間・早朝の緊急出動時は事前にお電話にて対応状況をご案内いたします。
+        </p>
+      </section>
+
+      <!-- 問い合わせ導線エリア（電話 + SSGform） -->
+      <section id="contact" class="content-section contact-lead-card">
+        <div class="clc-inner">
+          <span class="clc-badge">お電話またはWebフォームでお気軽に</span>
+          <h2 class="clc-title">那須の冬の水まわりトラブル・事前点検のご相談</h2>
+          <p class="clc-desc">
+            「朝から水が出ない」「水道管から水が吹き出した」「寒くなる前に凍結防止帯を点検してほしい」など、<br class="br-pc" />
+            寒冷地那須の冬の水トラブルは、地元黒磯の指定工事店クリプトンへお任せください。
+          </p>
+
+          <div class="clc-grid">
+            <!-- 電話相談 -->
+            <div class="clc-phone-box">
+              <span class="cpb-badge">お急ぎの方・緊急ダイヤル</span>
+              <h3>24時間365日緊急受付</h3>
+              <p>担当（津久井）が直接お電話をお受けし、状況を確認して最短目安で急行します。</p>
+              <a href={`tel:${companyData.telEmergency}`} class="btn-big-emergency">
+                <span class="bbe-icon">📞</span>
+                <div class="bbe-text">
+                  <span class="bbe-label">緊急直通ダイヤル</span>
+                  <span class="bbe-num">{companyData.telEmergency}</span>
+                </div>
+              </a>
+              <div class="clc-regular-tel">
+                <span>通常代表電話（08:00〜17:00 / 日曜休）：</span>
+                <a href={`tel:${companyData.telMain}`}>TEL: {companyData.telMain}</a>
+              </div>
+            </div>
+
+            <!-- Webフォーム（SSGform） -->
+            <div class="clc-web-box">
+              <span class="cwb-badge">写真添付対応・事前相談</span>
+              <h3>Webお問い合わせフォーム</h3>
+              <p>現場写真の添付や、事前点検のお見積もり依頼はWebフォームよりお気軽にお送りください。</p>
+              <a href="/contact/" class="btn-big-web">
+                <span class="bbw-icon">✉️</span>
+                <span class="bbw-text">Webお問い合わせフォームへ進む →</span>
+              </a>
+              <span class="cwb-note">※送信先：SSGform（安全なSSL暗号化送信）</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* ヘッダー */
+  .winter-header {
+    background: linear-gradient(135deg, #0A2540 0%, #123B65 50%, #1976BB 100%);
+    color: #FFFFFF;
+    padding: 44px 0 54px;
+    position: relative;
+    overflow: hidden;
+  }
+  .winter-header::after {
+    content: "❄️";
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    font-size: 8rem;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .breadcrumb {
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+  .breadcrumb a {
+    color: #E2EEF8;
+    text-decoration: underline;
+  }
+  .header-badge {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .badge-tag {
+    background: #E53935;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .badge-sub {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .page-title {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.35;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .title-sub {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFD54F;
+    display: block;
+    margin-top: 6px;
+  }
+  @media (min-width: 768px) {
+    .page-title {
+      font-size: 2.4rem;
+    }
+    .title-sub {
+      font-size: 1.4rem;
+    }
+  }
+  .page-lead {
+    font-size: 1.02rem;
+    color: #E2EEF8;
+    line-height: 1.7;
+    max-width: 900px;
+  }
+
+  /* 目次バー */
+  .toc-bar {
+    background: #FFFFFF;
+    border-bottom: 1px solid #CBD5E1;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .toc-inner {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .toc-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748B;
+    white-space: nowrap;
+    display: none;
+  }
+  @media (min-width: 900px) {
+    .toc-title {
+      display: inline-block;
+    }
+  }
+  .toc-links {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .toc-links::-webkit-scrollbar {
+    display: none;
+  }
+  .toc-chip {
+    padding: 5px 12px;
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #123B65;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .toc-chip:hover {
+    background: #1976BB;
+    color: #FFFFFF;
+    border-color: #1976BB;
+  }
+  .highlight-chip {
+    background: #FFF1F0;
+    color: #CF1322;
+    border-color: #FFA39E;
+  }
+  .contact-chip {
+    background: #FF9E2C;
+    color: #FFFFFF;
+    border-color: #FF9E2C;
+  }
+
+  /* メインコンテンツ */
+  .winter-main {
+    padding: 40px 0 80px;
+    background: #F4F9FD;
+  }
+
+  /* 緊急コールアウト */
+  .emergency-callout {
+    background: linear-gradient(135deg, #FFF1F0 0%, #FFF5F5 100%);
+    border: 2px solid #FF4D4F;
+    border-radius: var(--radius-lg, 16px);
+    padding: 24px 20px;
+    margin-bottom: 36px;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .emergency-callout {
+      padding: 30px 28px;
+      gap: 24px;
+    }
+  }
+  .ec-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  .ec-heading {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #CF1322;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .ec-desc {
+    font-size: 0.95rem;
+    color: #431407;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .ec-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  @media (min-width: 600px) {
+    .ec-actions {
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+  .btn-emergency-tel {
+    display: inline-flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #FF4D4F 0%, #D9363E 100%);
+    color: #FFFFFF !important;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(207, 19, 34, 0.3);
+    transition: transform 0.2s;
+  }
+  .btn-emergency-tel:hover {
+    transform: translateY(-2px);
+  }
+  .tel-sub {
+    font-size: 0.72rem;
+    opacity: 0.95;
+    font-weight: 700;
+  }
+  .tel-num {
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+  .ec-note {
+    font-size: 0.8rem;
+    color: #7F1D1D;
+  }
+
+  /* セクション共通カード */
+  .content-section {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg, 16px);
+    padding: 32px 20px;
+    margin-bottom: 32px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 12px rgba(18, 59, 101, 0.05);
+  }
+  @media (min-width: 768px) {
+    .content-section {
+      padding: 44px 36px;
+    }
+  }
+  .section-title-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #EDF2F7;
+    padding-bottom: 18px;
+  }
+  .section-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #1976BB;
+    font-family: var(--font-en, sans-serif);
+    line-height: 1;
+    background: #EDF5FB;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  .section-sub-en {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+  .section-h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #123B65;
+    line-height: 1.4;
+  }
+  @media (min-width: 768px) {
+    .section-h2 {
+      font-size: 1.6rem;
+    }
+  }
+  .lead-text {
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* セクション内グリッド */
+  .section-body-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 800px) {
+    .section-body-grid {
+      grid-template-columns: 1.3fr 1fr;
+      align-items: start;
+    }
+  }
+
+  /* ①の原因ボックス */
+  .info-alert-box {
+    background: #F8FAFC;
+    border-left: 4px solid #1976BB;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 18px;
+  }
+  .iab-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 10px;
+  }
+  .check-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .check-list li {
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+  }
+  .check-list li::before {
+    content: "✔";
+    color: #1976BB;
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+  }
+  .highlight-stat-box {
+    background: linear-gradient(135deg, #0A2540 0%, #123B65 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 30px 24px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(10, 37, 64, 0.2);
+  }
+  .stat-badge {
+    display: inline-block;
+    background: #E53935;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+  .stat-temp {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #FFD54F;
+    font-family: var(--font-en, sans-serif);
+    line-height: 1;
+    margin: 6px 0;
+  }
+  .stat-unit {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .stat-desc {
+    font-size: 0.85rem;
+    color: #E2EEF8;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 12px;
+    margin-bottom: 0;
+  }
+
+  /* ② 凍結しやすい場所グリッド */
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .place-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 20px 18px;
+  }
+  .place-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .place-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 8px;
+  }
+  .place-card p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ③ 自宅予防ステップ */
+  .prevention-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .prev-item {
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .prev-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .prev-badge {
+    background: #1976BB;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .prev-head h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #123B65;
+    margin: 0;
+  }
+  .prev-item p {
+    font-size: 0.92rem;
+    color: #334155;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ④ 給湯器ガイド */
+  .boiler-guides {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .boiler-point-card {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: #F4F9FD;
+    border: 1px solid #BFDBF7;
+    border-radius: 10px;
+    padding: 22px 20px;
+  }
+  .bp-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+  .bp-content h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 8px;
+  }
+  .bp-content p {
+    font-size: 0.9rem;
+    color: #334155;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ⑤ 凍結時・⑥ 破裂時 ハイライトセクション */
+  .highlight-section {
+    border-top: 6px solid #1976BB;
+  }
+  .highlight-section-orange {
+    border-top: 6px solid #FF9E2C;
+  }
+  .danger-banner {
+    background: #FFF1F0;
+    border: 2px solid #FF4D4F;
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .db-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  .danger-banner strong {
+    color: #CF1322;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .danger-banner p {
+    font-size: 0.88rem;
+    color: #431407;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .defrost-figure-wrap,
+  .burst-figure-wrap {
+    text-align: center;
+    margin: 24px 0;
+  }
+  .guide-diagram {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    display: inline-block;
+  }
+  .diagram-caption {
+    display: block;
+    font-size: 0.78rem;
+    color: #64748B;
+    margin-top: 8px;
+  }
+  .safe-steps-box {
+    background: #F0FFF4;
+    border: 1px solid #9AE6B4;
+    border-radius: 10px;
+    padding: 24px 22px;
+    margin-bottom: 20px;
+  }
+  .ss-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #22543D;
+    margin-bottom: 14px;
+  }
+  .step-ol {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-ol li {
+    font-size: 0.92rem;
+    color: #2D3748;
+    line-height: 1.65;
+  }
+  .step-ol li strong {
+    color: #123B65;
+  }
+  .expert-note {
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .en-icon {
+    font-size: 1.5rem;
+  }
+  .expert-note p {
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ⑥ 破裂時ステップカード */
+  .burst-emergency-guide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .beg-card {
+    background: #FFF7ED;
+    border: 1px solid #FDBA74;
+    border-radius: 10px;
+    padding: 22px 18px;
+    position: relative;
+  }
+  .beg-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #EA580C;
+    color: #FFFFFF;
+    font-weight: 900;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    font-family: var(--font-en, sans-serif);
+  }
+  .beg-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #9A3412;
+    margin-bottom: 8px;
+  }
+  .beg-card p {
+    font-size: 0.88rem;
+    color: #431407;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ⑦ 別荘セクション */
+  .subsection-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #123B65;
+    margin: 20px 0 12px;
+  }
+  .villa-photo-card {
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+  }
+  .actual-case-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .photo-badge {
+    display: inline-block;
+    background: #096DD9;
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+  .photo-caption {
+    font-size: 0.8rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .villa-service-box {
+    background: #EDF5FB;
+    border: 1px solid #BFDBF7;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .villa-service-box h4 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 6px;
+  }
+  .villa-service-box p {
+    font-size: 0.85rem;
+    color: #334155;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .vsb-price {
+    font-weight: 800;
+    color: #096DD9;
+    font-size: 0.95rem;
+  }
+
+  /* ⑧ 施工事例グリッド */
+  .winter-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+  }
+  .case-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .case-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #E2E8F0;
+  }
+  .case-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .case-card:hover .case-img {
+    transform: scale(1.03);
+  }
+  .case-city-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(18, 59, 101, 0.9);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .case-info {
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .case-category {
+    font-size: 0.75rem;
+    color: #096DD9;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .case-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+  .case-consultation {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    flex-grow: 1;
+  }
+  .case-meta-row {
+    border-top: 1px solid #E2E8F0;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .case-meta-price {
+    font-size: 0.78rem;
+    color: #64748B;
+  }
+  .case-detail-btn {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1976BB;
+    text-decoration: none;
+  }
+  .case-detail-btn:hover {
+    text-decoration: underline;
+  }
+  .more-cases-cta {
+    text-align: center;
+    margin-top: 28px;
+  }
+  .btn-outline-main {
+    display: inline-block;
+    border: 2px solid #1976BB;
+    color: #1976BB;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline-main:hover {
+    background: #1976BB;
+    color: #FFFFFF;
+  }
+
+  /* ⑨ 料金テーブル */
+  .price-table-wrap {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  .winter-price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .winter-price-table th,
+  .winter-price-table td {
+    padding: 14px 16px;
+    border: 1px solid #CBD5E1;
+    text-align: left;
+  }
+  .winter-price-table th {
+    background: #EDF5FB;
+    color: #123B65;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .price-val {
+    font-family: var(--font-en, sans-serif);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #CF1322;
+  }
+  .price-note {
+    font-size: 0.8rem;
+    color: #64748B;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  /* 問い合わせリードカード */
+  .contact-lead-card {
+    background: linear-gradient(135deg, #123B65 0%, #0A2540 100%);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg, 16px);
+    border: none;
+  }
+  .clc-inner {
+    text-align: center;
+  }
+  .clc-badge {
+    display: inline-block;
+    background: #FF9E2C;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .clc-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+  @media (min-width: 768px) {
+    .clc-title {
+      font-size: 2rem;
+    }
+  }
+  .clc-desc {
+    font-size: 0.98rem;
+    color: #E2EEF8;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 36px;
+  }
+  .clc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: left;
+  }
+  @media (min-width: 800px) {
+    .clc-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .clc-phone-box,
+  .clc-web-box {
+    background: #FFFFFF;
+    color: var(--color-text, #1E293B);
+    border-radius: 12px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .cpb-badge {
+    align-self: flex-start;
+    background: #FFF1F0;
+    color: #CF1322;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .cwb-badge {
+    align-self: flex-start;
+    background: #E6F7FF;
+    color: #096DD9;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .clc-phone-box h3,
+  .clc-web-box h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #123B65;
+    margin-bottom: 8px;
+  }
+  .clc-phone-box p,
+  .clc-web-box p {
+    font-size: 0.88rem;
+    color: #64748B;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .btn-big-emergency {
+    background: linear-gradient(135deg, #FF9E2C, #F39833);
+    color: #FFFFFF !important;
+    padding: 14px 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(243, 152, 51, 0.35);
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+  }
+  .btn-big-emergency:hover {
+    transform: translateY(-2px);
+  }
+  .bbe-icon {
+    font-size: 2rem;
+  }
+  .bbe-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .bbe-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .bbe-num {
+    font-family: var(--font-en, sans-serif);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+  }
+  .clc-regular-tel {
+    font-size: 0.82rem;
+    color: #64748B;
+  }
+  .clc-regular-tel a {
+    color: #123B65;
+    font-weight: 700;
+  }
+  .btn-big-web {
+    background: linear-gradient(135deg, #1976BB, #123B65);
+    color: #FFFFFF !important;
+    padding: 16px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(18, 59, 101, 0.25);
+    margin-bottom: 12px;
+    transition: transform 0.2s;
+  }
+  .btn-big-web:hover {
+    transform: translateY(-2px);
+  }
+  .bbw-icon {
+    font-size: 1.4rem;
+  }
+  .bbw-text {
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+  .cwb-note {
+    font-size: 0.75rem;
+    color: #94A3B8;
+    text-align: center;
+    display: block;
+  }
+
+  /* 画面幅ユーティリティ */
+  .br-pc {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .br-pc {
+      display: inline;
+    }
+  }
+</style>
+

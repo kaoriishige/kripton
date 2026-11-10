@@ -1,0 +1,307 @@
+---
+// src/components/WinterAlertBanner.astro
+// トップページ用：冬季限定水道管凍結注意お知らせバナー
+---
+
+<section class="winter-alert-section" aria-label="冬季限定お知らせ">
+  <div class="container">
+    <div class="winter-alert-card">
+      <div class="winter-banner-grid">
+        <!-- バナー画像（16:9比率） -->
+        <div class="winter-image-wrap">
+          <a href="/winter/" class="winter-img-link" title="冬の水まわり対策を見る">
+            <img 
+              src="/images/winter/winter-kripton-hero.webp" 
+              alt="水まわり専門店クリプトン公式キャラクター・クリプトンマンと那須連山が描かれた冬の水道管凍結対策案内バナー" 
+              width="1280" 
+              height="720" 
+              loading="eager" 
+              class="winter-banner-img" 
+            />
+          </a>
+        </div>
+
+        <!-- テキスト＆ボタン情報 -->
+        <div class="winter-content">
+          <div class="winter-badge-wrap">
+            <span class="winter-badge">🚨 那須地域・冬季限定お知らせ</span>
+            <span class="winter-sub-badge">氷点下4℃以下で危険</span>
+          </div>
+
+          <h2 class="winter-title">
+            那須地域の冬、<br class="br-sp" />水道管の凍結にご注意ください
+          </h2>
+
+          <p class="winter-lead">
+            寒さが厳しくなる前に、水道管・給湯器の凍結対策を。万が一、凍ってしまった場合の対処方法もご案内します。
+          </p>
+
+          <div class="winter-highlights">
+            <div class="hl-item">
+              <span class="hl-icon">❄️</span>
+              <div class="hl-text">
+                <strong>露出配管・給湯器の凍結予防</strong>
+                <span>タオル巻き・お風呂の残り湯循環</span>
+              </div>
+            </div>
+            <div class="hl-item">
+              <span class="hl-icon">⚠️</span>
+              <div class="hl-text">
+                <strong>凍結時の熱湯は絶対NG！</strong>
+                <span>配管破裂を防ぐ安全なぬるま湯解氷法</span>
+              </div>
+            </div>
+            <div class="hl-item">
+              <span class="hl-icon">🏡</span>
+              <div class="hl-text">
+                <strong>那須高原別荘の水抜き（水落とし）</strong>
+                <span>不在期間の破裂事故を防ぐ完全マニュアル</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="winter-action-row">
+            <a href="/winter/" class="btn-winter-cta">
+              <span class="btn-cta-text">冬の水まわり対策を見る</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="tel:090-2463-6638" class="winter-tel-link">
+              <span class="wt-icon">📞</span>
+              <span class="wt-text">至急の凍結・破裂は直通電話：<strong>090-2463-6638</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .winter-alert-section {
+    padding: 30px 0 10px;
+    background: #EDF5FB;
+  }
+
+  .winter-alert-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg, 16px);
+    border: 2px solid #BFDBF7;
+    box-shadow: 0 4px 20px rgba(18, 59, 101, 0.08);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .winter-banner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (min-width: 900px) {
+    .winter-banner-grid {
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .winter-image-wrap {
+    position: relative;
+    background: #0A2540;
+    overflow: hidden;
+  }
+
+  .winter-img-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .winter-banner-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .winter-img-link:hover .winter-banner-img {
+    transform: scale(1.02);
+  }
+
+  .winter-content {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 900px) {
+    .winter-content {
+      padding: 36px 32px;
+    }
+  }
+
+  .winter-badge-wrap {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .winter-badge {
+    background: #E53935;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .winter-sub-badge {
+    background: #EBF8FF;
+    color: #0284C7;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #BAE6FD;
+  }
+
+  .winter-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #123B65;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  @media (min-width: 600px) {
+    .winter-title {
+      font-size: 1.7rem;
+    }
+  }
+
+  .winter-lead {
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  .winter-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .hl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .hl-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .hl-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hl-text strong {
+    color: #123B65;
+    font-weight: 700;
+  }
+
+  .hl-text span {
+    color: #64748B;
+    font-size: 0.78rem;
+  }
+
+  .winter-action-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  @media (min-width: 600px) {
+    .winter-action-row {
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+
+  .btn-winter-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #FF9E2C 0%, #F39833 100%);
+    color: #FFFFFF !important;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 14px 26px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(243, 152, 51, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-winter-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(243, 152, 51, 0.45);
+  }
+
+  .btn-arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+
+  .btn-winter-cta:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .winter-tel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #123B65;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  .winter-tel-link strong {
+    color: #CF1322;
+    font-size: 0.95rem;
+  }
+
+  .winter-tel-link:hover {
+    text-decoration: underline;
+  }
+
+  .br-sp {
+    display: inline;
+  }
+
+  @media (min-width: 600px) {
+    .br-sp {
+      display: none;
+    }
+  }
+</style>
+

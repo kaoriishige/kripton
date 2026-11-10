@@ -39,7 +39,7 @@ htmlFiles.forEach(file => {
   if (urlPath === '/') {
     priority = '1.0';
     changefreq = 'daily';
-  } else if (urlPath.startsWith('/services/') || urlPath.startsWith('/toilet/') || urlPath.startsWith('/pricing/')) {
+  } else if (urlPath.startsWith('/services/') || urlPath.startsWith('/toilet/') || urlPath.startsWith('/pricing/') || urlPath.startsWith('/winter/')) {
     priority = '0.9';
     changefreq = 'weekly';
   } else if (urlPath.startsWith('/areas/')) {
